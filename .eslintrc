@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb/base",
+  "plugins": [
+    "babel",
+    "import"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "indent": [2, 2],
+    "comma-dangle": ["error", "never"],
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}

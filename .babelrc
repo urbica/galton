@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "es2015",
+    "stage-0"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "syntax-async-functions",
+        "transform-runtime"
+      ]
+    }
+  }
+}

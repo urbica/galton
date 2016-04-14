@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+  mapboxgl.accessToken = '<your access-token here>';
+  var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v8',
+      center: [37.61701583862305, 55.750931611695684],
+      zoom: 12
+  });
+
+  var gridSource = new mapboxgl.GeoJSONSource({
+    data: {
+      type: 'FeatureCollection',
+      features: []
+    }
+  });
+
+  var layers = [
+    [6000, '#f03b20'],
+    [5000, '#fd8d3c'],
+    [4000, '#feb24c'],
+    [3000, '#fed976'],
+    [2000, '#ffffb2'],
+    [1000, '#31a354']
+  ];
+
+  map.on('style.load', function () {
+    map.addSource('grid', gridSource);
+    layers.forEach(function (layer, i) {
+      map.addLayer({
+        'id': 'grid-' + i,
+        'type': 'fill',
+        'source': 'grid',
+        'layout': {},
+        'paint': {
+          'fill-color': layer[1],
+          'fill-opacity': 0.8
+        },
+        'filter': ['<=', 'time', layer[0]]
+      });
+    });
+  });
+
+  map.on('click', function (e) {
+    console.time('request');
+    $.getJSON('http://localhost:4000', { lng: e.lngLat.lng, lat: e.lngLat.lat }, function(data) {
+      console.log(data);
+      console.timeEnd('request');
+      gridSource.setData(data);
+    });
+  });
+
+  var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+  });
+
+  map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['grid-0', 'grid-1', 'grid-2', 'grid-3', 'grid-4', 'grid-5'] });
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+    var feature = features[0];
+    popup.setLngLat(e.lngLat)
+        .setHTML(feature.properties.time)
+        .addTo(map);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+examples
+test/data/*
+!test/data/Makefile
+!test/data/data.md5sum
