@@ -1,8 +1,11 @@
+#!/usr/bin/env node
+
 require('babel-register');
 require('babel-polyfill');
 
 var fs = require('fs');
 var App = require('./src/index');
+var npid = require('npid');
 var minimist = require('minimist');
 var packagejson = require('./package.json');
 
@@ -28,7 +31,7 @@ var config = minimist(process.argv.slice(2), {
     bufferSize: 2,
     cors: true,
     cellSize: 0.1,
-    concavity: 6,
+    concavity: 10,
     intervals: '1000 2000 3000 4000 5000 6000',
     lengthThreshold: 0,
     port: 4000,
@@ -36,15 +39,33 @@ var config = minimist(process.argv.slice(2), {
   }
 });
 
-try {
-  config.intervals = config.intervals.split(' ').map(parseFloat).sort();
-} catch (error) {
-  console.error(error);
-  process.exit(-1);
-}
-
 if (config.version) {
   console.log(packagejson.version);
+  process.exit(0);
+};
+
+if (config.help) {
+  var usage = [
+      ''
+    , '  Usage: galton [options]'
+    , ''
+    , '  where [options] is any of:'
+    , '    --bufferSize - turf-point-grid bufferSize (default: ' + config.bufferSize + ')'
+    , '    --cellSize - turf-point-grid cellSize (default: ' + config.cellSize + ')'
+    , '    --concavity - concaveman concavity (default: ' + config.concavity + ')'
+    , '    --intervals - intervals for isochrones in 10th of a second (default: ' + config.intervals + ')'
+    , '    --lengthThreshold - concaveman lengthThreshold (default: ' + config.lengthThreshold + ')'
+    , '    --osrmPath - osrm data path'
+    , '    --pid - PID file'
+    , '    --port - Port to run on (default: ' + config.port + ')'
+    , '    --socket - Unix socket'
+    , '    --units - either `kilometers` or `miles` (default: ' + config.units + ')'
+    , '    --version - Returns running version then exits'
+    , ''
+    , 'galton@' + packagejson.version
+    , 'node@' + process.versions.node
+  ].join('\n')
+  console.log(usage);
   process.exit(0);
 };
 
@@ -55,12 +76,35 @@ try {
   process.exit(-1);
 }
 
-var app = App.default(config);
+if (config.pid) {
+  try {
+    var pid = npid.create(config.pid);
+    pid.removeOnExit()
+  } catch (error) {
+    console.error(error.message);
+    process.exit(-1);
+  }
+}
 
-var server = app.listen(config.port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('🚀  ON AIR @ %s:%s', host, port);
+try {
+  config.intervals = config.intervals.split(' ').map(parseFloat).sort();
+} catch (error) {
+  console.error(error);
+  process.exit(-1);
+}
+
+var app = App.default(config);
+var handler = config.socket || config.port;
+
+var server = app.listen(handler, function () {
+  var endpoint;
+  if (config.socket) {
+    endpoint = config.socket;
+    fs.chmodSync(config.socket, '1766');
+  } else {
+    endpoint = server.address().address + ':' + server.address().port;
+  }
+  console.log('🚀  ON AIR @ %s', endpoint);
 });
 
 // Catch SIGINT (Ctrl+C) to exit process

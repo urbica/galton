@@ -22,9 +22,26 @@ npm install
 
 ## Usage
 
+```shell
+Usage: galton [options]
+
+where [options] is any of:
+  --bufferSize - turf-point-grid bufferSize (default: 2)
+  --cellSize - turf-point-grid cellSize (default: 0.1)
+  --concavity - concaveman concavity (default: 10)
+  --intervals - intervals for isochrones in 10th of a second (default: 1000 2000 3000 4000 5000 6000)
+  --lengthThreshold - concaveman lengthThreshold (default: 0)
+  --osrmPath - osrm data path
+  --pid - PID file
+  --port - Port to run on (default: 4000)
+  --socket - Unix socket
+  --units - either `kilometers` or `miles` (default: kilometers)
+  --version - Returns running version then exits
+```
+
 ```
 node index.js --osrmPath moscow_russia.osrm
-curl "http://localhost:4000/?lng=37.61701583862305&lat=55.750931611695684"
+open examples/index.html
 ```
 
 See the [API](https://github.com/stepankuzmin/galton/blob/master/docs/API.md) and `test/index.js` for examples.

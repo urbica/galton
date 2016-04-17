@@ -30,7 +30,7 @@ import concaveman from 'concaveman';
  * @param {Options} options object
  * @returns {Promise} promise with isochrone GeoJSON when resolved
  */
-const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, intervals,
+export const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, intervals,
   lengthThreshold, osrm, units }) => {
   const point = turf.point([lng, lat]);
   const sw = turf.destination(point, bufferSize / 2, 225, units);
@@ -87,7 +87,7 @@ export default function (config = {}) {
     osrm,
     bufferSize: parseFloat(config.bufferSize) || 2,
     cellSize: parseFloat(config.cellSize) || 0.1,
-    concavity: parseFloat(config.concavity) || 6,
+    concavity: parseFloat(config.concavity) || 10,
     intervals: config.intervals || [1000, 2000, 3000, 4000, 5000, 6000],
     lengthThreshold: parseFloat(config.lengthThreshold) || 0,
     units: config.units || 'kilometers'
