@@ -1,17 +1,12 @@
-'use strict';
+import test from 'tape';
+import request from 'supertest-koa-agent';
+import galton from '../src/index';
 
-require('babel-register');
-require('babel-polyfill');
-
-var test = require('tape');
-var request = require('supertest-koa-agent');
-var galton = require('../src/index').default;
-
-test('galton', function (t) {
+test('galton', (t) => {
   t.plan(1);
 
-  var point = [52.517037, 13.388860];
-  var app = galton({
+  const point = [52.517037, 13.388860];
+  const app = galton({
     bufferSize: 1,
     cellSize: 0.1,
     osrmPath: 'test/data/berlin-latest.osrm',
@@ -19,10 +14,10 @@ test('galton', function (t) {
   });
 
   request(app)
-    .get('/?lng=' + point[0] + '&lat=' + point[1])
+    .get(`/?lng=${point[0]}&lat=${point[1]}`)
     .expect(200)
     .expect('Content-Type', /json/)
-    .end(function (error, data) {
+    .end((error) => {
       t.error(error, 'No error');
       t.end();
     });

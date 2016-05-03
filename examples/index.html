@@ -17,7 +17,9 @@
 <div id='map'></div>
 
 <script>
-  mapboxgl.accessToken = '<your access-token here>';
+  var args = location.search.replace(/^\?/,'').split('&').reduce(function(o, param){ var keyvalue=param.split('='); o[keyvalue[0]] = keyvalue[1]; return o; }, {});
+  mapboxgl.accessToken = args.access_token || localStorage.accessToken;
+
   var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v8',
@@ -33,12 +35,12 @@
   });
 
   var layers = [
-    [6000, '#f03b20'],
-    [5000, '#fd8d3c'],
-    [4000, '#feb24c'],
-    [3000, '#fed976'],
-    [2000, '#ffffb2'],
-    [1000, '#31a354']
+    [30, '#f03b20'],
+    [25, '#fd8d3c'],
+    [20, '#feb24c'],
+    [15, '#fed976'],
+    [10, '#ffffb2'],
+    [5, '#31a354']
   ];
 
   map.on('style.load', function () {
@@ -51,7 +53,7 @@
         'layout': {},
         'paint': {
           'fill-color': layer[1],
-          'fill-opacity': 0.8
+          'fill-opacity': 0.6
         },
         'filter': ['<=', 'time', layer[0]]
       });

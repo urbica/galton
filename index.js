@@ -28,11 +28,11 @@ var config = minimist(process.argv.slice(2), {
     v: 'version'
   },
   default: {
-    bufferSize: 2,
+    bufferSize: 6,
     cors: true,
-    cellSize: 0.1,
+    cellSize: 0.2,
     concavity: 10,
-    intervals: '1000 2000 3000 4000 5000 6000',
+    intervals: '5 10 15 20 25 30',
     lengthThreshold: 0,
     port: 4000,
     units: 'kilometers'
@@ -53,7 +53,7 @@ if (config.help) {
     , '    --bufferSize - turf-point-grid bufferSize (default: ' + config.bufferSize + ')'
     , '    --cellSize - turf-point-grid cellSize (default: ' + config.cellSize + ')'
     , '    --concavity - concaveman concavity (default: ' + config.concavity + ')'
-    , '    --intervals - intervals for isochrones in 10th of a second (default: ' + config.intervals + ')'
+    , '    --intervals - isochrones intervals in minutes (default: ' + config.intervals + ')'
     , '    --lengthThreshold - concaveman lengthThreshold (default: ' + config.lengthThreshold + ')'
     , '    --osrmPath - osrm data path'
     , '    --pid - PID file'
@@ -87,7 +87,11 @@ if (config.pid) {
 }
 
 try {
-  config.intervals = config.intervals.split(' ').map(parseFloat).sort();
+  config.intervals = config.intervals.split(' ')
+                                     .map(parseFloat)
+                                     .sort(function(a, b) {
+                                       return a - b;
+                                      });
 } catch (error) {
   console.error(error);
   process.exit(-1);

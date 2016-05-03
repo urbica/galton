@@ -8,7 +8,6 @@ import concaveman from 'concaveman';
 /**
  * Options
  * @typedef {Object} Options
- * @property {number} sourceId - source point id from original points array
  * @property {Object} osrm - node-osrm instance
  * @property {number} bufferSize - bufferSize as in
  * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
@@ -16,7 +15,7 @@ import concaveman from 'concaveman';
  * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
  * @property {string} units - either `kilometers` or `miles` as in
  * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
- * @property {Array.<number>} intervals - intervals for isochrones in 10th of a second
+ * @property {Array.<number>} intervals - intervals for isochrones in minutes
  * @property {number} concavity - concavity as in
  * [concaveman](https://github.com/mapbox/concaveman)
  * @property {number} lengthThreshold - lengthThreshold as in
@@ -28,7 +27,7 @@ import concaveman from 'concaveman';
  *
  * @param {Array.<float>} point source point [lng, lat]
  * @param {Options} options object
- * @returns {Promise} promise with isochrone GeoJSON when resolved
+ * @returns {Promise} promise with GeoJSON when resolved
  */
 export const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, intervals,
   lengthThreshold, osrm, units }) => {
@@ -38,25 +37,24 @@ export const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, interva
   const extent = sw.geometry.coordinates.concat(ne.geometry.coordinates);
   const grid = turf.pointGrid(extent, cellSize, units);
 
-  const points = grid.features.map(({ geometry: { coordinates } }) =>
-    [coordinates[1], coordinates[0]]
-  );
+  const points = grid.features.map(({ geometry: { coordinates } }) => coordinates);
 
-  const intervalGroups = intervals.reduce((acc, interval) => {
-    acc[interval] = [];
-    return acc;
-  }, {});
+  const intervalGroups = intervals.reduce((acc, interval) =>
+    Object.assign({}, acc, { [interval]: [] })
+  , {});
+
+  const coordinates = [[lng, lat]].concat(points);
 
   return new Promise((resolve, reject) => {
-    osrm.table({ sources: [[lat, lng]], destinations: points }, (error, table) => {
+    osrm.table({ sources: [0], coordinates }, (error, table) => {
       if (error) reject(error);
+      const travelTime = table.durations[0] || [];
 
-      const travelTime = table.distance_table[0] || [];
       const pointsByInterval = travelTime.reduce((acc, time, index) => {
-        const ceil = intervals.find(interval => time <= interval);
+        const timem = Math.round(time / 60);
+        const ceil = intervals.find(interval => timem <= interval);
         if (ceil) {
-          const coordinates = table.destination_coordinates[index];
-          acc[ceil].push([coordinates[1], coordinates[0]]);
+          acc[ceil].push(table.destinations[index].location);
         }
         return acc;
       }, intervalGroups);
@@ -85,10 +83,10 @@ export default function (config = {}) {
   const osrm = new OSRM(config.osrmPath);
   const options = {
     osrm,
-    bufferSize: parseFloat(config.bufferSize) || 2,
-    cellSize: parseFloat(config.cellSize) || 0.1,
+    bufferSize: parseFloat(config.bufferSize) || 6,
+    cellSize: parseFloat(config.cellSize) || 0.2,
     concavity: parseFloat(config.concavity) || 10,
-    intervals: config.intervals || [1000, 2000, 3000, 4000, 5000, 6000],
+    intervals: config.intervals || [5, 10, 15, 20, 25, 30],
     lengthThreshold: parseFloat(config.lengthThreshold) || 0,
     units: config.units || 'kilometers'
   };
@@ -107,7 +105,7 @@ export default function (config = {}) {
 
   app.use(async (ctx) => {
     const { lng, lat } = ctx.request.query;
-    ctx.body = await isochrone([lng, lat], options);
+    ctx.body = await isochrone([parseFloat(lng), parseFloat(lat)], options);
   });
 
   return app;

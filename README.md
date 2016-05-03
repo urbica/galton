@@ -26,10 +26,10 @@ npm install
 Usage: galton [options]
 
 where [options] is any of:
-  --bufferSize - turf-point-grid bufferSize (default: 2)
-  --cellSize - turf-point-grid cellSize (default: 0.1)
+  --bufferSize - turf-point-grid bufferSize (default: 6)
+  --cellSize - turf-point-grid cellSize (default: 0.2)
   --concavity - concaveman concavity (default: 10)
-  --intervals - intervals for isochrones in 10th of a second (default: 1000 2000 3000 4000 5000 6000)
+  --intervals - isochrones intervals in minutes (default: 5 10 15 20 25 30)
   --lengthThreshold - concaveman lengthThreshold (default: 0)
   --osrmPath - osrm data path
   --pid - PID file
@@ -41,7 +41,7 @@ where [options] is any of:
 
 ```
 node index.js --osrmPath moscow_russia.osrm
-open examples/index.html
+open examples/index.html?access_token=<token>
 ```
 
 See the [API](https://github.com/stepankuzmin/galton/blob/master/docs/API.md) and `test/index.js` for examples.
