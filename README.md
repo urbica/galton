@@ -6,6 +6,8 @@ Lightweight Node.js isochrone map server. Build isochrone map using [OSRM](http:
 
 [Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton) is the author of the first known isochrone map.
 
+![Screenshot](https://raw.githubusercontent.com/stepankuzmin/galton/master/example.png)
+
 ## Installation
 
 ```

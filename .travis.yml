@@ -9,7 +9,7 @@ addons:
      - gdb
 language: node_js
 node_js:
-  - "5"
+  - "4"
 
 script:
   - make test
