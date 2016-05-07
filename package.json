@@ -45,9 +45,9 @@
     "babel-eslint": "6.0.4",
     "documentation": "4.0.0-beta2",
     "eslint": "2.9.0",
-    "eslint-config-airbnb": "8.0.0",
+    "eslint-config-airbnb-base": "2.0.0",
     "eslint-plugin-babel": "3.2.0",
-    "eslint-plugin-import": "1.6.1",
+    "eslint-plugin-import": "1.7.0",
     "supertest-koa-agent": "0.2.1",
     "tape": "4.5.1"
   }

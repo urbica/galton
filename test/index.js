@@ -9,7 +9,7 @@ test('galton', (t) => {
   const app = galton({
     bufferSize: 1,
     cellSize: 0.1,
-    osrmPath: 'test/data/berlin-latest.osrm',
+    osrmPath: './node_modules/osrm/test/data/berlin-latest.osrm',
     units: 'kilometers'
   });
 

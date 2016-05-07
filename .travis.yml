@@ -7,9 +7,14 @@ addons:
      - coreutils
      - g++-4.8
      - gdb
+
 language: node_js
+
 node_js:
   - "4"
+
+install:
+  - make
 
 script:
   - make test
