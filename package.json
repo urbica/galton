@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "lightweight isochrone map server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
@@ -23,7 +23,7 @@
     "galton": "./index.js"
   },
   "homepage": "https://github.com/stepankuzmin/galton#readme",
-  "osrm_release": "v5.0.0",
+  "osrm_release": "v5.1.0",
   "dependencies": {
     "babel-plugin-syntax-async-functions": "6.8.0",
     "babel-plugin-transform-runtime": "6.8.0",
@@ -33,21 +33,24 @@
     "babel-register": "6.8.0",
     "babel-runtime": "6.6.1",
     "concaveman": "1.1.0",
-    "kcors": "2.1.0",
+    "kcors": "2.1.1",
     "koa": "2.0.0",
     "koa-morgan": "1.0.1",
     "minimist": "1.2.0",
     "npid": "0.4.0",
-    "osrm": "5.0.2",
-    "turf": "2.0.2"
+    "osrm": "5.1.0",
+    "turf-bezier": "3.0.1",
+    "turf-destination": "3.0.1",
+    "turf-featurecollection": "1.0.1",
+    "turf-point-grid": "3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "6.0.4",
     "documentation": "4.0.0-beta2",
-    "eslint": "2.9.0",
-    "eslint-config-airbnb-base": "2.0.0",
+    "eslint": "2.10.2",
+    "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-babel": "3.2.0",
-    "eslint-plugin-import": "1.7.0",
+    "eslint-plugin-import": "1.8.0",
     "supertest-koa-agent": "0.2.1",
     "tape": "4.5.1"
   }

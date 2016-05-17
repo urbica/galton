@@ -25,24 +25,26 @@ npm install
 ## Usage
 
 ```shell
-Usage: galton [options]
+Usage: galton [filename] [options]
 
-where [options] is any of:
-  --bufferSize - turf-point-grid bufferSize (default: 6)
-  --cellSize - turf-point-grid cellSize (default: 0.2)
-  --concavity - concaveman concavity (default: 10)
+where [filename] is path to OSRM data and [options] is any of:
+  --bufferSize - buffer size (default: 6)
+  --cellWidth - turf-point-grid distance across each cell (default: 0.2)
+  --concavity - concaveman relative measure of concavity (default: 2)
   --intervals - isochrones intervals in minutes (default: 5 10 15 20 25 30)
-  --lengthThreshold - concaveman lengthThreshold (default: 0)
-  --osrmPath - osrm data path
-  --pid - PID file
-  --port - Port to run on (default: 4000)
-  --socket - Unix socket
+  --lengthThreshold - concaveman length threshold (default: 0)
+  --pid - save PID to file
+  --port - port to run on (default: 4000)
+  --resolution - turf-bezier time in milliseconds between points (default: 10000)
+  --sharedMemory - use shared memory (default: false)
+  --sharpness - turf-bezier measure of how curvy the path should be between splines (default: 0.85)
+  --socket - use Unix socket instead of port
   --units - either `kilometers` or `miles` (default: kilometers)
-  --version - Returns running version then exits
+  --version - returns running version then exits
 ```
 
 ```
-node index.js --osrmPath moscow_russia.osrm
+node index.js moscow_russia.osrm
 open examples/index.html?access_token=<token>
 ```
 

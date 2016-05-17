@@ -1,26 +1,43 @@
-import Koa from 'koa';
-import OSRM from 'osrm';
-import turf from 'turf';
-import cors from 'kcors';
-import morgan from 'koa-morgan';
+import bezier from 'turf-bezier';
 import concaveman from 'concaveman';
+import cors from 'kcors';
+import destination from 'turf-destination';
+import featureCollection from 'turf-featurecollection';
+import Koa from 'koa';
+import morgan from 'koa-morgan';
+import OSRM from 'osrm';
+import pointGrid from 'turf-point-grid';
 
 /**
  * Options
  * @typedef {Object} Options
  * @property {Object} osrm - node-osrm instance
- * @property {number} bufferSize - bufferSize as in
- * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
- * @property {number} cellSize - cellSize as in
- * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
- * @property {string} units - either `kilometers` or `miles` as in
+ * @property {number} bufferSize - buffer size
+ * @property {number} cellWidth - cellWidth as in
  * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
  * @property {Array.<number>} intervals - intervals for isochrones in minutes
- * @property {number} concavity - concavity as in
+ * @property {number} concavity - relative measure of concavity as in
  * [concaveman](https://github.com/mapbox/concaveman)
- * @property {number} lengthThreshold - lengthThreshold as in
+ * @property {number} lengthThreshold - length threshold as in
  * [concaveman](https://github.com/mapbox/concaveman)
+ * @property {number} resolution - turf-bezier time in milliseconds between points as in
+ * [turf-bezier](https://github.com/Turfjs/turf-bezier)
+ * @property {number} sharpness - a measure of how curvy the path should be between splines as in
+ * [turf-bezier](https://github.com/Turfjs/turf-bezier)
+ * @property {string} units - either `kilometers` or `miles` as in
+ * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
  */
+
+export const defaults = {
+  bufferSize: 6,
+  cellWidth: 0.2,
+  concavity: 2,
+  intervals: [5, 10, 15, 20, 25, 30],
+  lengthThreshold: 0,
+  resolution: 10000,
+  sharpness: 0.85,
+  units: 'kilometers'
+};
 
 /**
  * Build isochrone
@@ -29,43 +46,70 @@ import concaveman from 'concaveman';
  * @param {Options} options object
  * @returns {Promise} promise with GeoJSON when resolved
  */
-export const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, intervals,
-  lengthThreshold, osrm, units }) => {
-  const point = turf.point([lng, lat]);
-  const sw = turf.destination(point, bufferSize / 2, 225, units);
-  const ne = turf.destination(point, bufferSize / 2, 45, units);
+export const isochrone = ([lng, lat], options) => {
+  const point = {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [lng, lat]
+    }
+  };
+  const sw = destination(point, options.bufferSize / 2, 225, options.units);
+  const ne = destination(point, options.bufferSize / 2, 45, options.units);
   const extent = sw.geometry.coordinates.concat(ne.geometry.coordinates);
-  const grid = turf.pointGrid(extent, cellSize, units);
+  const grid = pointGrid(extent, options.cellWidth, options.units);
 
   const points = grid.features.map(({ geometry: { coordinates } }) => coordinates);
 
-  const intervalGroups = intervals.reduce((acc, interval) =>
+  const intervalGroups = options.intervals.reduce((acc, interval) =>
     Object.assign({}, acc, { [interval]: [] })
   , {});
 
   const coordinates = [[lng, lat]].concat(points);
 
   return new Promise((resolve, reject) => {
-    osrm.table({ sources: [0], coordinates }, (error, table) => {
+    options.osrm.table({ sources: [0], coordinates }, (error, table) => {
       if (error) reject(error);
       const travelTime = table.durations[0] || [];
 
       const pointsByInterval = travelTime.reduce((acc, time, index) => {
         const timem = Math.round(time / 60);
-        const ceil = intervals.find(interval => timem <= interval);
+        const ceil = options.intervals.find(interval => timem <= interval);
         if (ceil) {
           acc[ceil].push(table.destinations[index].location);
         }
         return acc;
       }, intervalGroups);
 
-      const features = Object.keys(pointsByInterval).map((time) => {
+      const features = Object.keys(pointsByInterval).map((interval) => {
         let polygon;
         try {
-          if (pointsByInterval[time].length >= 3) {
-            const concave = concaveman(pointsByInterval[time], concavity, lengthThreshold);
-            const ring = concave.concat([concave[0]]);
-            polygon = turf.polygon([ring], { time: parseFloat(time) });
+          if (pointsByInterval[interval].length >= 3) {
+            const concave = concaveman(pointsByInterval[interval],
+              options.concavity, options.lengthThreshold);
+
+            const curved = bezier({
+              type: 'Feature',
+              geometry: {
+                type: 'LineString',
+                coordinates: concave
+              }
+            }, options.resolution, options.sharpness);
+
+            const ring = curved.geometry.coordinates.concat([
+              curved.geometry.coordinates[0]
+            ]);
+
+            polygon = {
+              type: 'Feature',
+              geometry: {
+                type: 'Polygon',
+                coordinates: [ring]
+              },
+              properties: {
+                time: parseFloat(interval)
+              }
+            };
           }
         } catch (e) {
           reject(e);
@@ -73,23 +117,18 @@ export const isochrone = ([lng, lat], { bufferSize, cellSize, concavity, interva
         return polygon;
       }).filter(feature => !!feature);
 
-      return resolve(turf.featurecollection(features));
+      return resolve(featureCollection(features));
     });
   });
 };
 
 export default function (config = {}) {
   const app = new Koa();
-  const osrm = new OSRM(config.osrmPath);
-  const options = {
-    osrm,
-    bufferSize: parseFloat(config.bufferSize) || 6,
-    cellSize: parseFloat(config.cellSize) || 0.2,
-    concavity: parseFloat(config.concavity) || 10,
-    intervals: config.intervals || [5, 10, 15, 20, 25, 30],
-    lengthThreshold: parseFloat(config.lengthThreshold) || 0,
-    units: config.units || 'kilometers'
-  };
+
+  const osrm = new OSRM({
+    path: config.osrmPath,
+    shared_memory: !!config.sharedMemory
+  });
 
   app.use(morgan('dev'));
   if (config.cors) app.use(cors());
@@ -104,6 +143,35 @@ export default function (config = {}) {
   });
 
   app.use(async (ctx) => {
+    const query = ctx.request.query;
+    const intervals = Array.isArray(query['intervals[]']) ?
+      query['intervals[]'].map(parseFloat).sort((a, b) => a - b) :
+      config.intervals || defaults.intervals;
+
+    const options = {
+      osrm,
+      intervals,
+      bufferSize: parseFloat(query.bufferSize) ||
+                  parseFloat(config.bufferSize) ||
+                  defaults.bufferSize,
+      cellWidth: parseFloat(query.cellWidth) ||
+                 parseFloat(config.cellWidth) ||
+                 defaults.cellWidth,
+      concavity: parseFloat(query.concavity) ||
+                 parseFloat(config.concavity) ||
+                 defaults.concavity,
+      lengthThreshold: parseFloat(query.lengthThreshold) ||
+                       parseFloat(config.lengthThreshold) ||
+                       defaults.lengthThreshold,
+      resolution: parseFloat(query.resolution) ||
+                  parseFloat(config.resolution) ||
+                  defaults.resolution,
+      sharpness: parseFloat(query.sharpness) ||
+                 parseFloat(config.sharpness) ||
+                 defaults.sharpness,
+      units: query.units || config.units || defaults.units
+    };
+
     const { lng, lat } = ctx.request.query;
     ctx.body = await isochrone([parseFloat(lng), parseFloat(lat)], options);
   });

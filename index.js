@@ -7,35 +7,40 @@ var fs = require('fs');
 var App = require('./src/index');
 var npid = require('npid');
 var minimist = require('minimist');
+var defaults = require('./src/index').defaults;
 var packagejson = require('./package.json');
 
 var config = minimist(process.argv.slice(2), {
   string: [
     'bufferSize',
-    'cellSize',
+    'cellWidth',
     'concavity',
     'intervals',
     'lengthThreshold',
-    'osrmPath',
     'pid',
     'port',
+    'resolution',
+    'sharpness',
     'socket',
     'units'
   ],
-  boolean: ['cors'],
+  boolean: ['cors', 'sharedMemory'],
   alias: {
     h: 'help',
     v: 'version'
   },
   default: {
-    bufferSize: 6,
+    bufferSize: defaults.bufferSize,
+    cellWidth: defaults.cellWidth,
+    concavity: defaults.concavity,
     cors: true,
-    cellSize: 0.2,
-    concavity: 10,
     intervals: '5 10 15 20 25 30',
-    lengthThreshold: 0,
+    lengthThreshold: defaults.lengthThreshold,
     port: 4000,
-    units: 'kilometers'
+    resolution: defaults.resolution,
+    sharedMemory: false,
+    sharpness: defaults.sharpness,
+    units: defaults.units
   }
 });
 
@@ -47,20 +52,22 @@ if (config.version) {
 if (config.help) {
   var usage = [
       ''
-    , '  Usage: galton [options]'
+    , '  Usage: galton [filename] [options]'
     , ''
-    , '  where [options] is any of:'
-    , '    --bufferSize - turf-point-grid bufferSize (default: ' + config.bufferSize + ')'
-    , '    --cellSize - turf-point-grid cellSize (default: ' + config.cellSize + ')'
-    , '    --concavity - concaveman concavity (default: ' + config.concavity + ')'
+    , '  where [filename] is path to OSRM data and [options] is any of:'
+    , '    --bufferSize - buffer size (default: ' + config.bufferSize + ')'
+    , '    --cellWidth - turf-point-grid distance across each cell (default: ' + config.cellWidth + ')'
+    , '    --concavity - concaveman relative measure of concavity (default: ' + config.concavity + ')'
     , '    --intervals - isochrones intervals in minutes (default: ' + config.intervals + ')'
-    , '    --lengthThreshold - concaveman lengthThreshold (default: ' + config.lengthThreshold + ')'
-    , '    --osrmPath - osrm data path'
-    , '    --pid - PID file'
-    , '    --port - Port to run on (default: ' + config.port + ')'
-    , '    --socket - Unix socket'
+    , '    --lengthThreshold - concaveman length threshold (default: ' + config.lengthThreshold + ')'
+    , '    --pid - save PID to file'
+    , '    --port - port to run on (default: ' + config.port + ')'
+    , '    --resolution - turf-bezier time in milliseconds between points (default: ' + config.resolution + ')'
+    , '    --sharedMemory - use shared memory (default: ' + config.sharedMemory + ')'
+    , '    --sharpness - turf-bezier measure of how curvy the path should be between splines (default: ' + config.sharpness + ')'
+    , '    --socket - use Unix socket instead of port'
     , '    --units - either `kilometers` or `miles` (default: ' + config.units + ')'
-    , '    --version - Returns running version then exits'
+    , '    --version - returns running version then exits'
     , ''
     , 'galton@' + packagejson.version
     , 'node@' + process.versions.node
@@ -70,6 +77,7 @@ if (config.help) {
 };
 
 try {
+  config.osrmPath = config['_'][0];
   fs.accessSync(config.osrmPath, fs.F_OK);
 } catch (error) {
   console.error(error);
