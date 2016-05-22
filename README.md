@@ -1,12 +1,12 @@
 # Galton
 
-[![Build Status](https://travis-ci.org/stepankuzmin/galton.svg?branch=master)](https://travis-ci.org/stepankuzmin/galton)
+[![Build Status](https://travis-ci.org/urbica/galton.svg?branch=master)](https://travis-ci.org/urbica/galton)
 
 Lightweight Node.js isochrone map server. Build isochrone map using [OSRM](http://project-osrm.org/), [Turf](http://turfjs.org/) and [concaveman](https://github.com/mapbox/concaveman).
 
 [Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton) is the author of the first known isochrone map.
 
-![Screenshot](https://raw.githubusercontent.com/stepankuzmin/galton/master/example.png)
+![Screenshot](https://raw.githubusercontent.com/urbica/galton/master/example.png)
 
 ## Installation
 
@@ -17,7 +17,7 @@ npm install galton
 ...or build from source
 
 ```shell
-git clone https://github.com/stepankuzmin/galton.git
+git clone https://github.com/urbica/galton.git
 cd galton
 npm install
 ```
@@ -48,4 +48,4 @@ node index.js moscow_russia.osrm
 open examples/index.html?access_token=<token>
 ```
 
-See the [API](https://github.com/stepankuzmin/galton/blob/master/docs/API.md) and `test/index.js` for examples.
+See the [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for examples.

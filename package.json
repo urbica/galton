@@ -1,16 +1,16 @@
 {
   "name": "galton",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "lightweight isochrone map server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stepankuzmin/galton.git"
+    "url": "git+https://github.com/urbica/galton.git"
   },
   "bugs": {
-    "url": "https://github.com/stepankuzmin/galton/issues"
+    "url": "https://github.com/urbica/galton/issues"
   },
   "scripts": {
     "preinstall": "npm prune",
@@ -22,7 +22,7 @@
   "bin": {
     "galton": "./index.js"
   },
-  "homepage": "https://github.com/stepankuzmin/galton#readme",
+  "homepage": "https://github.com/urbica/galton#readme",
   "osrm_release": "master",
   "dependencies": {
     "babel-plugin-syntax-async-functions": "6.8.0",

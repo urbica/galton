@@ -1,4 +1,8 @@
-## galton changelog
+## Galton changelog
+
+### 1.2.2
+
+ - Galton moved to Urbica Design organization
 
 ### 1.2.1
 
