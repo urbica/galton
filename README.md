@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/urbica/galton.svg?branch=master)](https://travis-ci.org/urbica/galton)
 
-Lightweight Node.js isochrone map server. Build isochrone map using [OSRM](http://project-osrm.org/), [Turf](http://turfjs.org/) and [concaveman](https://github.com/mapbox/concaveman).
+Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://project-osrm.org/), [Turf](http://turfjs.org/) and [concaveman](https://github.com/mapbox/concaveman).
 
 [Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton) is the author of the first known isochrone map.
 

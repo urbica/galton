@@ -4,7 +4,7 @@ require('babel-register');
 require('babel-polyfill');
 
 var fs = require('fs');
-var App = require('./src/index');
+var App = require('./src/server');
 var npid = require('npid');
 var minimist = require('minimist');
 var defaults = require('./src/index').defaults;
@@ -104,6 +104,13 @@ try {
   console.error(error);
   process.exit(-1);
 }
+
+config.bufferSize = parseFloat(config.bufferSize)
+config.cellWidth = parseFloat(config.cellWidth)
+config.concavity = parseFloat(config.concavity)
+config.lengthThreshold = parseFloat(config.lengthThreshold)
+config.resolution = parseFloat(config.resolution)
+config.sharpness = parseFloat(config.sharpness)
 
 var app = App.default(config);
 var handler = config.socket || config.port;

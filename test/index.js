@@ -1,6 +1,6 @@
-import test from 'tape';
+import galton from '../src/server.js';
 import request from 'supertest-koa-agent';
-import galton from '../src/index';
+import test from 'tape';
 
 test('galton', (t) => {
   t.plan(1);

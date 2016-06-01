@@ -1,5 +1,10 @@
 ## Galton changelog
 
+### 1.2.3
+
+ - Improve documentation
+ - Support flow type annotations
+
 ### 1.2.2
 
  - Galton moved to Urbica Design organization
