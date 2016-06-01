@@ -1,5 +1,10 @@
 ## Galton changelog
 
+### 1.2.4
+
+ - Update example
+ - Fix default settings bug
+
 ### 1.2.3
 
  - Improve documentation
