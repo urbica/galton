@@ -7,7 +7,7 @@ var fs = require('fs');
 var App = require('./src/server');
 var npid = require('npid');
 var minimist = require('minimist');
-var defaults = require('./src/index').defaults;
+var defaults = require('./src/server').defaults;
 var packagejson = require('./package.json');
 
 var config = minimist(process.argv.slice(2), {
