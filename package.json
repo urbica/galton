@@ -46,7 +46,7 @@
     "minimist": "1.2.0",
     "npid": "0.4.0",
     "osrm": "5.2.1",
-    "turf-bezier": "3.0.5",
+    "turf-bezier": "3.0.10",
     "turf-destination": "3.0.5",
     "turf-featurecollection": "1.0.1",
     "turf-point-grid": "3.0.5"
