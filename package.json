@@ -55,7 +55,7 @@
     "babel-eslint": "6.1.0",
     "babel-plugin-transform-flow-strip-types": "6.8.0",
     "documentation": "4.0.0-beta2",
-    "eslint": "2.13.1",
+    "eslint": "3.0.0",
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "1.10.2",
