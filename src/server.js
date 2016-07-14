@@ -1,10 +1,10 @@
 /* @flow */
 
 import cors from 'kcors';
-import isochrone from './isochrone.js';
 import Koa from 'koa';
 import morgan from 'koa-morgan';
 import OSRM from 'osrm';
+import isochrone from './isochrone.js';
 import type { ServerConfigType } from './types.js';
 
 export const defaults = {

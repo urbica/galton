@@ -1,6 +1,7 @@
-import galton from '../src/server.js';
-import request from 'supertest-koa-agent';
+/* eslint-disable import/no-extraneous-dependencies */
 import test from 'tape';
+import request from 'supertest-koa-agent';
+import galton from '../src/server.js';
 
 test('galton', (t) => {
   t.plan(1);

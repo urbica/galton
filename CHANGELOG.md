@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.2.6
+
+ - Updated `osrm` to v5.2.6 release
+
 ### 1.2.4
 
  - Update example
