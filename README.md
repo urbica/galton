@@ -48,4 +48,18 @@ node index.js moscow_russia.osrm
 open examples/index.html?access_token=<token>
 ```
 
-See the [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for examples.
+## Examples
+
+Build isochrones from point
+
+```shell
+curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
+```
+
+Build isochrones for 10, 20 and 30 minute intervals
+
+```
+curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals[]=10&intervals[]=20&&intervals[]=30'
+```
+
+See the [example](https://github.com/urbica/galton/blob/master/examples.html), [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for more info.

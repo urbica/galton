@@ -61,9 +61,13 @@ export default function (config: ServerConfigType) {
     const query = ctx.request.query;
     const { lng, lat } = ctx.request.query;
 
-    const intervals = Array.isArray(query['intervals[]']) ?
-      query['intervals[]'].map(parseFloat).sort((a, b) => a - b) :
-      config.intervals || defaults.intervals;
+    let intervals;
+    if (Array.isArray(query['intervals[]'])) {
+      intervals = query['intervals[]'].map(parseFloat).sort((a, b) => a - b);
+    } else {
+      const interval = parseFloat(query['intervals[]']);
+      intervals = interval ? [interval] : config.intervals || defaults.intervals;
+    }
 
     const options = {
       osrm,

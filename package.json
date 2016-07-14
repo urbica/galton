@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "lightweight isochrone server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
