@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "lightweight isochrone server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
@@ -16,7 +16,6 @@
     "docs": "documentation build src/* --format md --output docs/API.md",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint .",
-    "preinstall": "npm prune",
     "prepublish": "npm run docs",
     "start": "node index.js",
     "test": "tape -r babel-register test/index.js"
@@ -56,7 +55,7 @@
     "babel-plugin-transform-flow-strip-types": "6.8.0",
     "documentation": "4.0.0-beta2",
     "eslint": "3.0.1",
-    "eslint-config-airbnb-base": "4.0.1",
+    "eslint-config-airbnb-base": "4.0.2",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "1.10.3",
     "flow-bin": "0.29.0",
