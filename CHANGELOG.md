@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.2.8
+
+ - Update to `osrm` v5.3.0
+
 ### 1.2.7
 
  - Add cURL examples

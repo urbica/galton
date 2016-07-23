@@ -1,10 +1,11 @@
 {
   "name": "galton",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "lightweight isochrone server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
+  "homepage": "https://github.com/urbica/galton#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/urbica/galton.git"
@@ -20,16 +21,17 @@
     "start": "node index.js",
     "test": "tape -r babel-register test/index.js"
   },
-  "bin": {
-    "galton": "./index.js"
-  },
   "pre-commit": [
     "flow",
     "lint",
     "test"
   ],
-  "homepage": "https://github.com/urbica/galton#readme",
-  "osrm_release": "master",
+  "bin": {
+    "galton": "./index.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "dependencies": {
     "babel-plugin-syntax-async-functions": "6.8.0",
     "babel-plugin-transform-runtime": "6.9.0",
