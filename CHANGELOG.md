@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.2.9
+
+ - Update to `osrm` v5.3.1
+
 ### 1.2.8
 
  - Update to `osrm` v5.3.0
