@@ -48,6 +48,14 @@
           <label for='sharpness'>Sharpness</label>
           <input id='sharpness' type='number' value='0.85' class='stretch' />
         </fieldset>
+        <fieldset class='intervals checkbox-pill clearfix'>
+          <input type='checkbox' id='i10' checked='checked' value=10>
+          <label for='i10' class='button icon check quiet'>10m</label>
+          <input type='checkbox' id='i20' checked='checked' value=20>
+          <label for='i20' class='button icon check quiet'>20m</label>
+          <input type='checkbox' id='i30' checked='checked' value=30>
+          <label for='i30' class='button icon check quiet'>30m</label>
+        </fieldset>
         <div class='rounded-toggle inline'>
           <input type='radio' id='kilometers' name='units' value='kilometers' checked='checked'>
           <label for='kilometers'>kilometers</label>
@@ -82,12 +90,9 @@
     });
 
     var layers = [
-      [30, '#00aaFF', 0.2],
-      [25, '#00aaFF', 0.3],
-      [20, '#00aaFF', 0.4],
-      [15, '#00aaFF', 0.5],
-      [10, '#00aaFF', 0.6],
-      [5,  '#00aaFF', 0.7]
+      [30, '#00aaFF', 0.1],
+      [20, '#00aaFF', 0.2],
+      [10, '#00aaFF', 0.8],
     ];
 
     map.on('style.load', function () {
@@ -114,6 +119,9 @@
 
     map.on('click', function (e) {
       $('#map').addClass('loading');
+      var intervals = Array.from(
+        document.querySelectorAll('.intervals input[type="checkbox"]:checked')
+      ).map(function(el) { return el.value });
 
       var options = {
         lng: e.lngLat.lng,
@@ -125,7 +133,7 @@
         resolution: document.getElementById('resolution').value,
         sharpness: document.getElementById('sharpness').value,
         units: document.querySelector('input[name="units"]:checked').value,
-        intervals: [10, 30]
+        intervals: intervals.length > 0 ? intervals : [10, 20, 30]
       };
 
       console.groupCollapsed(e.lngLat.lng, e.lngLat.lat);

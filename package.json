@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "lightweight isochrone server",
   "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
@@ -35,7 +35,7 @@
   "dependencies": {
     "babel-plugin-syntax-async-functions": "6.13.0",
     "babel-plugin-transform-runtime": "6.12.0",
-    "babel-polyfill": "6.9.1",
+    "babel-polyfill": "6.13.0",
     "babel-preset-es2015": "6.13.2",
     "babel-preset-stage-0": "6.5.0",
     "babel-register": "6.11.6",
