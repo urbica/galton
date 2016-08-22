@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.3.2
+
+ - Fix npm postinstall build issue
+
 ### 1.3.0
 
  - Prebuild galton on publish
