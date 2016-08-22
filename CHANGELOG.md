@@ -1,5 +1,10 @@
 ## Galton changelog
 
+### 1.3.0
+
+ - Prebuild galton on publish
+ - Strict node usage to version 4
+
 ### 1.2.10
 
  - Update to `osrm` v5.3.2

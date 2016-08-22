@@ -10,6 +10,8 @@ Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://proje
 
 ## Installation
 
+Galton depends on node version 4.
+
 ```
 npm install galton
 ```
