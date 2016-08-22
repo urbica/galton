@@ -1,4 +1,3 @@
-src
 examples
 test/data/*
 !test/data/Makefile
