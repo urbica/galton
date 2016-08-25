@@ -22,6 +22,7 @@ npm install galton
 git clone https://github.com/urbica/galton.git
 cd galton
 npm install
+npm run build
 ```
 
 ## Usage
