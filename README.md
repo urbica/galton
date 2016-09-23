@@ -13,7 +13,7 @@ Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://proje
 Galton depends on node version 4.
 
 ```
-npm install galton
+npm install -g galton
 ```
 
 ...or build from source
@@ -47,7 +47,7 @@ where [filename] is path to OSRM data and [options] is any of:
 ```
 
 ```
-node index.js moscow_russia.osrm
+galton moscow_russia.osrm
 open examples/index.html?access_token=<token>
 ```
 
@@ -66,3 +66,26 @@ curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals[]=10&inte
 ```
 
 See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for more info.
+
+## Using with Docker
+
+```shell
+docker run -d -p 4000:4000 urbica/galton <url> <profile>
+```
+
+Where `url` is osm.pbf url and `profile` is one of the default OSRM profiles (`foot` is default).
+
+Examples
+
+```shell
+docker run -d -p 4000:4000 urbica/galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
+```
+
+```shell
+docker run \
+  -d \
+  -p 4000:4000 \
+  --sysctl "kernel.shmmax=18446744073709551615"
+  urbica/galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+```

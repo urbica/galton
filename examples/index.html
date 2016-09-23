@@ -145,6 +145,8 @@
           console.groupEnd();
           gridSource.setData(data);
           $('#map').removeClass('loading');
+        }).fail(function() {
+          $('#map').removeClass('loading');
         });
     });
 
