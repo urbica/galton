@@ -59,7 +59,7 @@
     "babel-eslint": "6.1.2",
     "documentation": "4.0.0-beta2",
     "eslint": "3.5.0",
-    "eslint-config-airbnb-base": "7.2.0",
+    "eslint-config-airbnb-base": "8.0.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "1.16.0",
     "flow-bin": "0.32.0",
