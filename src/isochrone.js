@@ -5,7 +5,7 @@ import concaveman from 'concaveman';
 import destination from 'turf-destination';
 import featureCollection from 'turf-featurecollection';
 import pointGrid from 'turf-point-grid';
-import type { IsochroneOptionsType } from './types.js';
+import type { IsochroneOptionsType } from './types';
 
 /**
  * Build isochrone using source point and options

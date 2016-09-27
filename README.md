@@ -48,8 +48,9 @@ where [filename] is path to OSRM data and [options] is any of:
 
 ```
 galton moscow_russia.osrm
-open examples/index.html?access_token=<token>
 ```
+
+Open `examples/index.html?access_token=<token>`
 
 ## Examples
 
@@ -75,12 +76,19 @@ docker run -d -p 4000:4000 urbica/galton <url> <profile>
 
 Where `url` is osm.pbf url and `profile` is one of the default OSRM profiles (`foot` is default).
 
-Examples
+Examples:
+
+This will create docker container with last version of galton using osrm with mapzen extract processed with default car profile
 
 ```shell
 docker run -d -p 4000:4000 urbica/galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+```
+
+```shell
 curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
 ```
+
+You can also set `sysctl` options for container with `--sysctl`
 
 ```shell
 docker run \

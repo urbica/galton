@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.3.5
+
+ - Update `concaveman` to v1.1.1
+
 ### 1.3.4
 
  - Update to `osrm` v5.3.3

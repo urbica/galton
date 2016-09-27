@@ -2,10 +2,10 @@
 
 import cors from 'kcors';
 import Koa from 'koa';
-import morgan from 'koa-morgan';
 import OSRM from 'osrm';
-import isochrone from './isochrone.js';
-import type { ServerConfigType } from './types.js';
+import logger from 'koa-logger';
+import isochrone from './isochrone';
+import type { ServerConfigType } from './types';
 
 export const defaults = {
   bufferSize: 6,
@@ -45,7 +45,7 @@ export default function (config: ServerConfigType) {
     units: config.units || defaults.units
   };
 
-  app.use(morgan('dev'));
+  app.use(logger());
   if (config.cors) app.use(cors());
 
   app.use(async (ctx, next) => {
