@@ -58,7 +58,7 @@
     "babel-preset-stage-0": "6.16.0",
     "babel-register": "6.16.3",
     "documentation": "4.0.0-beta2",
-    "eslint": "3.6.1",
+    "eslint": "3.7.1",
     "eslint-config-airbnb-base": "8.0.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "1.16.0",
