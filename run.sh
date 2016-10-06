@@ -25,6 +25,6 @@ if [ ! -f $OSRM ]; then
   rm $PBF
 fi
 
-galton $OSRM --sharedMemory &
+node_modules/galton/index.js $OSRM --sharedMemory &
 child=$!
 wait "$child"
