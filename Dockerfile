@@ -26,8 +26,8 @@ ENV NODE_ENV production
 ENV NODE_VERSION 4.6.0
 ENV NPM_CONFIG_LOGLEVEL warn
 
-ENV OSRM_VERSION 5.4.0
-ENV GALTON_VERSION 1.3.6
+ENV OSRM_VERSION 5.4.1
+ENV GALTON_VERSION 1.3.7
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
