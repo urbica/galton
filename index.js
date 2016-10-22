@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var App = require('./lib/server');
+var App = require('./dist/server');
 var npid = require('npid');
 var minimist = require('minimist');
 var packagejson = require('./package.json');

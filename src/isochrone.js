@@ -1,10 +1,9 @@
 /* @flow */
 
-import bezier from 'turf-bezier';
+import bezier from '@turf/bezier';
 import concaveman from 'concaveman';
-import destination from 'turf-destination';
-import featureCollection from 'turf-featurecollection';
-import pointGrid from 'turf-point-grid';
+import destination from '@turf/destination';
+import pointGrid from '@turf/point-grid';
 import type { IsochroneOptionsType } from './types';
 
 /**
@@ -86,7 +85,8 @@ export default ([lng, lat]: [number, number], options: IsochroneOptionsType) => 
         return polygon;
       }).filter(feature => !!feature);
 
-      return resolve(featureCollection(features));
+      const featureCollection = { type: 'FeatureCollection', features };
+      return resolve(featureCollection);
     });
   });
 };

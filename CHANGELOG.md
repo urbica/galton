@@ -1,5 +1,10 @@
 ## Galton changelog
 
+### 1.3.8
+
+ - ETag support
+ - GZIP compression support
+
 ### 1.3.7
 
  - Update to `osrm` v5.4.1

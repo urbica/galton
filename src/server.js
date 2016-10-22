@@ -1,8 +1,11 @@
 /* @flow */
 
-import cors from 'kcors';
 import Koa from 'koa';
 import OSRM from 'osrm';
+import compress from 'koa-compress';
+import conditional from 'koa-conditional-get';
+import cors from 'kcors';
+import etag from 'koa-etag';
 import logger from 'koa-logger';
 import isochrone from './isochrone';
 import type { ServerConfigType } from './types';
@@ -45,8 +48,11 @@ export default function (config: ServerConfigType) {
     units: config.units || defaults.units
   };
 
-  app.use(logger());
   if (config.cors) app.use(cors());
+  app.use(compress());
+  app.use(conditional());
+  app.use(etag());
+  app.use(logger());
 
   app.use(async (ctx, next) => {
     try {
@@ -58,7 +64,7 @@ export default function (config: ServerConfigType) {
   });
 
   app.use(async (ctx) => {
-    const query = ctx.request.query;
+    const { query } = ctx.request.query;
     const { lng, lat } = ctx.request.query;
 
     let intervals;
