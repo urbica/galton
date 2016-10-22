@@ -23,11 +23,11 @@ RUN set -ex \
   done
 
 ENV NODE_ENV production
-ENV NODE_VERSION 4.6.0
+ENV NODE_VERSION 4.6.1
 ENV NPM_CONFIG_LOGLEVEL warn
 
 ENV OSRM_VERSION 5.4.1
-ENV GALTON_VERSION 1.3.7
+ENV GALTON_VERSION 1.3.8
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -52,7 +52,6 @@ RUN cmake --build . --target install
 WORKDIR /data
 RUN rm -rf /srv/galton/osrm-backend-$OSRM_VERSION
 RUN npm install galton@$GALTON_VERSION
-# RUN npm install -g galton@$GALTON_VERSION
 
 COPY run.sh run.sh
 
