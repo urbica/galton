@@ -64,7 +64,7 @@ export default function (config: ServerConfigType) {
   });
 
   app.use(async (ctx) => {
-    const { query } = ctx.request.query;
+    const { query } = ctx.request;
     const { lng, lat } = ctx.request.query;
 
     let intervals;
