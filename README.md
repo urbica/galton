@@ -1,7 +1,8 @@
 # Galton
 
 [![Build Status](https://travis-ci.org/urbica/galton.svg?branch=master)](https://travis-ci.org/urbica/galton)
-[![Docker Image](https://images.microbadger.com/badges/version/urbica/galton.svg)](http://microbadger.com/images/urbica/galton)
+[![npm version](https://img.shields.io/npm/v/galton.svg)](https://www.npmjs.com/package/galton)
+[![npm downloads](https://img.shields.io/npm/dt/galton.svg)](https://www.npmjs.com/package/galton)
 
 Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://project-osrm.org/), [Turf](http://turfjs.org/) and [concaveman](https://github.com/mapbox/concaveman).
 
