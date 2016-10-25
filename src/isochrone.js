@@ -1,10 +1,7 @@
-/* @flow */
-
 import bezier from '@turf/bezier';
 import concaveman from 'concaveman';
 import destination from '@turf/destination';
 import pointGrid from '@turf/point-grid';
-import type { IsochroneOptionsType } from './types';
 
 /**
  * Build isochrone using source point and options
@@ -14,7 +11,7 @@ import type { IsochroneOptionsType } from './types';
  * @param {isochroneOptions} options object
  * @returns {Promise} promise with GeoJSON when resolved
  */
-export default ([lng, lat]: [number, number], options: IsochroneOptionsType) => {
+export default ([lng, lat], options) => {
   const point = {
     type: 'Feature',
     geometry: {

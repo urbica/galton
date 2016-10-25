@@ -6,7 +6,6 @@
   "compact": true,
   "plugins": [
     "syntax-async-functions",
-    "transform-flow-strip-types",
     "transform-runtime"
   ]
 }

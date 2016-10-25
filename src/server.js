@@ -1,5 +1,3 @@
-/* @flow */
-
 import Koa from 'koa';
 import OSRM from 'osrm';
 import compress from 'koa-compress';
@@ -8,7 +6,6 @@ import cors from 'kcors';
 import etag from 'koa-etag';
 import logger from 'koa-logger';
 import isochrone from './isochrone';
-import type { ServerConfigType } from './types';
 
 export const defaults = {
   bufferSize: 6,
@@ -28,7 +25,7 @@ export const defaults = {
  * @param {serverConfig} config default isochrone options
  * @returns {Koa} Koa instance
  */
-export default function (config: ServerConfigType) {
+export default function (config) {
   const app = new Koa();
 
   const osrm = new OSRM({

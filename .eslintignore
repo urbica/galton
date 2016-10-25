@@ -1,4 +1,4 @@
 index.js
-lib
+dist
 !src
 !test
