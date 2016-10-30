@@ -7,6 +7,26 @@ import etag from 'koa-etag';
 import logger from 'koa-logger';
 import isochrone from './isochrone';
 
+/**
+ * Server configuration
+ *
+ * @typedef {Object} serverConfig
+ * @property {string} osrmPath - path to *.osrm file
+ * @property {number} bufferSize - buffer size
+ * @property {number} cellWidth - cellWidth as in
+ * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
+ * @property {Array.<number>} intervals - intervals for isochrones in minutes
+ * @property {number} concavity - relative measure of concavity as in
+ * [concaveman](https://github.com/mapbox/concaveman)
+ * @property {number} lengthThreshold - length threshold as in
+ * [concaveman](https://github.com/mapbox/concaveman)
+ * @property {number} resolution - turf-bezier time in milliseconds between points as in
+ * [turf-bezier](https://github.com/Turfjs/turf-bezier)
+ * @property {number} sharpness - a measure of how curvy the path should be between splines as in
+ * [turf-bezier](https://github.com/Turfjs/turf-bezier)
+ * @property {string} units - either `kilometers` or `miles` as in
+ * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
+ */
 export const defaults = {
   bufferSize: 6,
   cellWidth: 0.2,

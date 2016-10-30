@@ -37,21 +37,21 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-RUN mkdir -p /data
-RUN mkdir -p /srv/galton
-WORKDIR /srv/galton
-RUN curl -OL "https://github.com/Project-OSRM/osrm-backend/archive/v$OSRM_VERSION.tar.gz"
-RUN tar -xzf v$OSRM_VERSION.tar.gz
-RUN cp -r osrm-backend-$OSRM_VERSION/profiles /data/
-RUN rm v$OSRM_VERSION.tar.gz
-RUN mkdir -p osrm-backend-$OSRM_VERSION/build
-WORKDIR /srv/galton/osrm-backend-$OSRM_VERSION/build
-RUN cmake .. -DCMAKE_BUILD_TYPE=Release
-RUN cmake --build .
-RUN cmake --build . --target install
-WORKDIR /data
-RUN rm -rf /srv/galton/osrm-backend-$OSRM_VERSION
-RUN npm install galton@$GALTON_VERSION
+RUN mkdir -p /data \
+  && mkdir -p /srv/galton \
+  && cd /srv/galton \
+  && curl -OL "https://github.com/Project-OSRM/osrm-backend/archive/v$OSRM_VERSION.tar.gz" \
+  && tar -xzf v$OSRM_VERSION.tar.gz \
+  && cp -r osrm-backend-$OSRM_VERSION/profiles /data/ \
+  && rm v$OSRM_VERSION.tar.gz \
+  && mkdir -p osrm-backend-$OSRM_VERSION/build \
+  && cd /srv/galton/osrm-backend-$OSRM_VERSION/build
+  && cmake .. -DCMAKE_BUILD_TYPE=Release \
+  && cmake --build . \
+  && cmake --build . --target install
+  && cd /data
+  && rm -rf /srv/galton/osrm-backend-$OSRM_VERSION
+  && npm install galton@$GALTON_VERSION
 
 COPY run.sh run.sh
 
