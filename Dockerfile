@@ -16,7 +16,6 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NODE_ENV production
 ENV NODE_VERSION 4.6.1
 ENV NPM_CONFIG_LOGLEVEL warn
 
@@ -30,7 +29,9 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 
 COPY . /usr/src/galton
 COPY entrypoint.sh entrypoint.sh
-RUN NODE_ENV=development cd /usr/src/galton && npm i && npm run build
+RUN cd /usr/src/galton && npm i && npm run build
+
+ENV NODE_ENV production
 
 EXPOSE 4000
 VOLUME /data

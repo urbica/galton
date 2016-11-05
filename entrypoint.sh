@@ -19,11 +19,11 @@ if [ ! -f /data/$OSRM ]; then
   if [ ! -f /extracts/$PBF ]; then
     curl $URL > /extracts/$PBF
   fi
-  cp /extracts/$PBF /data
+  cp /extracts/$PBF /data/$PBF
   osrm-extract -p /profiles/$PROFILE /data/$PBF
   osrm-contract /data/$OSRM
 fi
 
-node /usr/src/galton/index.js /data/$OSRM --sharedMemory &
+node /usr/src/galton/index.js /data/$OSRM &
 child=$!
 wait "$child"
