@@ -1,11 +1,5 @@
-FROM ubuntu:16.04
+FROM stepankuzmin/osrm:v5.4.2
 MAINTAINER Stepan Kuzmin <to.stepan.kuzmin@gmail.com>
-
-RUN apt-get -yqq update
-RUN \
-  apt-get -yqq install build-essential git cmake pkg-config \
-  libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev \
-  libzip-dev libboost-all-dev lua5.1 liblua5.1-0-dev libluabind-dev libtbb-dev curl
 
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
@@ -26,9 +20,6 @@ ENV NODE_ENV production
 ENV NODE_VERSION 4.6.1
 ENV NPM_CONFIG_LOGLEVEL warn
 
-ENV OSRM_VERSION 5.4.1
-ENV GALTON_VERSION 1.3.8
-
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
@@ -37,26 +28,9 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-RUN mkdir -p /data \
-  && mkdir -p /srv/galton \
-  && cd /srv/galton \
-  && curl -OL "https://github.com/Project-OSRM/osrm-backend/archive/v$OSRM_VERSION.tar.gz" \
-  && tar -xzf v$OSRM_VERSION.tar.gz \
-  && cp -r osrm-backend-$OSRM_VERSION/profiles /data/ \
-  && rm v$OSRM_VERSION.tar.gz \
-  && mkdir -p osrm-backend-$OSRM_VERSION/build \
-  && cd /srv/galton/osrm-backend-$OSRM_VERSION/build
-  && cmake .. -DCMAKE_BUILD_TYPE=Release \
-  && cmake --build . \
-  && cmake --build . --target install
-  && cd /data
-  && rm -rf /srv/galton/osrm-backend-$OSRM_VERSION
-  && npm install galton@$GALTON_VERSION
-
-COPY run.sh run.sh
+COPY . /usr/src/galton
+RUN cd /usr/src/galton && npm i && npm run build
 
 EXPOSE 4000
 VOLUME /data
-
-ENTRYPOINT ["/data/run.sh"]
-CMD ["bash", "run.sh"]
+ENTRYPOINT ["/usr/src/galton/entrypoint.sh"]

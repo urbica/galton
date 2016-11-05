@@ -1,5 +1,9 @@
 ## Galton changelog
 
+### 1.3.9
+
+ - Update to `osrm` v5.4.2
+
 ### 1.3.8
 
  - ETag support
