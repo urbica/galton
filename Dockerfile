@@ -29,8 +29,9 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 COPY . /usr/src/galton
-RUN cd /usr/src/galton && npm i && npm run build
+COPY entrypoint.sh entrypoint.sh
+RUN NODE_ENV=development cd /usr/src/galton && npm i && npm run build
 
 EXPOSE 4000
 VOLUME /data
-ENTRYPOINT ["/usr/src/galton/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
