@@ -1,4 +1,4 @@
-FROM stepankuzmin/osrm:v5.4.2
+FROM stepankuzmin/osrm:v5.4.3
 MAINTAINER Stepan Kuzmin <to.stepan.kuzmin@gmail.com>
 
 # gpg keys listed at https://github.com/nodejs/node
@@ -16,7 +16,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NODE_VERSION 4.6.1
+ENV NODE_VERSION 4.6.2
 ENV NPM_CONFIG_LOGLEVEL warn
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
