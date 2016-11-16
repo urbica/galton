@@ -16,10 +16,7 @@ dist: xenial
 addons:
   apt:
     sources: [ 'ubuntu-toolchain-r-test' ]
-    packages: [ 'build-essential', 'git', 'cmake', 'pkg-config', 'libbz2-dev',
-      'libstxxl-dev', 'libstxxl1v5', 'libxml2-dev', 'libzip-dev',
-      'libboost-all-dev', 'lua5.2', 'liblua5.2-dev', 'libluabind-dev', 'libtbb-dev'
-    ]
+    packages: [ 'libstdc++-5-dev' ]
 
 node_js:
   - 4
