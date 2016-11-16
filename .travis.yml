@@ -13,10 +13,10 @@ services:
 
 dist: xenial
 
-addons: &apt_packages
+addons:
   apt:
     sources: [ 'ubuntu-toolchain-r-test' ]
-    packages: [ 'libstdc++-5-dev', 'zlib1g-dev', 'make', 'apport', 'gdb' ]
+    packages: [ 'libstdc++-5-dev' ]
 
 node_js:
   - 4
