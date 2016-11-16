@@ -1,11 +1,12 @@
 all:
 	npm install
+	npm run build
 
 clean:
 	rm -rf node_modules
 
-shm: ./node_modules/osrm/test/data/Makefile
-	$(MAKE) -C ./node_modules/osrm/test/data/
+shm:
+	$(MAKE) all -C ./node_modules/osrm/test/data/
 
 test: shm
 	npm test

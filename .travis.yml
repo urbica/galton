@@ -2,21 +2,24 @@ language: node_js
 
 sudo: required
 
+# don't re-build for tags so that [publish binary] is not re-run
+# https://github.com/travis-ci/travis-ci/issues/1532
+branches:
+  except:
+    - /^v[0-9]/
+
 services:
   - docker
 
-dist: trusty
-addons:
+dist: xenial
+
+addons: &apt_packages
   apt:
-    sources:
-     - ubuntu-toolchain-r-test
-    packages:
-     - coreutils
-     - g++-4.8
-     - gdb
+    sources: [ 'ubuntu-toolchain-r-test' ]
+    packages: [ 'libstdc++-5-dev', 'zlib1g-dev', 'make', 'apport', 'gdb' ]
 
 node_js:
-  - "4"
+  - 4
 
 install:
   - make

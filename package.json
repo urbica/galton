@@ -33,9 +33,9 @@
     "node": "4"
   },
   "dependencies": {
-    "@turf/bezier": "3.5.2",
-    "@turf/destination": "3.5.2",
-    "@turf/point-grid": "3.5.2",
+    "@turf/bezier": "3.5.3",
+    "@turf/destination": "3.5.3",
+    "@turf/point-grid": "3.5.3",
     "babel-runtime": "6.18.0",
     "concaveman": "1.1.1",
     "kcors": "2.2.0",
@@ -56,7 +56,7 @@
     "babel-preset-es2015": "6.18.0",
     "babel-preset-stage-0": "6.16.0",
     "babel-register": "6.18.0",
-    "documentation": "4.0.0-beta11",
+    "documentation": "4.0.0-beta13",
     "eslint": "3.10.2",
     "eslint-config-airbnb-base": "10.0.1",
     "eslint-plugin-babel": "3.3.0",

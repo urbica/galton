@@ -4,7 +4,6 @@ import test from 'tape';
 import request from 'supertest-koa-agent';
 import galton from '../src/server.js';
 
-
 test('galton', (t) => {
   t.plan(1);
 
