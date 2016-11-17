@@ -123,7 +123,7 @@
         document.querySelectorAll('.intervals input[type="checkbox"]:checked')
       ).map(function(el) { return el.value });
 
-      var options = {
+      var params = {
         lng: e.lngLat.lng,
         lat: e.lngLat.lat,
         bufferSize: document.getElementById('bufferSize').value,
@@ -133,19 +133,25 @@
         resolution: document.getElementById('resolution').value,
         sharpness: document.getElementById('sharpness').value,
         units: document.querySelector('input[name="units"]:checked').value,
-        intervals: intervals.length > 0 ? intervals : [10, 20, 30]
       };
+
+      var url = new URL("http://localhost:4000");
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+      (intervals.length > 0 ? intervals : [10, 20, 30]).forEach(interval => url.searchParams.append('intervals', interval));
 
       console.groupCollapsed(e.lngLat.lng, e.lngLat.lat);
       console.time('request');
-      $.getJSON('http://localhost:4000', options,
-        function(data) {
+      fetch(url)
+        .then(response => response.json())
+        .then((data) => {
           console.log(data);
           console.timeEnd('request');
           console.groupEnd();
           gridSource.setData(data);
           $('#map').removeClass('loading');
-        }).fail(function() {
+        })
+        .catch((error) => {
+          console.error(error);
           $('#map').removeClass('loading');
         });
     });

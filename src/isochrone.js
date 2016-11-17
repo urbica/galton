@@ -32,7 +32,9 @@ import pointGrid from '@turf/point-grid';
  * @param {isochroneOptions} options object
  * @returns {Promise} promise with GeoJSON when resolved
  */
-export default ([lng, lat], options) => {
+export default (start, options) => {
+  const lng = start[0];
+  const lat = start[1];
   const point = {
     type: 'Feature',
     geometry: {
@@ -45,7 +47,7 @@ export default ([lng, lat], options) => {
   const extent = sw.geometry.coordinates.concat(ne.geometry.coordinates);
   const grid = pointGrid(extent, options.cellWidth, options.units);
 
-  const points = grid.features.map(({ geometry: { coordinates } }) => coordinates);
+  const points = grid.features.map(feature => feature.geometry.coordinates);
 
   const intervalGroups = options.intervals.reduce((acc, interval) =>
     Object.assign({}, acc, { [interval]: [] })

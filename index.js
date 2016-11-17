@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
-var App = require('./dist/server');
-var npid = require('npid');
-var minimist = require('minimist');
-var packagejson = require('./package.json');
+const fs = require('fs');
+const galton = require('./dist/bundle');
+const minimist = require('minimist');
+const packagejson = require('./package.json');
 
-var defaults = App.defaults;
-var config = minimist(process.argv.slice(2), {
+var defaults = galton.defaults;
+const config = minimist(process.argv.slice(2), {
   string: [
     'bufferSize',
     'cellWidth',
@@ -31,7 +30,7 @@ var config = minimist(process.argv.slice(2), {
     cellWidth: defaults.cellWidth,
     concavity: defaults.concavity,
     cors: true,
-    intervals: '5 10 15 20 25 30',
+    intervals: '10 20 30',
     lengthThreshold: defaults.lengthThreshold,
     port: 4000,
     resolution: defaults.resolution,
@@ -47,7 +46,7 @@ if (config.version) {
 };
 
 if (config.help) {
-  var usage = [
+  const usage = [
       ''
     , '  Usage: galton [filename] [options]'
     , ''
@@ -81,22 +80,11 @@ try {
   process.exit(-1);
 }
 
-if (config.pid) {
-  try {
-    var pid = npid.create(config.pid);
-    pid.removeOnExit()
-  } catch (error) {
-    console.error(error.message);
-    process.exit(-1);
-  }
-}
-
 try {
-  config.intervals = config.intervals.split(' ')
-                                     .map(parseFloat)
-                                     .sort(function(a, b) {
-                                       return a - b;
-                                      });
+  config.intervals = config.intervals
+    .split(' ')
+    .map(parseFloat)
+    .sort((a, b) => a - b);
 } catch (error) {
   console.error(error);
   process.exit(-1);
@@ -109,23 +97,24 @@ config.lengthThreshold = parseFloat(config.lengthThreshold)
 config.resolution = parseFloat(config.resolution)
 config.sharpness = parseFloat(config.sharpness)
 
-var app = App.default(config);
-var handler = config.socket || config.port;
+const app = galton.app(config);
+const handler = config.socket || config.port;
 
-var server = app.listen(handler, function () {
-  var endpoint;
+const server = app.listen(handler, () => {
   if (config.socket) {
-    endpoint = config.socket;
     fs.chmodSync(config.socket, '1766');
+    console.log('🚀  ON AIR @ %s', config.socket);
   } else {
-    endpoint = server.address().address + ':' + server.address().port;
+    const endpoint = server.address().address + ':' + server.address().port;
+    console.log('🚀  ON AIR @ %s', endpoint);
   }
-  console.log('🚀  ON AIR @ %s', endpoint);
 });
 
-// Catch SIGINT (Ctrl+C) to exit process
-process.on('SIGINT', function () {
-  console.warn('Caught SIGINT, terminating');
+const shutdown = (server, signal) => {
+  console.warn(`Caught ${signal}, terminating`);
   server.close();
   process.exit();
-});
+}
+
+process.on('SIGINT', shutdown.bind(null, server, 'SIGINT'));
+process.on('SIGTERM', shutdown.bind(null, server, 'SIGTERM'));

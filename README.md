@@ -36,7 +36,7 @@ where [filename] is path to OSRM data and [options] is any of:
   --bufferSize - buffer size (default: 6)
   --cellWidth - turf-point-grid distance across each cell (default: 0.2)
   --concavity - concaveman relative measure of concavity (default: 2)
-  --intervals - isochrones intervals in minutes (default: 5 10 15 20 25 30)
+  --intervals - isochrones intervals in minutes (default: 10 20 30)
   --lengthThreshold - concaveman length threshold (default: 0)
   --pid - save PID to file
   --port - port to run on (default: 4000)
@@ -65,7 +65,23 @@ curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
 Build isochrones for 10, 20 and 30 minute intervals
 
 ```
-curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals[]=10&intervals[]=20&&intervals[]=30'
+curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals=10&intervals=20&&intervals=30'
+```
+
+Using Galton in your Node.js application
+
+```js
+const galton = require('galton');
+
+const config = {
+  port: 4000,
+  osrm: 'moscow_russia.osrm'
+}
+
+const app = galton.app(config);
+app.listen(config.port, () => {
+  console.log('Listening on %s', config.port);
+});
 ```
 
 See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for more info.

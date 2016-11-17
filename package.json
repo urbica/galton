@@ -1,23 +1,15 @@
 {
   "name": "galton",
-  "version": "1.3.10",
+  "version": "2.0.0",
   "description": "lightweight isochrone server",
-  "main": "src/index.js",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
-  "homepage": "https://github.com/urbica/galton#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/urbica/galton.git"
-  },
-  "bugs": {
-    "url": "https://github.com/urbica/galton/issues"
-  },
+  "main": "dist/bundle.js",
+  "jsnext:main": "src/server.js",
   "scripts": {
-    "build": "babel -d dist src",
+    "build": "rollup -c",
     "docs": "documentation build src/* --format md --output docs/API.md",
     "lint": "eslint .",
-    "prepublish": "npm run build && npm run docs",
     "start": "node index.js",
     "test": "tape -r babel-register test/index.js"
   },
@@ -36,7 +28,6 @@
     "@turf/bezier": "3.5.3",
     "@turf/destination": "3.5.3",
     "@turf/point-grid": "3.5.3",
-    "babel-runtime": "6.18.0",
     "concaveman": "1.1.1",
     "kcors": "2.2.0",
     "koa": "2.0.0-alpha.7",
@@ -45,24 +36,22 @@
     "koa-etag": "3.0.0",
     "koa-logger": "2.0.0",
     "minimist": "1.2.0",
-    "npid": "0.4.0",
-    "osrm": "git://github.com/Project-OSRM/node-osrm.git#v5.4.3"
+    "osrm": "5.4.3"
   },
   "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-eslint": "7.1.0",
-    "babel-plugin-syntax-async-functions": "6.13.0",
-    "babel-plugin-transform-runtime": "6.15.0",
-    "babel-preset-es2015": "6.18.0",
-    "babel-preset-stage-0": "6.16.0",
-    "babel-register": "6.18.0",
     "documentation": "4.0.0-beta13",
     "eslint": "3.10.2",
     "eslint-config-airbnb-base": "10.0.1",
-    "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "2.2.0",
     "pre-commit": "1.1.3",
+    "rollup": "0.36.3",
+    "rollup-plugin-async": "1.1.0",
+    "rollup-plugin-commonjs": "5.0.5",
+    "rollup-plugin-json": "2.0.2",
+    "rollup-plugin-node-resolve": "2.0.0",
+    "rollup-plugin-uglify": "1.0.1",
     "supertest-koa-agent": "0.3.0",
-    "tape": "4.6.2"
+    "tape": "4.6.2",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony"
   }
 }

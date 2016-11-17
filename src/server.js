@@ -1,10 +1,10 @@
-import Koa from 'koa';
-import OSRM from 'osrm';
 import compress from 'koa-compress';
 import conditional from 'koa-conditional-get';
 import cors from 'kcors';
 import etag from 'koa-etag';
+import Koa from 'koa';
 import logger from 'koa-logger';
+import OSRM from 'osrm';
 import isochrone from './isochrone';
 
 /**
@@ -24,14 +24,14 @@ import isochrone from './isochrone';
  * [turf-bezier](https://github.com/Turfjs/turf-bezier)
  * @property {number} sharpness - a measure of how curvy the path should be between splines as in
  * [turf-bezier](https://github.com/Turfjs/turf-bezier)
- * @property {string} units - either `kilometers` or `miles` as in
+ * @property {string} units - either 'kilometers' or 'miles' as in
  * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
  */
 export const defaults = {
   bufferSize: 6,
   cellWidth: 0.2,
   concavity: 2,
-  intervals: [5, 10, 15, 20, 25, 30],
+  intervals: [10, 20, 30],
   lengthThreshold: 0,
   resolution: 10000,
   sharpness: 0.85,
@@ -41,29 +41,21 @@ export const defaults = {
 /**
  * Isochrone server
  *
- * @name server
+ * @name galton
  * @param {serverConfig} config default isochrone options
  * @returns {Koa} Koa instance
  */
-export default function (config) {
+const galton = (config) => {
   const app = new Koa();
 
   const osrm = new OSRM({
     path: config.osrmPath,
-    shared_memory: !!config.sharedMemory
+    shared_memory: config.sharedMemory
   });
 
-  const defaultOptions = {
-    osrm,
-    bufferSize: config.bufferSize || defaults.bufferSize,
-    cellWidth: config.cellWidth || defaults.cellWidth,
-    concavity: config.concavity || defaults.concavity,
-    intervals: config.intervals || defaults.intervals,
-    lengthThreshold: config.lengthThreshold || defaults.lengthThreshold,
-    resolution: config.resolution || defaults.resolution,
-    sharpness: config.sharpness || defaults.sharpness,
-    units: config.units || defaults.units
-  };
+  app.context.defaults = Object.assign({ osrm }, defaults, config);
+  const numericParams = ['bufferSize', 'cellWidth', 'concavity',
+    'lengthThreshold', 'resolution', 'sharpness'];
 
   if (config.cors) app.use(cors());
   app.use(compress());
@@ -81,38 +73,34 @@ export default function (config) {
   });
 
   app.use(async (ctx) => {
-    const { query } = ctx.request;
-    const { lng, lat } = ctx.request.query;
+    const query = ctx.request.query;
+
+    const numericOptions = numericParams.reduce((acc, param) => {
+      if (isNaN(query[param])) return acc;
+      return Object.assign({}, acc, { [param]: parseFloat(query[param]) });
+    }, ctx.defaults.defaults);
 
     let intervals;
-    if (Array.isArray(query['intervals[]'])) {
-      intervals = query['intervals[]'].map(parseFloat).sort((a, b) => a - b);
+    if (Array.isArray(query.intervals)) {
+      intervals = query.intervals
+        .filter(i => !isNaN(i))
+        .map(parseFloat)
+        .sort((a, b) => a - b);
     } else {
-      const interval = parseFloat(query['intervals[]']);
+      const interval = parseFloat(query.intervals);
       intervals = interval ? [interval] : config.intervals || defaults.intervals;
     }
 
-    const options = {
+    const options = Object.assign({}, ctx.defaults, numericOptions, {
       osrm,
       intervals,
-      bufferSize: query.bufferSize ?
-        parseFloat(query.bufferSize) : defaultOptions.bufferSize,
-      cellWidth: query.cellWidth ?
-        parseFloat(query.cellWidth) : defaultOptions.cellWidth,
-      concavity: query.concavity ?
-        parseFloat(query.concavity) : defaultOptions.concavity,
-      lengthThreshold: query.lengthThreshold ?
-        parseFloat(query.lengthThreshold) : defaultOptions.lengthThreshold,
-      resolution: query.resolution ?
-        parseFloat(query.resolution) : defaultOptions.resolution,
-      sharpness: query.sharpness ?
-        parseFloat(query.sharpness) : defaultOptions.sharpness,
-      units: query.units ?
-        query.units : defaultOptions.units
-    };
+      units: query.units
+    });
 
-    ctx.body = await isochrone([parseFloat(lng), parseFloat(lat)], options);
+    ctx.body = await isochrone([parseFloat(query.lng), parseFloat(query.lat)], options);
   });
 
   return app;
-}
+};
+
+export { galton as app, isochrone };
