@@ -14,7 +14,7 @@ export default {
     nodeResolve({
       main: true,
       jsnext: true,
-      skip: ['osrm', 'concaveman']
+      skip: ['osrm', 'concaveman', 'graceful-fs']
     }),
     commonjs(),
     async()

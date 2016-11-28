@@ -11,7 +11,7 @@
     "docs": "documentation build src/* --format md --output docs/API.md",
     "lint": "eslint .",
     "start": "node index.js",
-    "test": "tape -r babel-register test/index.js"
+    "test": "node test/index.js"
   },
   "pre-commit": [
     "lint",
@@ -43,6 +43,7 @@
     "eslint": "3.11.0",
     "eslint-config-airbnb-base": "10.0.1",
     "eslint-plugin-import": "2.2.0",
+    "geojsonhint": "2.0.0",
     "pre-commit": "1.1.3",
     "rollup": "0.36.4",
     "rollup-plugin-async": "1.2.0",
