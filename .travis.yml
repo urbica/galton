@@ -2,16 +2,12 @@ language: node_js
 
 sudo: required
 
-# don't re-build for tags so that [publish binary] is not re-run
-# https://github.com/travis-ci/travis-ci/issues/1532
 branches:
   except:
     - /^v[0-9]/
 
 services:
   - docker
-
-dist: xenial
 
 addons:
   apt:
@@ -21,8 +17,12 @@ addons:
 node_js:
   - 4
 
+cache:
+  yarn: true
+
 install:
-  - make
+  - yarn
+  - npm run build
   - docker build -t galton .
   - docker run -d -p 127.0.0.1:5000:5000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
 

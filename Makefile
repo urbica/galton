@@ -6,7 +6,7 @@ clean:
 	rm -rf node_modules
 
 shm:
-	$(MAKE) all -C ./node_modules/osrm/test/data/
+	$(MAKE) all -i -C ./node_modules/osrm/test/data/
 
 test: shm
 	npm test
