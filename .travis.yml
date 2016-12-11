@@ -1,40 +1,39 @@
 language: node_js
-
 dist: trusty
-
-env:
-  - CC=gcc-6
-  - CPP=cpp-6
-  - CXX=g++-6
-
 sudo: required
 
 branches:
   except:
     - /^v[0-9]/
 
+node_js:
+  - 4
+
+env:
+  - CXX=g++-4.8
+
 services:
   - docker
 
 addons:
   apt:
-    sources: [ 'ubuntu-toolchain-r-test' ]
-    packages: [ 'g++-6 gcc-6 build-essential git wget cmake pkg-config
-    libbz2-dev libstxxl-dev libstxxl1 libxml2-dev libzip-dev libboost-all-dev
-    lua5.2 liblua5.2-dev libluabind-dev libtbb-dev' ]
-
-node_js:
-  - 4
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 
 cache:
   yarn: true
 
+before_install:
+  - npm install -g yarn --cache-min 999999999
+
 install:
-  - npm install
+  - yarn
   - npm run build
   - docker build -t galton .
   - docker run -d -p 127.0.0.1:5000:5000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
 
 script:
-  - make test
+  # - make test
   - docker ps | grep -q galton
