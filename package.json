@@ -36,7 +36,7 @@
     "@turf/bezier": "3.5.3",
     "@turf/destination": "3.5.3",
     "@turf/point-grid": "3.5.3",
-    "babel-runtime": "6.18.0",
+    "babel-runtime": "6.20.0",
     "concaveman": "1.1.1",
     "kcors": "2.2.0",
     "koa": "2.0.0-alpha.7",
