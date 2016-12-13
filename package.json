@@ -59,7 +59,7 @@
     "documentation": "4.0.0-beta13",
     "eslint": "3.12.1",
     "eslint-config-airbnb-base": "10.0.1",
-    "eslint-plugin-babel": "3.3.0",
+    "eslint-plugin-babel": "4.0.0",
     "eslint-plugin-import": "2.2.0",
     "pre-commit": "1.2.2",
     "supertest-koa-agent": "0.3.0",
