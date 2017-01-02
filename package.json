@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "2.0.0",
+  "version": "5.5.2",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -36,23 +36,21 @@
     "koa-etag": "3.0.0",
     "koa-logger": "2.0.0",
     "minimist": "1.2.0",
-    "osrm": "5.4.3"
+    "osrm": "5.5.2"
   },
   "devDependencies": {
     "documentation": "4.0.0-beta16",
-    "eslint": "3.12.0",
-    "eslint-config-airbnb-base": "10.0.1",
+    "eslint": "3.12.2",
+    "eslint-config-airbnb-base": "11.0.0",
     "eslint-plugin-import": "2.2.0",
     "geojsonhint": "2.0.0",
-    "pre-commit": "1.2.0",
-    "rollup": "0.36.4",
+    "pre-commit": "1.2.2",
+    "rollup": "0.39.2",
     "rollup-plugin-async": "1.2.0",
-    "rollup-plugin-commonjs": "5.0.5",
-    "rollup-plugin-json": "2.0.2",
+    "rollup-plugin-commonjs": "7.0.0",
+    "rollup-plugin-json": "2.1.0",
     "rollup-plugin-node-resolve": "2.0.0",
-    "rollup-plugin-uglify": "1.0.1",
     "supertest-koa-agent": "0.3.0",
-    "tape": "4.6.3",
-    "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony"
+    "tape": "4.6.3"
   }
 }

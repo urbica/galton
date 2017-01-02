@@ -9,9 +9,6 @@ branches:
 node_js:
   - 4
 
-env:
-  - CXX=g++-4.8
-
 services:
   - docker
 
@@ -35,5 +32,5 @@ install:
   - docker run -d -p 127.0.0.1:5000:5000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
 
 script:
-  # - make test
+  - make test
   - docker ps | grep -q galton

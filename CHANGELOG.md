@@ -1,5 +1,10 @@
 ## Galton changelog
 
+### 5.5.2
+
+ - Switch to version 5.5.2 to match `node-osrm` version
+ - Update to `osrm` v5.5.2
+
 ### 1.3.10
 
  - Update to `osrm` v5.4.3

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+
 const path = require('path');
 const test = require('tape');
 const request = require('supertest-koa-agent');
@@ -11,10 +12,11 @@ test('galton', (t) => {
   const point = [52.517037, 13.388860];
   const osrmPath = path.join(__dirname, '../node_modules/osrm/test/data/berlin-latest.osrm');
 
-  const app = galton({
+  const app = galton.app({
     osrmPath,
     bufferSize: 1,
     cellSize: 0.1,
+    sharedMemory: false,
     units: 'kilometers'
   });
 

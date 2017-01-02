@@ -57,7 +57,10 @@ const galton = (config) => {
   const numericParams = ['bufferSize', 'cellWidth', 'concavity',
     'lengthThreshold', 'resolution', 'sharpness'];
 
-  if (config.cors) app.use(cors());
+  if (config.cors) {
+    app.use(cors());
+  }
+
   app.use(compress());
   app.use(conditional());
   app.use(etag());
@@ -74,6 +77,8 @@ const galton = (config) => {
 
   app.use(async (ctx) => {
     const query = ctx.request.query;
+    const lng = parseFloat(query.lng);
+    const lat = parseFloat(query.lat);
 
     const numericOptions = numericParams.reduce((acc, param) => {
       if (isNaN(query[param])) return acc;
@@ -97,7 +102,7 @@ const galton = (config) => {
       units: query.units
     });
 
-    ctx.body = await isochrone([parseFloat(query.lng), parseFloat(query.lat)], options);
+    ctx.body = await isochrone([lng, lat], options);
   });
 
   return app;
