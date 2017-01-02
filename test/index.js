@@ -3,7 +3,7 @@
 const path = require('path');
 const test = require('tape');
 const request = require('supertest-koa-agent');
-const geojsonhint = require('geojsonhint');
+const geojsonhint = require('@mapbox/geojsonhint');
 const galton = require('../dist/bundle.js');
 
 test('galton', (t) => {
