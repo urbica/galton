@@ -6,27 +6,13 @@ branches:
   except:
     - /^v[0-9]/
 
-node_js:
-  - 4
-
 services:
   - docker
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-
-cache:
-  yarn: true
-
-# before_install:
-#   - npm install -g yarn --cache-min 999999999
+node_js:
+  - 4
 
 install:
-  # - yarn
   - npm install
   - npm run build
   - docker build -t galton .

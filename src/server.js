@@ -70,8 +70,10 @@ const galton = (config) => {
     try {
       await next();
     } catch (error) {
+      /* eslint-disable no-param-reassign */
       ctx.body = { message: error.message };
       ctx.status = error.status || 500;
+      /* eslint-enable no-param-reassign */
     }
   });
 
@@ -102,7 +104,9 @@ const galton = (config) => {
       units: query.units
     });
 
+    /* eslint-disable no-param-reassign */
     ctx.body = await isochrone([lng, lat], options);
+    /* eslint-enable no-param-reassign */
   });
 
   return app;

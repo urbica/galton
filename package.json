@@ -10,6 +10,7 @@
     "build": "rollup -c",
     "docs": "documentation build src/* --format md --output docs/API.md",
     "lint": "eslint .",
+    "prepublish": "npm run build",
     "start": "node index.js",
     "test": "node test/index.js"
   },
