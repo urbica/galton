@@ -37,7 +37,7 @@
     "koa-etag": "3.0.0",
     "koa-logger": "2.0.0",
     "minimist": "1.2.0",
-    "osrm": "5.5.2"
+    "osrm": "5.5.3"
   },
   "devDependencies": {
     "documentation": "4.0.0-beta16",
