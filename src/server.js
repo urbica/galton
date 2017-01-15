@@ -70,6 +70,7 @@ const galton = (config) => {
     try {
       await next();
     } catch (error) {
+      process.stderr.write(`${(new Date()).toISOString()} ${error.message}`);
       /* eslint-disable no-param-reassign */
       ctx.body = { message: error.message };
       ctx.status = error.status || 500;

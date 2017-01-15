@@ -12,40 +12,40 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bezier@3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.7.0.tgz#9746e8db9feed41c7137b493a80f1446fbab4dab"
+"@turf/bezier@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.7.3.tgz#8e4038b3611ddc508238fdda088858c051779048"
   dependencies:
-    "@turf/helpers" "^3.6.3"
+    "@turf/helpers" "^3.7.3"
 
-"@turf/destination@3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.7.0.tgz#0149a890e1102dbfc0647b02de39cfc43c574fdb"
+"@turf/destination@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.7.3.tgz#5d7824c97fb17358974274b63c7e5408e2a42b62"
   dependencies:
-    "@turf/helpers" "^3.6.3"
-    "@turf/invariant" "^3.7.0"
+    "@turf/helpers" "^3.7.3"
+    "@turf/invariant" "^3.7.3"
 
-"@turf/distance@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.7.0.tgz#ce229d1b27205534a64ac018fa3247f9e2adc400"
+"@turf/distance@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.7.3.tgz#9dda60ef74a022ecd7c7bb0137280ce7e0f47ada"
   dependencies:
-    "@turf/helpers" "^3.6.3"
-    "@turf/invariant" "^3.7.0"
+    "@turf/helpers" "^3.7.3"
+    "@turf/invariant" "^3.7.3"
 
-"@turf/helpers@^3.6.3":
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.6.3.tgz#742e834f792f60dfa429df664d66ae31500bc051"
+"@turf/helpers@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.7.3.tgz#b28004ae72b282bcd3dccadd5855e8641b56858a"
 
-"@turf/invariant@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.7.0.tgz#0d90b5033e70e6f567dde5981bdf3a1f0d77cab1"
+"@turf/invariant@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.7.3.tgz#4a3b5d34ce38e94ab0ec3eb9c6ea6fc154cb7100"
 
-"@turf/point-grid@3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.7.0.tgz#67f36cd2fe710d2a5b043606446a6f84d9694e70"
+"@turf/point-grid@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.7.3.tgz#8a34a1d1ce4357deef5ec44fad93d8a9341fcb05"
   dependencies:
-    "@turf/distance" "^3.7.0"
-    "@turf/helpers" "^3.6.3"
+    "@turf/distance" "^3.7.3"
+    "@turf/helpers" "^3.7.3"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.0"
@@ -1738,9 +1738,9 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint@3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.13.0.tgz#636925fd163c9babe2e8be7ae43caf518d469577"
+eslint@3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.13.1.tgz#564d2646b5efded85df96985332edd91a23bff25"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"
@@ -3364,9 +3364,9 @@ os-tmpdir@^1.0.0, os-tmpdir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-osrm@5.5.2:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.5.2.tgz#421e4bc5f7cfaec851f25c22e12accbd6a772123"
+osrm@5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.5.3.tgz#53e234934393c575f5d663cd286e06e6d71a3de9"
   dependencies:
     nan "^2.1.0"
     node-cmake "^1.2.1"
@@ -3966,9 +3966,9 @@ rollup-pluginutils@^1.5.1, rollup-pluginutils@^1.5.2:
     estree-walker "^0.2.1"
     minimatch "^3.0.2"
 
-rollup@0.41.1:
-  version "0.41.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.41.1.tgz#5be8192c196c35977551e52ec0c98c3f83280525"
+rollup@0.41.4:
+  version "0.41.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.41.4.tgz#a970580176329f9ead86854d7fd4c46de752aef8"
   dependencies:
     source-map-support "^0.4.0"
 

@@ -54,7 +54,15 @@ galton moscow_russia.osrm
 
 Open `examples/index.html?access_token=<token>`
 
-## Examples
+## Example
+
+```shell
+cd galton
+wget https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf
+./node_modules/osrm/lib/binding/osrm-extract -p ./node_modules/osrm/profiles/car.lua moscow_russia.osm.pbf
+./node_modules/osrm/lib/binding/osrm-contract moscow_russia.osrm
+npm start -- moscow_russia.osrm
+```
 
 Build isochrones from point
 
