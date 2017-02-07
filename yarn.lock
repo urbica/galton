@@ -12,40 +12,40 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bezier@3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.7.3.tgz#8e4038b3611ddc508238fdda088858c051779048"
+"@turf/bezier@3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.7.5.tgz#d1545677f3be8e394a673b6ae4b6087e2adc7dbb"
   dependencies:
-    "@turf/helpers" "^3.7.3"
+    "@turf/helpers" "^3.7.5"
 
-"@turf/destination@3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.7.3.tgz#5d7824c97fb17358974274b63c7e5408e2a42b62"
+"@turf/destination@3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.7.5.tgz#f3962c5c077bd1f705e93dbc6628a2c959e372e0"
   dependencies:
-    "@turf/helpers" "^3.7.3"
-    "@turf/invariant" "^3.7.3"
+    "@turf/helpers" "^3.7.5"
+    "@turf/invariant" "^3.7.5"
 
-"@turf/distance@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.7.3.tgz#9dda60ef74a022ecd7c7bb0137280ce7e0f47ada"
+"@turf/distance@^3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.7.5.tgz#a0f7cb0826f031e9a59f86ef850bd177cd6d1c77"
   dependencies:
-    "@turf/helpers" "^3.7.3"
-    "@turf/invariant" "^3.7.3"
+    "@turf/helpers" "^3.7.5"
+    "@turf/invariant" "^3.7.5"
 
-"@turf/helpers@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.7.3.tgz#b28004ae72b282bcd3dccadd5855e8641b56858a"
+"@turf/helpers@^3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.7.5.tgz#d8e7267fa689f58cfd1c9d7a86089d96cecc550b"
 
-"@turf/invariant@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.7.3.tgz#4a3b5d34ce38e94ab0ec3eb9c6ea6fc154cb7100"
+"@turf/invariant@^3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.7.5.tgz#cbbe287051480f1d78440711ba4b0bc27fa7e9fc"
 
-"@turf/point-grid@3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.7.3.tgz#8a34a1d1ce4357deef5ec44fad93d8a9341fcb05"
+"@turf/point-grid@3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.7.5.tgz#8df0945e312c9df8bcccd99c635fef25888e522f"
   dependencies:
-    "@turf/distance" "^3.7.3"
-    "@turf/helpers" "^3.7.3"
+    "@turf/distance" "^3.7.5"
+    "@turf/helpers" "^3.7.5"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.0"
@@ -75,13 +75,13 @@ acorn-jsx@^3.0.0:
   dependencies:
     acorn "^3.0.4"
 
+acorn@4.0.4, acorn@^4.0.1:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
+
 acorn@^3.0.4, acorn@^3.1.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
-
-acorn@^4.0.1:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
 
 add-stream@^1.0.0:
   version "1.0.0"
@@ -1216,15 +1216,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-concat-stream@^1.4.6, concat-stream@^1.4.7, concat-stream@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
-  dependencies:
-    inherits "^2.0.3"
-    readable-stream "^2.2.2"
-    typedarray "^0.0.6"
-
-concat-stream@~1.5.0, concat-stream@~1.5.1:
+concat-stream@^1.4.6, concat-stream@^1.4.7, concat-stream@^1.5.0, concat-stream@~1.5.0, concat-stream@~1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.5.2.tgz#708978624d856af41a5a741defdd261da752c266"
   dependencies:
@@ -1704,9 +1696,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@11.0.1:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.0.1.tgz#5401dba284c6b7d7c8fb1c2ee19aba018f9dfa21"
+eslint-config-airbnb-base@11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.0.tgz#dc9b3ec70b8c74dcbe6d6257c9da3992c39ca2ca"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
@@ -1738,9 +1730,9 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint@3.13.1:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.13.1.tgz#564d2646b5efded85df96985332edd91a23bff25"
+eslint@3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.15.0.tgz#bdcc6a6c5ffe08160e7b93c066695362a91e30f2"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"
@@ -1748,7 +1740,7 @@ eslint@3.13.1:
     debug "^2.1.1"
     doctrine "^1.2.2"
     escope "^3.6.0"
-    espree "^3.3.1"
+    espree "^3.4.0"
     estraverse "^4.2.0"
     esutils "^2.0.2"
     file-entry-cache "^2.0.0"
@@ -1777,11 +1769,11 @@ eslint@3.13.1:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-espree@^3.3.1:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/espree/-/espree-3.3.2.tgz#dbf3fadeb4ecb4d4778303e50103b3d36c88b89c"
+espree@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-3.4.0.tgz#41656fa5628e042878025ef467e78f125cb86e1d"
   dependencies:
-    acorn "^4.0.1"
+    acorn "4.0.4"
     acorn-jsx "^3.0.0"
 
 esprima@^2.6.0:
@@ -2340,7 +2332,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
+inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
@@ -3364,9 +3356,9 @@ os-tmpdir@^1.0.0, os-tmpdir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-osrm@5.5.3:
-  version "5.5.3"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.5.3.tgz#53e234934393c575f5d663cd286e06e6d71a3de9"
+osrm@5.5.4:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.5.4.tgz#c038ee76e7e27f061572f830d17ffdc349b128c4"
   dependencies:
     nan "^2.1.0"
     node-cmake "^1.2.1"
@@ -3612,34 +3604,22 @@ read-pkg@^1.0.0, read-pkg@^1.1.0:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.5, readable-stream@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
-  dependencies:
-    buffer-shims "^1.0.0"
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~0.10.x"
-    util-deprecate "~1.0.1"
-
-readable-stream@~2.0.0:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~0.10.x"
-    util-deprecate "~1.0.1"
-
-readable-stream@~2.1.0, readable-stream@~2.1.4:
+readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.5, readable-stream@~2.1.0, readable-stream@~2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
     buffer-shims "^1.0.0"
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "~1.0.0"
+    process-nextick-args "~1.0.6"
+    string_decoder "~0.10.x"
+    util-deprecate "~1.0.1"
+
+readable-stream@^2.0.2, readable-stream@~2.0.0:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
+  dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -4470,7 +4450,7 @@ type-is@^1.5.5:
     media-typer "0.3.0"
     mime-types "~2.1.13"
 
-typedarray@^0.0.6, typedarray@~0.0.5:
+typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 

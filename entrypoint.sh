@@ -8,22 +8,15 @@ URL=$1
 PBF=${URL##*/}
 OSRM=${PBF%%.*}.osrm
 PROFILE=${2:-foot}.lua
-
-_sig() {
-  kill -TERM $child 2>/dev/null
-}
-
-trap _sig SIGKILL SIGTERM SIGHUP SIGINT EXIT
+OSRM_PATH=/usr/src/app/node_modules/osrm
 
 if [ ! -f /data/$OSRM ]; then
   if [ ! -f /extracts/$PBF ]; then
     curl $URL > /extracts/$PBF
   fi
-  cp /extracts/$PBF /data/$PBF
-  osrm-extract -p /profiles/$PROFILE /data/$PBF
-  osrm-contract /data/$OSRM
+  ln -s /extracts/$PBF /data/$PBF
+  $OSRM_PATH/lib/binding/osrm-extract -p $OSRM_PATH/profiles/$PROFILE /data/$PBF
+  $OSRM_PATH/lib/binding/osrm-contract /data/$OSRM
 fi
 
-node /usr/src/galton/index.js /data/$OSRM &
-child=$!
-wait "$child"
+pm2-docker --auto-exit -i max /usr/src/app/index.js -- /data/$OSRM

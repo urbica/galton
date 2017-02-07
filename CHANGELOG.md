@@ -1,5 +1,14 @@
 ## Galton changelog
 
+### 5.5.4
+
+ - Update to `osrm` v5.5.4
+ - Simplify docker image
+
+### 5.5.3
+
+ - Update to `osrm` v5.5.3
+
 ### 5.5.2
 
  - Switch to version 5.5.2 to match `node-osrm` version
