@@ -26,9 +26,9 @@
     "node": "4"
   },
   "dependencies": {
-    "@turf/bezier": "3.7.5",
-    "@turf/destination": "3.7.5",
-    "@turf/point-grid": "3.7.5",
+    "@turf/bezier": "3.10.3",
+    "@turf/destination": "3.10.3",
+    "@turf/point-grid": "3.10.3",
     "concaveman": "1.1.1",
     "kcors": "2.2.0",
     "koa": "2.0.0-alpha.7",
@@ -40,9 +40,9 @@
     "osrm": "5.5.4"
   },
   "devDependencies": {
-    "@mapbox/geojsonhint": "2.0.0",
+    "@mapbox/geojsonhint": "2.0.1",
     "documentation": "4.0.0-beta16",
-    "eslint": "3.15.0",
+    "eslint": "3.16.0",
     "eslint-config-airbnb-base": "11.1.0",
     "eslint-plugin-import": "2.2.0",
     "pre-commit": "1.2.2",

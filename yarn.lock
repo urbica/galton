@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@mapbox/geojsonhint@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@mapbox/geojsonhint/-/geojsonhint-2.0.0.tgz#054a3d3da1995d6b3533a7d7286d314eb8e28b2c"
+"@mapbox/geojsonhint@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@mapbox/geojsonhint/-/geojsonhint-2.0.1.tgz#32dac7300f04b3ebaec74b5ba9853dfb42532354"
   dependencies:
     concat-stream "~1.5.1"
     jsonlint-lines "1.7.1"
@@ -12,40 +12,40 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bezier@3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.7.5.tgz#d1545677f3be8e394a673b6ae4b6087e2adc7dbb"
+"@turf/bezier@3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.10.3.tgz#1eda2deddfee100cef7e4d7547f51e647cfba42f"
   dependencies:
-    "@turf/helpers" "^3.7.5"
+    "@turf/helpers" "^3.10.3"
 
-"@turf/destination@3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.7.5.tgz#f3962c5c077bd1f705e93dbc6628a2c959e372e0"
+"@turf/destination@3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.10.3.tgz#624b82bdfb771575bacc90d9b312b149682e6857"
   dependencies:
-    "@turf/helpers" "^3.7.5"
-    "@turf/invariant" "^3.7.5"
+    "@turf/helpers" "^3.10.3"
+    "@turf/invariant" "^3.10.0"
 
-"@turf/distance@^3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.7.5.tgz#a0f7cb0826f031e9a59f86ef850bd177cd6d1c77"
+"@turf/distance@^3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.10.3.tgz#2f4124235cec96f466b3111795ee37693eaa2bd1"
   dependencies:
-    "@turf/helpers" "^3.7.5"
-    "@turf/invariant" "^3.7.5"
+    "@turf/helpers" "^3.10.3"
+    "@turf/invariant" "^3.10.0"
 
-"@turf/helpers@^3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.7.5.tgz#d8e7267fa689f58cfd1c9d7a86089d96cecc550b"
+"@turf/helpers@^3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.10.3.tgz#3dd746d59de17c8ef4cf44e82f9cef1bf1ab3215"
 
-"@turf/invariant@^3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.7.5.tgz#cbbe287051480f1d78440711ba4b0bc27fa7e9fc"
+"@turf/invariant@^3.10.0":
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.10.0.tgz#c9e22d0af9a817c42e393fe102c4657dd08de373"
 
-"@turf/point-grid@3.7.5":
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.7.5.tgz#8df0945e312c9df8bcccd99c635fef25888e522f"
+"@turf/point-grid@3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.10.3.tgz#41f140886bb6f07307151e0e1c26d1a1aaa68cbf"
   dependencies:
-    "@turf/distance" "^3.7.5"
-    "@turf/helpers" "^3.7.5"
+    "@turf/distance" "^3.10.3"
+    "@turf/helpers" "^3.10.3"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.0"
@@ -1730,9 +1730,9 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint@3.15.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.15.0.tgz#bdcc6a6c5ffe08160e7b93c066695362a91e30f2"
+eslint@3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.16.0.tgz#4a468ab93618a9eb6e3f1499038b38851f828630"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"

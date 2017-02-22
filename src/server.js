@@ -6,6 +6,9 @@ import Koa from 'koa';
 import logger from 'koa-logger';
 import OSRM from 'osrm';
 import isochrone from './isochrone';
+import checkError from './middlewares/check-error';
+import checkHealth from './middlewares/check-health';
+import queryToOptions from './utils';
 
 /**
  * Server configuration
@@ -53,9 +56,7 @@ const galton = (config) => {
     shared_memory: config.sharedMemory
   });
 
-  app.context.defaults = Object.assign({ osrm }, defaults, config);
-  const numericParams = ['bufferSize', 'cellWidth', 'concavity',
-    'lengthThreshold', 'resolution', 'sharpness'];
+  const defaultOptions = Object.assign({ osrm }, defaults, config);
 
   if (config.cors) {
     app.use(cors());
@@ -65,45 +66,14 @@ const galton = (config) => {
   app.use(conditional());
   app.use(etag());
   app.use(logger());
-
-  app.use(async (ctx, next) => {
-    try {
-      await next();
-    } catch (error) {
-      process.stderr.write(`${(new Date()).toISOString()} ${error.message}`);
-      /* eslint-disable no-param-reassign */
-      ctx.body = { message: error.message };
-      ctx.status = error.status || 500;
-      /* eslint-enable no-param-reassign */
-    }
-  });
+  app.use(checkError());
+  app.use(checkHealth('/ping'));
 
   app.use(async (ctx) => {
     const query = ctx.request.query;
     const lng = parseFloat(query.lng);
     const lat = parseFloat(query.lat);
-
-    const numericOptions = numericParams.reduce((acc, param) => {
-      if (isNaN(query[param])) return acc;
-      return Object.assign({}, acc, { [param]: parseFloat(query[param]) });
-    }, ctx.defaults.defaults);
-
-    let intervals;
-    if (Array.isArray(query.intervals)) {
-      intervals = query.intervals
-        .filter(i => !isNaN(i))
-        .map(parseFloat)
-        .sort((a, b) => a - b);
-    } else {
-      const interval = parseFloat(query.intervals);
-      intervals = interval ? [interval] : config.intervals || defaults.intervals;
-    }
-
-    const options = Object.assign({}, ctx.defaults, numericOptions, {
-      osrm,
-      intervals,
-      units: query.units
-    });
+    const options = queryToOptions(defaultOptions, query);
 
     /* eslint-disable no-param-reassign */
     ctx.body = await isochrone([lng, lat], options);
