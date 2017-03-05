@@ -12,40 +12,40 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bezier@3.10.3":
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.10.3.tgz#1eda2deddfee100cef7e4d7547f51e647cfba42f"
+"@turf/bezier@3.10.5":
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.10.5.tgz#3354bbcdf0b017a92b2130bc2ee39c2dd7ecfe0c"
   dependencies:
-    "@turf/helpers" "^3.10.3"
+    "@turf/helpers" "^3.10.5"
 
-"@turf/destination@3.10.3":
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.10.3.tgz#624b82bdfb771575bacc90d9b312b149682e6857"
+"@turf/destination@3.10.5":
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.10.5.tgz#7053307bc082a973a14a9a7f6f562ed9b00dc968"
   dependencies:
-    "@turf/helpers" "^3.10.3"
+    "@turf/helpers" "^3.10.5"
     "@turf/invariant" "^3.10.0"
 
-"@turf/distance@^3.10.3":
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.10.3.tgz#2f4124235cec96f466b3111795ee37693eaa2bd1"
+"@turf/distance@^3.10.5":
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.10.5.tgz#a6cc4d474588494298028cc68da85610a0ae9d46"
   dependencies:
-    "@turf/helpers" "^3.10.3"
+    "@turf/helpers" "^3.10.5"
     "@turf/invariant" "^3.10.0"
 
-"@turf/helpers@^3.10.3":
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.10.3.tgz#3dd746d59de17c8ef4cf44e82f9cef1bf1ab3215"
+"@turf/helpers@^3.10.5":
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.10.5.tgz#1a53a9bd08f4eb4f7544a132f22d23f1b5e7d534"
 
 "@turf/invariant@^3.10.0":
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.10.0.tgz#c9e22d0af9a817c42e393fe102c4657dd08de373"
 
-"@turf/point-grid@3.10.3":
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.10.3.tgz#41f140886bb6f07307151e0e1c26d1a1aaa68cbf"
+"@turf/point-grid@3.10.5":
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.10.5.tgz#5d66c01a95aff61478acc44a46096a935e5b4e29"
   dependencies:
-    "@turf/distance" "^3.10.3"
-    "@turf/helpers" "^3.10.3"
+    "@turf/distance" "^3.10.5"
+    "@turf/helpers" "^3.10.5"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.0"
@@ -1696,9 +1696,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.0.tgz#dc9b3ec70b8c74dcbe6d6257c9da3992c39ca2ca"
+eslint-config-airbnb-base@11.1.1:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.1.tgz#61e9e89e4eb89f474f6913ac817be9fbb59063e0"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
@@ -1730,9 +1730,9 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint@3.16.1:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.16.1.tgz#9bc31fc7341692cf772e80607508f67d711c5609"
+eslint@3.17.0:
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.17.0.tgz#e2704b09c5bae9fb49ee8bafeea3832c7257d498"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"
@@ -3356,9 +3356,9 @@ os-tmpdir@^1.0.0, os-tmpdir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-osrm@5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.6.0.tgz#7b08f33aa3d9fed7f888dc258c0fa8ae992b48a4"
+osrm@5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.6.1.tgz#218d91fe46aabd922c3279e94aa1512193823bc9"
   dependencies:
     nan "^2.1.0"
     node-cmake "^1.2.1"
