@@ -6,6 +6,9 @@ branches:
   except:
     - /^v[0-9]/
 
+node_js:
+  - 4
+
 services:
   - docker
 
@@ -16,14 +19,16 @@ addons:
     packages:
       - g++-4.8
 
-node_js:
-  - 4
+cache:
+  yarn: true
+  directories:
+    - node_modules
 
 install:
-  - npm install
-  - npm run build
+  - yarn
+  - yarn run build
   - docker build -t galton .
-  - docker run -d -p 127.0.0.1:5000:5000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+  - docker run -d -p 127.0.0.1:4000:4000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
 
 script:
   - make test
