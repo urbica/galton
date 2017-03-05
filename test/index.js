@@ -27,10 +27,11 @@ test('galton', (t) => {
     .end((error, res) => {
       t.error(error, 'No error');
       const errors = geojsonhint.hint(res.text);
-      if (Object.keys(errors).length > 0) {
-        t.pass('Valid GeoJSON');
-      } else {
+      if (errors.length > 0) {
+        t.comment(errors);
         t.fail('Invalid GeoJSON');
+      } else {
+        t.pass('Valid GeoJSON');
       }
       t.end();
     });

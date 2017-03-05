@@ -4,7 +4,6 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
@@ -74,9 +73,10 @@
     }, {});
 
     mapboxgl.accessToken = args.access_token || localStorage.accessToken;
+    var mapEl = document.getElementById('map');
 
     var map = new mapboxgl.Map({
-        container: 'map',
+        container: mapEl,
         style: 'mapbox://styles/mapbox/light-v8',
         center: [37.61701583862305, 55.750931611695684],
         zoom: 12
@@ -118,7 +118,7 @@
     });
 
     map.on('click', function (e) {
-      $('#map').addClass('loading');
+      mapEl.classList.add('loading');
       var intervals = Array.from(
         document.querySelectorAll('.intervals input[type="checkbox"]:checked')
       ).map(function(el) { return el.value });
@@ -148,11 +148,11 @@
           console.timeEnd('request');
           console.groupEnd();
           gridSource.setData(data);
-          $('#map').removeClass('loading');
+          mapEl.classList.remove('loading');
         })
         .catch((error) => {
           console.error(error);
-          $('#map').removeClass('loading');
+          mapEl.classList.remove('loading');
         });
     });
 
