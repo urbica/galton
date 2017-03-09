@@ -3356,9 +3356,9 @@ os-tmpdir@^1.0.0, os-tmpdir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-osrm@5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.6.2.tgz#0dc8429bfe5a20e273f8de1d6c558c986b6bd885"
+osrm@5.6.3:
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.6.3.tgz#bcde902a8ef331ac50d44b89601377e21a163cfa"
   dependencies:
     nan "^2.1.0"
     node-cmake "^1.2.1"

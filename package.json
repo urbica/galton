@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.6.2",
+  "version": "5.6.3",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
