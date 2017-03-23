@@ -14,8 +14,9 @@ if [ ! -f /data/$OSRM ]; then
   if [ ! -f /extracts/$PBF ]; then
     curl $URL > /extracts/$PBF
   fi
-  # check if /data/$PBF exists
-  ln -s /extracts/$PBF /data/$PBF
+  if [ ! -f /data/$PBF ]; then
+    ln -s /extracts/$PBF /data/$PBF
+  fi
   $OSRM_PATH/lib/binding/osrm-extract -p $OSRM_PATH/profiles/$PROFILE /data/$PBF
   $OSRM_PATH/lib/binding/osrm-contract /data/$OSRM
 fi

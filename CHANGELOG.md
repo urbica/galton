@@ -1,5 +1,10 @@
 ## Changelog
 
+### 5.6.4
+
+ - Update to `osrm` v5.6.4
+ - Simplify Docker image
+
 ### 5.6.3
 
  - Update to `osrm` v5.6.3
