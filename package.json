@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.6.3",
+  "version": "5.6.4",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "@mapbox/geojsonhint": "2.0.1",
     "documentation": "4.0.0-beta16",
     "eslint": "3.18.0",
-    "eslint-config-airbnb-base": "11.1.1",
+    "eslint-config-airbnb-base": "11.1.2",
     "eslint-plugin-import": "2.2.0",
     "pre-commit": "1.2.2",
     "rollup": "0.41.6",
