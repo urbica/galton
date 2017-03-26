@@ -9,9 +9,6 @@ branches:
 node_js:
   - 4
 
-services:
-  - docker
-
 addons:
   apt:
     sources:
@@ -27,9 +24,6 @@ cache:
 install:
   - yarn
   - yarn run build
-  - docker build -t galton .
-  - docker run -d -p 127.0.0.1:4000:4000 --name galton galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
 
 script:
   - make test
-  - docker ps | grep -q galton
