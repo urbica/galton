@@ -25,6 +25,10 @@
   "engines": {
     "node": "4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/urbica/galton.git"
+  },
   "dependencies": {
     "@turf/bezier": "3.14.0",
     "@turf/destination": "3.14.0",
