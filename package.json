@@ -54,7 +54,7 @@
     "rollup-plugin-async": "1.2.0",
     "rollup-plugin-commonjs": "8.0.2",
     "rollup-plugin-json": "2.1.0",
-    "rollup-plugin-node-resolve": "2.0.0",
+    "rollup-plugin-node-resolve": "2.1.0",
     "supertest-koa-agent": "0.3.0",
     "tape": "4.6.3"
   }
