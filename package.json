@@ -46,7 +46,7 @@
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
     "documentation": "4.0.0-beta16",
-    "eslint": "3.18.0",
+    "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.1.2",
     "eslint-plugin-import": "2.2.0",
     "pre-commit": "1.2.2",
