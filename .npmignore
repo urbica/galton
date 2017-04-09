@@ -1,4 +1,5 @@
 src
 examples
 Dockerfile
+example.png
 entrypoint.sh
