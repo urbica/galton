@@ -12,51 +12,55 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bbox@^3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-3.14.0.tgz#cee5f396dde78aca9cede05e1122db18bc504635"
+"@turf/bbox@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-4.1.0.tgz#62598dddbae21bda4cef74867cb8ae3b5f83be53"
   dependencies:
-    "@turf/meta" "^3.14.0"
+    "@turf/meta" "^4.1.0"
 
-"@turf/bezier@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-3.14.0.tgz#5cb0d4a935b317f8094f87a4d7cc81879e6e1dcf"
+"@turf/bezier@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-4.1.0.tgz#0ca8f16363fd957571e23749bc80763e3859b3d6"
   dependencies:
-    "@turf/helpers" "^3.13.0"
+    "@turf/helpers" "^4.1.0"
 
-"@turf/destination@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-3.14.0.tgz#ec9e65c419d99733bcaeb03f39b48f42d54ac36c"
+"@turf/destination@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-4.1.0.tgz#6b1d727c0ba9b5a386deb0bf21ae4e032ae60827"
   dependencies:
-    "@turf/helpers" "^3.13.0"
-    "@turf/invariant" "^3.13.0"
+    "@turf/helpers" "^4.1.0"
+    "@turf/invariant" "^4.1.0"
+    load-json-file "^2.0.0"
+    write-json-file "^2.0.0"
 
-"@turf/distance@^3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-3.14.0.tgz#71b0c6f265d23bb3004198e6da32f82964f42f8b"
+"@turf/distance@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-4.1.0.tgz#0050cbe85579e54c53eea2de48d7d8cb455592bc"
   dependencies:
-    "@turf/helpers" "^3.13.0"
-    "@turf/invariant" "^3.13.0"
+    "@turf/helpers" "^4.1.0"
+    "@turf/invariant" "^4.1.0"
+    load-json-file "^2.0.0"
+    write-json-file "^2.0.0"
 
-"@turf/helpers@^3.13.0":
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-3.13.0.tgz#d06078a1464cf56cdb7ea624ea1e13a71b88b806"
+"@turf/helpers@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-4.1.0.tgz#013a9c53db6a9386e47c7ab445d93ca2035c4b81"
 
-"@turf/invariant@^3.13.0":
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-3.13.0.tgz#89243308cd563206e81e5c6162e0d22f61822f90"
+"@turf/invariant@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-4.1.0.tgz#00f0710d3411b01cc71a966d21bcd048d6a86612"
 
-"@turf/meta@^3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-3.14.0.tgz#8d3050c1a0f44bf406a633b6bd28c510f7bcee27"
+"@turf/meta@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.1.0.tgz#7b0715832ff483d28d2669051f1e00c6cefcbf75"
 
-"@turf/point-grid@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-3.14.0.tgz#321af655a5093a1b5e76a4cc34c0205aaccc1533"
+"@turf/point-grid@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-4.1.0.tgz#70507af1ff26fca6f6c77cd84f42568ffe87038a"
   dependencies:
-    "@turf/bbox" "^3.14.0"
-    "@turf/distance" "^3.14.0"
-    "@turf/helpers" "^3.13.0"
+    "@turf/bbox" "^4.1.0"
+    "@turf/distance" "^4.1.0"
+    "@turf/helpers" "^4.1.0"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.1"
@@ -1016,7 +1020,7 @@ browser-resolve@^1.11.0, browser-resolve@^1.7.0:
   dependencies:
     resolve "1.1.7"
 
-buffer-shims@^1.0.0, buffer-shims@~1.0.0:
+buffer-shims@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
@@ -1224,15 +1228,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-concat-stream@^1.4.7, concat-stream@^1.5.0, concat-stream@^1.5.2:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
-  dependencies:
-    inherits "^2.0.3"
-    readable-stream "^2.2.2"
-    typedarray "^0.0.6"
-
-concat-stream@~1.5.0, concat-stream@~1.5.1:
+concat-stream@^1.4.7, concat-stream@^1.5.0, concat-stream@^1.5.2, concat-stream@~1.5.0, concat-stream@~1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.5.2.tgz#708978624d856af41a5a741defdd261da752c266"
   dependencies:
@@ -2178,7 +2174,7 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-graceful-fs@^4.0.0, graceful-fs@^4.1.2:
+graceful-fs@^4.0.0, graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -2353,7 +2349,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
+inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
@@ -2555,6 +2551,10 @@ is-path-inside@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-1.0.0.tgz#fc06e5a1683fbda13de667aff717bbc10a48f37f"
   dependencies:
     path-is-inside "^1.0.1"
+
+is-plain-obj@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
@@ -2866,6 +2866,15 @@ load-json-file@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
+
+load-json-file@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-2.0.0.tgz#7947e42149af80d696cbf797bcaabcfe1fe29ca8"
+  dependencies:
+    graceful-fs "^4.1.2"
+    parse-json "^2.2.0"
+    pify "^2.0.0"
+    strip-bom "^3.0.0"
 
 load-plugin@^2.0.0:
   version "2.1.0"
@@ -3650,22 +3659,11 @@ read-pkg@^1.0.0, read-pkg@^1.1.0:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2:
-  version "2.2.9"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
+readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@~2.1.0:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
-    buffer-shims "~1.0.0"
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~1.0.0"
-    util-deprecate "~1.0.1"
-
-readable-stream@~2.0.0:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
-  dependencies:
+    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -3673,11 +3671,10 @@ readable-stream@~2.0.0:
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-readable-stream@~2.1.0:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
+readable-stream@^2.0.2, readable-stream@~2.0.0:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
-    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -3987,9 +3984,9 @@ rollup-plugin-commonjs@8.0.2:
     resolve "^1.1.7"
     rollup-pluginutils "^2.0.1"
 
-rollup-plugin-json@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-2.1.0.tgz#7f8e1b2b156932dd934b938dc5547e4118d4121f"
+rollup-plugin-json@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-2.1.1.tgz#933390dff3c9e3e654157d61304c5e167fc58623"
   dependencies:
     rollup-pluginutils "^1.5.2"
 
@@ -4090,11 +4087,21 @@ slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
+slide@^1.1.5:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
+
 sntp@1.x.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
   dependencies:
     hoek "2.x.x"
+
+sort-keys@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
+  dependencies:
+    is-plain-obj "^1.0.0"
 
 source-map-support@^0.4.0, source-map-support@^0.4.2:
   version "0.4.14"
@@ -4236,12 +4243,6 @@ string.prototype.trim@~1.1.2:
 string_decoder@0.10, string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
-
-string_decoder@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.0.tgz#f06f41157b664d86069f84bdbdc9b0d8ab281667"
-  dependencies:
-    buffer-shims "~1.0.0"
 
 stringify-entities@^1.0.1:
   version "1.3.0"
@@ -4528,7 +4529,7 @@ type-is@^1.5.5:
     media-typer "0.3.0"
     mime-types "~2.1.15"
 
-typedarray@^0.0.6, typedarray@~0.0.5:
+typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
@@ -4686,19 +4687,9 @@ vfile-sort@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vfile-sort/-/vfile-sort-2.0.0.tgz#7279458d111a9ba3b18effd9f8a0169bb7c5112b"
 
-vfile@2.0.0:
+vfile@2.0.0, vfile@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vfile/-/vfile-2.0.0.tgz#88620500e36bad025a0b01cc25106dbcb3090548"
-  dependencies:
-    has "^1.0.1"
-    is-buffer "^1.1.4"
-    replace-ext "1.0.0"
-    unist-util-stringify-position "^1.0.0"
-    x-is-string "^0.1.0"
-
-vfile@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vfile/-/vfile-2.0.1.tgz#bd48e68e8a2322dff0d162a37f45e70d9bb30466"
   dependencies:
     has "^1.0.1"
     is-buffer "^1.1.4"
@@ -4804,6 +4795,24 @@ wrap-ansi@^2.0.0:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+write-file-atomic@^1.1.2:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-1.3.1.tgz#7d45ba32316328dd1ec7d90f60ebc0d845bb759a"
+  dependencies:
+    graceful-fs "^4.1.11"
+    imurmurhash "^0.1.4"
+    slide "^1.1.5"
+
+write-json-file@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/write-json-file/-/write-json-file-2.0.0.tgz#0eaec981fcf9288dbc2806cbd26e06ab9bdca4ed"
+  dependencies:
+    graceful-fs "^4.1.2"
+    mkdirp "^0.5.1"
+    pify "^2.0.0"
+    sort-keys "^1.1.1"
+    write-file-atomic "^1.1.2"
 
 write@^0.2.1:
   version "0.2.1"

@@ -1,5 +1,10 @@
-FROM node:4-alpine
+FROM node:4
 MAINTAINER Stepan Kuzmin <to.stepan.kuzmin@gmail.com>
+
+RUN echo 'deb http://ftp.us.debian.org/debian testing main contrib non-free' >> /etc/apt/sources.list.d/testing.list \
+  && echo 'Package: *\nPin: release a=testing\nPin-Priority: 100' >> /etc/apt/preferences.d/testing \
+  && apt-get -yqq update \
+  && apt-get install -yqq -t testing gcc
 
 ENV NPM_CONFIG_COLOR=false
 ENV NPM_CONFIG_LOGLEVEL=warn
