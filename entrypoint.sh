@@ -8,6 +8,7 @@ URL=$1
 PBF=${URL##*/}
 OSRM=${PBF%%.*}.osrm
 PROFILE=${2:-foot}.lua
+INSTANCES=${GALTON_INSTANCES:-1}
 OSRM_PATH=/usr/src/app/node_modules/osrm
 
 if [ ! -f /data/$OSRM ]; then
@@ -21,4 +22,4 @@ if [ ! -f /data/$OSRM ]; then
   $OSRM_PATH/lib/binding/osrm-contract /data/$OSRM
 fi
 
-pm2-docker --auto-exit -i max /usr/src/app/index.js -- /data/$OSRM
+pm2-docker --auto-exit -i $INSTANCES /usr/src/app/index.js -- /data/$OSRM
