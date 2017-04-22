@@ -41,11 +41,11 @@
     "koa-etag": "3.0.0",
     "koa-logger": "2.0.1",
     "minimist": "1.2.0",
-    "osrm": "5.6.5"
+    "osrm": "5.7.0"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
-    "documentation": "4.0.0-beta16",
+    "documentation": "4.0.0-rc.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.1.3",
     "eslint-plugin-import": "2.2.0",
