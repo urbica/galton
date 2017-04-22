@@ -1,5 +1,9 @@
 ## Changelog
 
+### 5.7.0
+
+ - Update to `osrm` v5.7.0
+
 ### 5.6.5
 
  - Update to `osrm` v5.6.5
