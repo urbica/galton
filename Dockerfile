@@ -9,7 +9,7 @@ RUN echo 'deb http://ftp.us.debian.org/debian testing main contrib non-free' >> 
 ENV NPM_CONFIG_COLOR=false
 ENV NPM_CONFIG_LOGLEVEL=warn
 
-RUN yarn global add pm2
+RUN npm i -g pm2
 RUN mkdir -p /usr/src/app /data /extracts
 WORKDIR /usr/src/app
 COPY . /usr/src/app
