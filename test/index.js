@@ -9,8 +9,8 @@ const galton = require('../dist/bundle.js');
 test('galton', (t) => {
   t.plan(2);
 
-  const point = [52.517037, 13.388860];
-  const osrmPath = path.join(__dirname, '../node_modules/osrm/test/data/monaco.osrm');
+  const point = [43.7311424, 7.4197576];
+  const osrmPath = path.join(__dirname, '../test/data/monaco.osrm');
 
   const app = galton.app({
     osrmPath,
