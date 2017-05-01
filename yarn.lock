@@ -12,55 +12,59 @@
     vfile "2.0.0"
     vfile-reporter "3.0.0"
 
-"@turf/bbox@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-4.1.0.tgz#62598dddbae21bda4cef74867cb8ae3b5f83be53"
+"@turf/bbox@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-4.2.0.tgz#fe4e3241f32da70e2176ff493ec595e9a52da7ed"
   dependencies:
-    "@turf/meta" "^4.1.0"
+    "@turf/meta" "^4.2.0"
 
-"@turf/bezier@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-4.1.0.tgz#0ca8f16363fd957571e23749bc80763e3859b3d6"
+"@turf/bezier@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/bezier/-/bezier-4.2.0.tgz#5e638fe6a72927889ce33b29acb05860cc5ed5a3"
   dependencies:
-    "@turf/helpers" "^4.1.0"
+    "@turf/helpers" "^4.2.0"
+    benchmark "^2.1.4"
+    load-json-file "^2.0.0"
+    tape "^4.6.3"
+    write-json-file "^2.0.0"
 
-"@turf/destination@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-4.1.0.tgz#6b1d727c0ba9b5a386deb0bf21ae4e032ae60827"
+"@turf/destination@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/destination/-/destination-4.2.0.tgz#b621fc28a0675e456c33d7a7cf7e3bcade688bcb"
   dependencies:
-    "@turf/helpers" "^4.1.0"
-    "@turf/invariant" "^4.1.0"
+    "@turf/helpers" "^4.2.0"
+    "@turf/invariant" "^4.2.0"
     load-json-file "^2.0.0"
     write-json-file "^2.0.0"
 
-"@turf/distance@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-4.1.0.tgz#0050cbe85579e54c53eea2de48d7d8cb455592bc"
+"@turf/distance@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-4.2.0.tgz#c7be1279781552c796e0152917f217e89bbd05d8"
   dependencies:
-    "@turf/helpers" "^4.1.0"
-    "@turf/invariant" "^4.1.0"
+    "@turf/helpers" "^4.2.0"
+    "@turf/invariant" "^4.2.0"
     load-json-file "^2.0.0"
     write-json-file "^2.0.0"
 
-"@turf/helpers@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-4.1.0.tgz#013a9c53db6a9386e47c7ab445d93ca2035c4b81"
+"@turf/helpers@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-4.2.0.tgz#bc4d257224a811653abe7152b032c4a670ec120f"
 
-"@turf/invariant@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-4.1.0.tgz#00f0710d3411b01cc71a966d21bcd048d6a86612"
+"@turf/invariant@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-4.2.0.tgz#537a68c11ff33fd0c547082ef05c20f291e15149"
 
-"@turf/meta@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.1.0.tgz#7b0715832ff483d28d2669051f1e00c6cefcbf75"
+"@turf/meta@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.2.0.tgz#02dbc23599efb2287e79f12a72f5462a4283fdba"
 
-"@turf/point-grid@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-4.1.0.tgz#70507af1ff26fca6f6c77cd84f42568ffe87038a"
+"@turf/point-grid@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/point-grid/-/point-grid-4.2.0.tgz#bbd33c848a50c4f117b66cc1dc5332b598d7532b"
   dependencies:
-    "@turf/bbox" "^4.1.0"
-    "@turf/distance" "^4.1.0"
-    "@turf/helpers" "^4.1.0"
+    "@turf/bbox" "^4.2.0"
+    "@turf/distance" "^4.2.0"
+    "@turf/helpers" "^4.2.0"
 
 JSONStream@^1.0.3:
   version "1.3.1"
@@ -939,6 +943,13 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
   dependencies:
     tweetnacl "^0.14.3"
+
+benchmark@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/benchmark/-/benchmark-2.1.4.tgz#09f3de31c916425d498cc2ee565a0ebf3c2a5629"
+  dependencies:
+    lodash "^4.17.4"
+    platform "^1.3.3"
 
 binary-extensions@^1.0.0:
   version "1.8.0"
@@ -2678,7 +2689,7 @@ lodash.isequal@^4.0.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
-lodash@^4.0.0, lodash@^4.11.1, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3219,6 +3230,10 @@ pkg-up@^1.0.0:
   dependencies:
     find-up "^1.0.0"
 
+platform@^1.3.3:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/platform/-/platform-1.3.4.tgz#6f0fb17edaaa48f21442b3a975c063130f1c3ebd"
+
 plur@^2.0.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/plur/-/plur-2.1.2.tgz#7482452c1a0f508e3e344eaec312c91c29dc655a"
@@ -3353,7 +3368,7 @@ read-pkg@^2.0.0:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.4, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@~2.1.0:
+readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@~2.1.0:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
@@ -3365,7 +3380,7 @@ readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@~2.0.0:
+readable-stream@^2.0.2, readable-stream@~2.0.0:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
@@ -3981,7 +3996,7 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-tape@4.6.3:
+tape@4.6.3, tape@^4.6.3:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/tape/-/tape-4.6.3.tgz#637e77581e9ab2ce17577e9bd4ce4f575806d8b6"
   dependencies:

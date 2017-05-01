@@ -30,9 +30,9 @@
     "url": "git://github.com/urbica/galton.git"
   },
   "dependencies": {
-    "@turf/bezier": "4.1.0",
-    "@turf/destination": "4.1.0",
-    "@turf/point-grid": "4.1.0",
+    "@turf/bezier": "4.2.0",
+    "@turf/destination": "4.2.0",
+    "@turf/point-grid": "4.2.0",
     "concaveman": "1.1.1",
     "kcors": "2.2.0",
     "koa": "2.0.1",
