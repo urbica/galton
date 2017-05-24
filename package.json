@@ -48,7 +48,7 @@
     "documentation": "4.0.0-rc.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.2.0",
-    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-import": "2.3.0",
     "pre-commit": "1.2.2",
     "rollup": "0.41.6",
     "rollup-plugin-async": "1.2.0",
