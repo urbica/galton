@@ -15,7 +15,7 @@ import queryToOptions from './utils';
  *
  * @typedef {Object} serverConfig
  * @param {Object} options object
- * @property {string} options.osrmPath - path to *.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
+ * @param {string} options.osrmPath - path to *.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
  * @param {number} options.radius - distance to draw the buffer as in
  * [@turf/buffer](https://github.com/Turfjs/turf/tree/master/packages/turf-buffer)
  * @param {number} options.cellSize - the distance across each cell as in

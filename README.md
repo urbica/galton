@@ -33,16 +33,14 @@ npm run build
 Usage: galton [filename] [options]
 
 where [filename] is path to OSRM data and [options] is any of:
-  --bufferSize - buffer size (default: 6)
-  --cellWidth - turf-point-grid distance across each cell (default: 0.2)
+  --radius - distance to draw the buffer (default: 6)
+  --cellSize - the distance across each cell (default: 0.2)
   --concavity - concaveman relative measure of concavity (default: 2)
   --intervals - isochrones intervals in minutes (default: 10 20 30)
   --lengthThreshold - concaveman length threshold (default: 0)
   --pid - save PID to file
   --port - port to run on (default: 4000)
-  --resolution - turf-bezier time in milliseconds between points (default: 10000)
   --sharedMemory - use shared memory (default: false)
-  --sharpness - turf-bezier measure of how curvy the path should be between splines (default: 0.85)
   --socket - use Unix socket instead of port
   --units - either `kilometers` or `miles` (default: kilometers)
   --version - returns running version then exits
