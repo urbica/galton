@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.7.0",
+  "version": "5.7.3",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -30,10 +30,7 @@
     "url": "git://github.com/urbica/galton.git"
   },
   "dependencies": {
-    "@turf/bezier": "4.2.0",
-    "@turf/destination": "4.2.0",
-    "@turf/point-grid": "4.2.0",
-    "concaveman": "1.1.1",
+    "isochrone": "1.0.1",
     "kcors": "2.2.0",
     "koa": "2.0.1",
     "koa-compress": "2.0.0",
@@ -41,14 +38,14 @@
     "koa-etag": "3.0.0",
     "koa-logger": "2.0.1",
     "minimist": "1.2.0",
-    "osrm": "5.7.0"
+    "osrm": "5.7.3"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
-    "documentation": "4.0.0-rc.0",
+    "documentation": "4.0.0-rc.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.2.0",
-    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-import": "2.3.0",
     "pre-commit": "1.2.2",
     "rollup": "0.41.6",
     "rollup-plugin-async": "1.2.0",

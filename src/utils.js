@@ -1,10 +1,8 @@
 const numericParams = [
-  'bufferSize',
-  'cellWidth',
+  'radius',
+  'cellSize',
   'concavity',
-  'lengthThreshold',
-  'resolution',
-  'sharpness'
+  'lengthThreshold'
 ];
 
 export default (defaultOptions, query) => {

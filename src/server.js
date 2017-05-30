@@ -5,7 +5,7 @@ import etag from 'koa-etag';
 import Koa from 'koa';
 import logger from 'koa-logger';
 import OSRM from 'osrm';
-import isochrone from './isochrone';
+import isochrone from 'isochrone';
 import checkError from './middlewares/check-error';
 import checkHealth from './middlewares/check-health';
 import queryToOptions from './utils';
@@ -14,30 +14,25 @@ import queryToOptions from './utils';
  * Server configuration
  *
  * @typedef {Object} serverConfig
- * @property {string} osrmPath - path to *.osrm file
- * @property {number} bufferSize - buffer size
- * @property {number} cellWidth - cellWidth as in
- * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
- * @property {Array.<number>} intervals - intervals for isochrones in minutes
- * @property {number} concavity - relative measure of concavity as in
+ * @param {Object} options object
+ * @property {string} options.osrmPath - path to *.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
+ * @param {number} options.radius - distance to draw the buffer as in
+ * [@turf/buffer](https://github.com/Turfjs/turf/tree/master/packages/turf-buffer)
+ * @param {number} options.cellSize - the distance across each cell as in
+ * [@turf/point-grid](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
+ * @param {Array.<number>} options.intervals - intervals for isochrones in minutes
+ * @param {number} [options.concavity=2] - relative measure of concavity as in
  * [concaveman](https://github.com/mapbox/concaveman)
- * @property {number} lengthThreshold - length threshold as in
+ * @param {number} [options.lengthThreshold=0] - length threshold as in
  * [concaveman](https://github.com/mapbox/concaveman)
- * @property {number} resolution - turf-bezier time in milliseconds between points as in
- * [turf-bezier](https://github.com/Turfjs/turf-bezier)
- * @property {number} sharpness - a measure of how curvy the path should be between splines as in
- * [turf-bezier](https://github.com/Turfjs/turf-bezier)
- * @property {string} units - either 'kilometers' or 'miles' as in
- * [turf-point-grid](https://github.com/Turfjs/turf-point-grid)
+ * @param {string} [options.units='kilometers'] - any of the options supported by turf units
  */
 export const defaults = {
-  bufferSize: 6,
-  cellWidth: 0.2,
+  radius: 6,
+  cellSize: 0.2,
   concavity: 2,
   intervals: [10, 20, 30],
   lengthThreshold: 0,
-  resolution: 10000,
-  sharpness: 0.85,
   units: 'kilometers'
 };
 

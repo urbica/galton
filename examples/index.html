@@ -24,12 +24,12 @@
       <div class='clearfix'></div>
       <form>
         <fieldset>
-          <label for='bufferSize'>Buffer size</label>
-          <input id='bufferSize' type='number' value='6' class='stretch' />
+          <label for='radius'>Radius</label>
+          <input id='radius' type='number' value='6' class='stretch' />
         </fieldset>
         <fieldset>
-          <label for='cellWidth'>Cell width</label>
-          <input id='cellWidth' type='number' value='0.2' class='stretch' />
+          <label for='cellSize'>Cell size</label>
+          <input id='cellSize' type='number' value='0.2' class='stretch' />
         </fieldset>
         <fieldset>
           <label for='concavity'>Concavity</label>
@@ -126,8 +126,8 @@
       var params = {
         lng: e.lngLat.lng,
         lat: e.lngLat.lat,
-        bufferSize: document.getElementById('bufferSize').value,
-        cellWidth: document.getElementById('cellWidth').value,
+        radius: document.getElementById('radius').value,
+        cellSize: document.getElementById('cellSize').value,
         concavity: document.getElementById('concavity').value,
         lengthThreshold: document.getElementById('lengthThreshold').value,
         resolution: document.getElementById('resolution').value,

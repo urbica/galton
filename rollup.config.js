@@ -3,23 +3,25 @@
 import json from 'rollup-plugin-json';
 import async from 'rollup-plugin-async';
 import commonjs from 'rollup-plugin-commonjs';
-// import nodeResolve from 'rollup-plugin-node-resolve';
-// import uglify from 'rollup-plugin-uglify';
-// import { minify } from 'uglify-js';
+import resolve from 'rollup-plugin-node-resolve';
 
 export default {
   entry: 'src/server.js',
   dest: 'dist/bundle.js',
+  external: [
+    'koa-compress',
+    'kcors',
+    'koa-etag',
+    'koa-conditional-get',
+    'koa',
+    'koa-logger',
+    'osrm'
+  ],
   plugins: [
     json(),
-    // nodeResolve({
-    //   main: true,
-    //   jsnext: true,
-    //   skip: ['osrm', 'concaveman']
-    // }),
+    resolve({ jsnext: true, main: true }),
     commonjs(),
     async()
-    // uglify({}, minify)
   ],
   format: 'cjs'
 };
