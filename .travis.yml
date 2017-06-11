@@ -8,22 +8,31 @@ branches:
 
 node_js:
   - 4
+  - 7
+
+cache:
+  apt: true
+  yarn: true
+  ccache: true
 
 addons:
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+    sources: ['ubuntu-toolchain-r-test']
+    packages: ['g++-6', 'libbz2-dev', 'libstxxl-dev', 'libstxxl1', 'libxml2-dev', 'libzip-dev', 'lua5.1', 'liblua5.1-0-dev', 'libtbb-dev', 'libgdal-dev', 'libluabind-dev', 'libboost-all-dev']
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
+env: CCOMPILER='gcc-6' CXXCOMPILER='g++-6'
+
+before_install:
+  - yarn global add greenkeeper-lockfile@1
 
 install:
   - yarn
-  - yarn run build
+
+before_script:
+  - greenkeeper-lockfile-update
 
 script:
   - make test
+
+after_script:
+  - greenkeeper-lockfile-upload

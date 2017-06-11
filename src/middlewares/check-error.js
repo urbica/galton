@@ -1,8 +1,8 @@
-export default () => async (ctx, next) => {
+module.exports = () => async (ctx, next) => {
   try {
     await next();
   } catch (error) {
-    process.stderr.write(`${(new Date()).toISOString()} ${error.message}\n`);
+    process.stderr.write(`${new Date().toISOString()} ${error.message}\n`);
     process.stderr.write(error.stack);
 
     /* eslint-disable no-param-reassign */

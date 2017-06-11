@@ -5,7 +5,7 @@ const numericParams = [
   'lengthThreshold'
 ];
 
-export default (defaultOptions, query) => {
+const queryToOptions = (defaultOptions, query) => {
   const numericOptions = numericParams.reduce((acc, param) => {
     if (isNaN(query[param])) return acc;
     return Object.assign({}, acc, { [param]: parseFloat(query[param]) });
@@ -31,3 +31,5 @@ export default (defaultOptions, query) => {
 
   return Object.assign({}, defaultOptions, numericOptions, { intervals, units });
 };
+
+module.exports = queryToOptions;

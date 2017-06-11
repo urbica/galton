@@ -4,7 +4,7 @@ const path = require('path');
 const test = require('tape');
 const request = require('supertest-koa-agent');
 const geojsonhint = require('@mapbox/geojsonhint');
-const galton = require('../dist/bundle.js');
+const galton = require('../src/server.js');
 
 const points = [[7.41337, 43.72956],
                 [7.41546, 43.73077],

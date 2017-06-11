@@ -1,14 +1,14 @@
-import compress from 'koa-compress';
-import conditional from 'koa-conditional-get';
-import cors from 'kcors';
-import etag from 'koa-etag';
-import Koa from 'koa';
-import logger from 'koa-logger';
-import OSRM from 'osrm';
-import isochrone from 'isochrone';
-import checkError from './middlewares/check-error';
-import checkHealth from './middlewares/check-health';
-import queryToOptions from './utils';
+const compress = require('koa-compress');
+const conditional = require('koa-conditional-get');
+const cors = require('kcors');
+const etag = require('koa-etag');
+const Koa = require('koa');
+const logger = require('koa-logger');
+const OSRM = require('osrm');
+const isochrone = require('isochrone');
+const checkError = require('./middlewares/check-error');
+const checkHealth = require('./middlewares/check-health');
+const queryToOptions = require('./utils');
 
 /**
  * Server configuration
@@ -27,7 +27,7 @@ import queryToOptions from './utils';
  * [concaveman](https://github.com/mapbox/concaveman)
  * @param {string} [options.units='kilometers'] - any of the options supported by turf units
  */
-export const defaults = {
+const defaults = {
   radius: 6,
   cellSize: 0.2,
   concavity: 2,
@@ -78,4 +78,8 @@ const galton = (config) => {
   return app;
 };
 
-export { galton as app, isochrone };
+module.exports = {
+  app: galton,
+  defaults
+};
+

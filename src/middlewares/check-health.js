@@ -1,4 +1,4 @@
-export default path => async (ctx, next) => {
+module.exports = path => async (ctx, next) => {
   if (ctx.path === path) {
     /* eslint-disable no-param-reassign */
     ctx.body = {

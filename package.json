@@ -4,33 +4,26 @@
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
-  "main": "dist/bundle.js",
-  "jsnext:main": "src/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "build": "rollup -c",
     "docs": "documentation build src/* --format md --output docs/API.md",
     "lint": "eslint .",
-    "prepublish": "npm run build",
     "start": "node index.js",
     "test": "node test/index.js"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "bin": {
     "galton": "./index.js"
   },
   "engine-strict": true,
   "engines": {
-    "node": "4"
+    "node": ">=7.6.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/urbica/galton.git"
   },
   "dependencies": {
-    "isochrone": "1.0.1",
+    "isochrone": "1.0.2",
     "kcors": "2.2.0",
     "koa": "2.0.1",
     "koa-compress": "2.0.0",
@@ -46,12 +39,6 @@
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.2.0",
     "eslint-plugin-import": "2.3.0",
-    "pre-commit": "1.2.2",
-    "rollup": "0.41.6",
-    "rollup-plugin-async": "1.2.0",
-    "rollup-plugin-commonjs": "8.0.2",
-    "rollup-plugin-json": "2.1.1",
-    "rollup-plugin-node-resolve": "3.0.0",
     "supertest-koa-agent": "0.3.0",
     "tape": "4.6.3"
   }
