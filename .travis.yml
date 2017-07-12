@@ -17,7 +17,7 @@ cache:
 addons:
   apt:
     sources: ['ubuntu-toolchain-r-test']
-    packages: ['g++-6', 'libbz2-dev', 'libstxxl-dev', 'libstxxl1', 'libxml2-dev', 'libzip-dev', 'lua5.1', 'liblua5.1-0-dev', 'libtbb-dev', 'libgdal-dev', 'libluabind-dev', 'libboost-all-dev', 'ccache']
+    packages: ['testing', 'gcc', 'build-essential', 'git', 'cmake', 'pkg-config', 'libbz2-dev', 'libstxxl-dev', 'libstxxl1v5', 'libxml2-dev', 'libzip-dev', 'libboost-all-dev', 'lua5.2', 'liblua5.2-dev', 'libtbb-de']
 
 env: CCOMPILER='gcc-6' CXXCOMPILER='g++-6'
 
