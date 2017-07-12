@@ -5,10 +5,19 @@ const numericParams = [
   'lengthThreshold'
 ];
 
+const booleanParams = [
+  'deintersect'
+];
+
 const queryToOptions = (defaultOptions, query) => {
   const numericOptions = numericParams.reduce((acc, param) => {
     if (isNaN(query[param])) return acc;
     return Object.assign({}, acc, { [param]: parseFloat(query[param]) });
+  }, defaultOptions);
+
+  const booleanOptions = booleanParams.reduce((acc, param) => {
+    if (typeof (query[param]) === 'undefined') return acc;
+    return Object.assign({}, acc, { [param]: query[param] === 'true' });
   }, defaultOptions);
 
   let intervals;
@@ -29,7 +38,9 @@ const queryToOptions = (defaultOptions, query) => {
     units = defaultOptions.units;
   }
 
-  return Object.assign({}, defaultOptions, numericOptions, { intervals, units });
+  return Object.assign(
+    {}, defaultOptions, numericOptions, booleanOptions, { intervals, units }
+  );
 };
 
 module.exports = queryToOptions;
