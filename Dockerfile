@@ -14,9 +14,14 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 
 RUN npm i -g pm2
 RUN mkdir -p /usr/src/app /data /extracts
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+
+WORKDIR /tmp
+COPY package.json .
 RUN yarn
+
+WORKDIR /usr/src/app
+RUN cp -R /tmp/node_modules .
+COPY . /usr/src/app
 COPY profiles/* /usr/src/app/node_modules/osrm/profiles/
 
 EXPOSE 4000
