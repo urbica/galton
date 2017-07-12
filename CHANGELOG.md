@@ -1,8 +1,8 @@
 ## Changelog
 
-### 5.8.1
+### 5.9.0-rc.1
 
- - Update to `osrm` v5.8.1
+ - Update to `osrm` v5.9.0-rc.1
  - Implement deintersect as a configurable option (by [@glifchits](https://github.com/glifchits))
 
 ### 5.7.3
