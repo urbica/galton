@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const galton = require('./dist/bundle');
+const galton = require('./src/server.js');
 const minimist = require('minimist');
 const packagejson = require('./package.json');
 
