@@ -23,7 +23,7 @@
     "url": "git://github.com/urbica/galton.git"
   },
   "dependencies": {
-    "isochrone": "1.0.2",
+    "isochrone": "2.0.0",
     "kcors": "2.2.0",
     "koa": "2.0.1",
     "koa-compress": "2.0.0",

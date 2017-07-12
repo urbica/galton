@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const galton = require('./dist/bundle');
+const galton = require('./src/server.js');
 const minimist = require('minimist');
 const packagejson = require('./package.json');
 
@@ -20,7 +20,7 @@ const config = minimist(process.argv.slice(2), {
     'socket',
     'units'
   ],
-  boolean: ['cors', 'sharedMemory'],
+  boolean: ['cors', 'deintersect', 'sharedMemory'],
   alias: {
     h: 'help',
     v: 'version'
@@ -30,6 +30,7 @@ const config = minimist(process.argv.slice(2), {
     cellWidth: defaults.cellWidth,
     concavity: defaults.concavity,
     cors: true,
+    deintersect: 'true',
     intervals: '10 20 30',
     lengthThreshold: defaults.lengthThreshold,
     port: 4000,
@@ -54,6 +55,7 @@ if (config.help) {
     , '    --bufferSize - buffer size (default: ' + config.bufferSize + ')'
     , '    --cellWidth - turf-point-grid distance across each cell (default: ' + config.cellWidth + ')'
     , '    --concavity - concaveman relative measure of concavity (default: ' + config.concavity + ')'
+    , '    --deintersect - whether or not to deintersect the final isochrones (default: ' + config.deintersect + ')'
     , '    --intervals - isochrones intervals in minutes (default: ' + config.intervals + ')'
     , '    --lengthThreshold - concaveman length threshold (default: ' + config.lengthThreshold + ')'
     , '    --pid - save PID to file'
@@ -93,6 +95,7 @@ try {
 config.bufferSize = parseFloat(config.bufferSize)
 config.cellWidth = parseFloat(config.cellWidth)
 config.concavity = parseFloat(config.concavity)
+config.deintersect = config.deintersect === 'true'
 config.lengthThreshold = parseFloat(config.lengthThreshold)
 config.resolution = parseFloat(config.resolution)
 config.sharpness = parseFloat(config.sharpness)
