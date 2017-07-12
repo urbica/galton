@@ -24,12 +24,12 @@
   },
   "dependencies": {
     "isochrone": "2.0.0",
-    "kcors": "2.2.0",
-    "koa": "2.0.1",
+    "kcors": "2.2.1",
+    "koa": "2.3.0",
     "koa-compress": "2.0.0",
     "koa-conditional-get": "2.0.0",
     "koa-etag": "3.0.0",
-    "koa-logger": "2.0.1",
+    "koa-logger": "3.0.1",
     "minimist": "1.2.0",
     "osrm": "5.7.3"
   },
@@ -38,8 +38,8 @@
     "documentation": "4.0.0-rc.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.2.0",
-    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-import": "2.7.0",
     "supertest-koa-agent": "0.3.0",
-    "tape": "4.6.3"
+    "tape": "4.7.0"
   }
 }
