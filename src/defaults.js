@@ -9,7 +9,7 @@
  * @param {number} options.cellSize - the distance across each cell as in
  * [@turf/point-grid](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
  * @param {Array.<number>} options.intervals - intervals for isochrones in minutes
- * @param {number} [options.concavity=2] - relative measure of concavity as in
+ * @param {number} [options.concavity=2] - relative measure of concavity as in [concaveman](https://github.com/mapbox/concaveman)
  * @param {boolean} [options.deintersect=true] - whether or not to deintersect the final isochrones
  * @param {number} [options.lengthThreshold=0] - length threshold as in [concaveman](https://github.com/mapbox/concaveman)
  * @param {string} [options.units='kilometers'] - any of the options supported by turf units

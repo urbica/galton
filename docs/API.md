@@ -20,7 +20,7 @@ Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
     -   `options.cellSize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the distance across each cell as in
         [@turf/point-grid](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
     -   `options.intervals` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** intervals for isochrones in minutes
-    -   `options.concavity` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** relative measure of concavity as in (optional, default `2`)
+    -   `options.concavity` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** relative measure of concavity as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `2`)
     -   `options.deintersect` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** whether or not to deintersect the final isochrones (optional, default `true`)
     -   `options.lengthThreshold` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** length threshold as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `0`)
     -   `options.units` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** any of the options supported by turf units (optional, default `'kilometers'`)
