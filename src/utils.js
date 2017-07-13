@@ -1,46 +1,44 @@
-const numericParams = [
-  'radius',
-  'cellSize',
-  'concavity',
-  'lengthThreshold'
-];
+const defaults = require('./defaults.js');
 
-const booleanParams = [
-  'deintersect'
-];
+const parseBoolean = boolean => boolean === 'true';
 
-const queryToOptions = (defaultOptions, query) => {
-  const numericOptions = numericParams.reduce((acc, param) => {
-    if (isNaN(query[param])) return acc;
-    return Object.assign({}, acc, { [param]: parseFloat(query[param]) });
-  }, defaultOptions);
-
-  const booleanOptions = booleanParams.reduce((acc, param) => {
-    if (typeof (query[param]) === 'undefined') return acc;
-    return Object.assign({}, acc, { [param]: query[param] === 'true' });
-  }, defaultOptions);
-
-  let intervals;
-  if (Array.isArray(query.intervals)) {
-    intervals = query.intervals
+const parseIntervals = (intervals) => {
+  if (Array.isArray(intervals)) {
+    return intervals
       .filter(i => !isNaN(i))
       .map(parseFloat)
       .sort((a, b) => a - b);
-  } else {
-    const interval = parseFloat(query.intervals);
-    intervals = interval ? [interval] : defaultOptions.intervals;
   }
-
-  let units;
-  if (query.units === 'kilometers' || query.units === 'miles') {
-    units = query.units;
-  } else {
-    units = defaultOptions.units;
-  }
-
-  return Object.assign(
-    {}, defaultOptions, numericOptions, booleanOptions, { intervals, units }
-  );
+  const interval = parseFloat(intervals);
+  return interval ? [interval] : defaults.intervals;
 };
 
-module.exports = queryToOptions;
+const parseUnits = (units) => {
+  if (units === 'kilometers' || units === 'miles') {
+    return units;
+  }
+  return defaults.units;
+};
+
+const parsers = {
+  lng: parseFloat,
+  lat: parseFloat,
+  radius: parseFloat,
+  cellSize: parseFloat,
+  concavity: parseFloat,
+  lengthThreshold: parseFloat,
+  deintersect: parseBoolean,
+  intervals: parseIntervals,
+  units: parseUnits
+};
+
+const parseQuery = query =>
+  Object.keys(parsers).reduce((acc, paramKey) => {
+    if (query[paramKey]) {
+      const parser = parsers[paramKey];
+      acc[paramKey] = parser(query[paramKey]);
+    }
+    return acc;
+  }, defaults);
+
+module.exports = parseQuery;

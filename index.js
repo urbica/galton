@@ -2,14 +2,14 @@
 
 const fs = require('fs');
 const galton = require('./src/server.js');
+const defaults = require('./src/defaults.js');
 const minimist = require('minimist');
 const packagejson = require('./package.json');
 
-var defaults = galton.defaults;
 const config = minimist(process.argv.slice(2), {
   string: [
-    'bufferSize',
-    'cellWidth',
+    'radius',
+    'cellSize',
     'concavity',
     'intervals',
     'lengthThreshold',
@@ -26,59 +26,54 @@ const config = minimist(process.argv.slice(2), {
     v: 'version'
   },
   default: {
-    bufferSize: defaults.bufferSize,
-    cellWidth: defaults.cellWidth,
+    radius: defaults.radius,
+    cellSize: defaults.cellSize,
     concavity: defaults.concavity,
     cors: true,
     deintersect: 'true',
     intervals: '10 20 30',
     lengthThreshold: defaults.lengthThreshold,
     port: 4000,
-    resolution: defaults.resolution,
     sharedMemory: false,
-    sharpness: defaults.sharpness,
     units: defaults.units
   }
 });
 
 if (config.version) {
-  console.log(packagejson.version);
+  process.stdout.write(`${packagejson.version}\n`);
   process.exit(0);
-};
+}
 
 if (config.help) {
-  const usage = [
-      ''
-    , '  Usage: galton [filename] [options]'
-    , ''
-    , '  where [filename] is path to OSRM data and [options] is any of:'
-    , '    --bufferSize - buffer size (default: ' + config.bufferSize + ')'
-    , '    --cellWidth - turf-point-grid distance across each cell (default: ' + config.cellWidth + ')'
-    , '    --concavity - concaveman relative measure of concavity (default: ' + config.concavity + ')'
-    , '    --deintersect - whether or not to deintersect the final isochrones (default: ' + config.deintersect + ')'
-    , '    --intervals - isochrones intervals in minutes (default: ' + config.intervals + ')'
-    , '    --lengthThreshold - concaveman length threshold (default: ' + config.lengthThreshold + ')'
-    , '    --pid - save PID to file'
-    , '    --port - port to run on (default: ' + config.port + ')'
-    , '    --resolution - turf-bezier time in milliseconds between points (default: ' + config.resolution + ')'
-    , '    --sharedMemory - use shared memory (default: ' + config.sharedMemory + ')'
-    , '    --sharpness - turf-bezier measure of how curvy the path should be between splines (default: ' + config.sharpness + ')'
-    , '    --socket - use Unix socket instead of port'
-    , '    --units - either `kilometers` or `miles` (default: ' + config.units + ')'
-    , '    --version - returns running version then exits'
-    , ''
-    , 'galton@' + packagejson.version
-    , 'node@' + process.versions.node
-  ].join('\n')
-  console.log(usage);
+  const usage = `
+  Usage: galton [filename] [options]
+
+  where [filename] is path to OSRM data and [options] is any of:
+    --radius - distance to draw the buffer (default: ${config.radius})
+    --cellSize - the distance across each cell (default: ${config.cellSize})
+    --concavity - concaveman relative measure of concavity (default: ${config.concavity})
+    --deintersect - whether or not to deintersect the final isochrones (default: ${config.deintersect})
+    --intervals - isochrones intervals in minutes (default: ${config.intervals})
+    --lengthThreshold - concaveman length threshold (default: ${config.lengthThreshold})
+    --pid - save PID to file
+    --port - port to run on (default: ${config.port})
+    --sharedMemory - use shared memory (default: ${config.sharedMemory})
+    --socket - use Unix socket instead of port
+    --units - either 'kilometers' or 'miles' (default: '${config.units}')
+    --version - returns running version then exits
+
+  galton@${packagejson.version}
+  node@${process.versions.node}
+  `;
+  process.stdout.write(`${usage}\n`);
   process.exit(0);
-};
+}
 
 try {
-  config.osrmPath = config['_'][0];
+  config.osrmPath = config._[0];
   fs.accessSync(config.osrmPath, fs.F_OK);
 } catch (error) {
-  console.error(error);
+  process.stderr.write(`${error}\n`);
   process.exit(-1);
 }
 
@@ -88,36 +83,34 @@ try {
     .map(parseFloat)
     .sort((a, b) => a - b);
 } catch (error) {
-  console.error(error);
+  process.stderr.write(`${error}\n`);
   process.exit(-1);
 }
 
-config.bufferSize = parseFloat(config.bufferSize)
-config.cellWidth = parseFloat(config.cellWidth)
-config.concavity = parseFloat(config.concavity)
-config.deintersect = config.deintersect === 'true'
-config.lengthThreshold = parseFloat(config.lengthThreshold)
-config.resolution = parseFloat(config.resolution)
-config.sharpness = parseFloat(config.sharpness)
+config.radius = parseFloat(config.radius);
+config.cellSize = parseFloat(config.cellSize);
+config.concavity = parseFloat(config.concavity);
+config.deintersect = config.deintersect === 'true';
+config.lengthThreshold = parseFloat(config.lengthThreshold);
 
-const app = galton.app(config);
+const app = galton(config);
 const handler = config.socket || config.port;
 
 const server = app.listen(handler, () => {
   if (config.socket) {
     fs.chmodSync(config.socket, '1766');
-    console.log('🚀  ON AIR @ %s', config.socket);
+    process.stdout.write(`🚀  ON AIR @ ${config.socket}\n`);
   } else {
-    const endpoint = server.address().address + ':' + server.address().port;
-    console.log('🚀  ON AIR @ %s', endpoint);
+    const address = server.address();
+    process.stdout.write(`🚀  ON AIR @ ${address.address}:${address.port}\n`);
   }
 });
 
-const shutdown = (server, signal) => {
-  console.warn(`Caught ${signal}, terminating`);
+const shutdown = (signal) => {
+  process.stdout.write(`Caught ${signal}, terminating\n`);
   server.close();
   process.exit();
-}
+};
 
-process.on('SIGINT', shutdown.bind(null, server, 'SIGINT'));
-process.on('SIGTERM', shutdown.bind(null, server, 'SIGTERM'));
+process.on('SIGINT', shutdown.bind(null, 'SIGINT'));
+process.on('SIGTERM', shutdown.bind(null, 'SIGTERM'));

@@ -36,6 +36,7 @@ where [filename] is path to OSRM data and [options] is any of:
   --radius - distance to draw the buffer (default: 6)
   --cellSize - the distance across each cell (default: 0.2)
   --concavity - concaveman relative measure of concavity (default: 2)
+  --deintersect - whether or not to deintersect the final isochrones (default: true)
   --intervals - isochrones intervals in minutes (default: 10 20 30)
   --lengthThreshold - concaveman length threshold (default: 0)
   --pid - save PID to file
@@ -84,7 +85,7 @@ const config = {
   osrm: 'moscow_russia.osrm'
 }
 
-const app = galton.app(config);
+const app = galton(config);
 app.listen(config.port, () => {
   console.log('Listening on %s', config.port);
 });

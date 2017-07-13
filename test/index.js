@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 const path = require('path');
 const test = require('tape');
 const request = require('supertest-koa-agent');
@@ -22,7 +20,7 @@ const options = {
   units: 'kilometers'
 };
 
-const app = galton.app(options);
+const app = galton(options);
 
 test('galton', (t) => {
   t.plan(6);
@@ -36,7 +34,7 @@ test('galton', (t) => {
         t.error(error, 'No error');
         const errors = geojsonhint.hint(res.text);
         if (errors.length > 0) {
-          errors.forEach(error => t.comment(error.message));
+          errors.forEach(err => t.comment(err.message));
           t.fail('Invalid GeoJSON');
         } else {
           t.pass('Valid GeoJSON');

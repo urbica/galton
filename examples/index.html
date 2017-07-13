@@ -39,13 +39,10 @@
           <label for='lengthThreshold'>Length threshold</label>
           <input id='lengthThreshold' type='number' value='0' class='stretch' />
         </fieldset>
-        <fieldset>
-          <label for='resolution'>Resolution</label>
-          <input id='resolution' type='number' value='10000' class='stretch' />
         </fieldset>
-        <fieldset>
-          <label for='sharpness'>Sharpness</label>
-          <input id='sharpness' type='number' value='0.85' class='stretch' />
+        <fieldset class='checkbox-pill clearfix'>
+          <input type='checkbox' id='deintersect' checked='checked' value='true'>
+          <label for='deintersect' class='button icon check quiet'>deintersect</label>
         </fieldset>
         <fieldset class='intervals checkbox-pill clearfix'>
           <input type='checkbox' id='i10' checked='checked' value=10>
@@ -127,11 +124,10 @@
         lng: e.lngLat.lng,
         lat: e.lngLat.lat,
         radius: document.getElementById('radius').value,
+        deintersect: document.getElementById('deintersect').checked,
         cellSize: document.getElementById('cellSize').value,
         concavity: document.getElementById('concavity').value,
         lengthThreshold: document.getElementById('lengthThreshold').value,
-        resolution: document.getElementById('resolution').value,
-        sharpness: document.getElementById('sharpness').value,
         units: document.querySelector('input[name="units"]:checked').value,
       };
 
