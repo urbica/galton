@@ -1,5 +1,10 @@
 ## Changelog
 
+### 5.9.0-rc.2
+
+ - Update to `osrm` v5.9.0-rc.2
+ - Omit unroutable points from isochrones (by [@glifchits](https://github.com/glifchits))
+
 ### 5.9.0-rc.1
 
  - Update to `osrm` v5.9.0-rc.1

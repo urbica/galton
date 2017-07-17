@@ -2493,9 +2493,9 @@ isobject@^2.0.0:
   dependencies:
     isarray "1.0.0"
 
-isochrone@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/isochrone/-/isochrone-2.0.0.tgz#15b5e0027715ecc19118fe97f4e044ec1b71e02f"
+isochrone@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/isochrone/-/isochrone-2.0.1.tgz#b003703c7e171547f2acb0749a705f7818185497"
   dependencies:
     "@turf/bbox" "4.5.2"
     "@turf/destination" "4.5.2"
@@ -3104,9 +3104,9 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-osrm@5.9.0-rc.1:
-  version "5.9.0-rc.1"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.9.0-rc.1.tgz#04b698aef60840e6aa647a072d31da2d666a5de3"
+osrm@5.9.0-rc.2:
+  version "5.9.0-rc.2"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.9.0-rc.2.tgz#054782a8aee0028df747184ffe5b8b1f14eedd42"
   dependencies:
     nan "^2.6.2"
     node-cmake "^2.3.2"
