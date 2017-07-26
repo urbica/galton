@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.9.0-rc.2",
+  "version": "5.9.1",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -31,13 +31,13 @@
     "koa-etag": "3.0.0",
     "koa-logger": "3.0.1",
     "minimist": "1.2.0",
-    "osrm": "5.9.0-rc.2"
+    "osrm": "5.9.1"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
     "documentation": "4.0.0-rc.1",
-    "eslint": "3.19.0",
-    "eslint-config-airbnb-base": "11.2.0",
+    "eslint": "4.3.0",
+    "eslint-config-airbnb-base": "11.3.1",
     "eslint-plugin-import": "2.7.0",
     "supertest-koa-agent": "0.3.0",
     "tape": "4.7.0"

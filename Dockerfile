@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:8
 MAINTAINER Stepan Kuzmin <to.stepan.kuzmin@gmail.com>
 
 RUN echo 'deb http://ftp.us.debian.org/debian testing main contrib non-free' >> /etc/apt/sources.list.d/testing.list \
