@@ -3099,9 +3099,9 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-osrm@5.9.1:
-  version "5.9.1"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.9.1.tgz#39fe4d84bacf7de40fb02e76acc178f342f230c3"
+osrm@5.9.2:
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.9.2.tgz#7ea376c8a74fe6c6fe65609f2c84e89a32a4248e"
   dependencies:
     nan "^2.6.2"
     node-cmake "^2.3.2"

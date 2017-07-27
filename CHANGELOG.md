@@ -1,5 +1,13 @@
 ## Changelog
 
+### 5.9.2
+
+ - Update to `osrm` v5.9.2
+
+### 5.9.1
+
+ - Update to `osrm` v5.9.1
+
 ### 5.9.0-rc.2
 
  - Update to `osrm` v5.9.0-rc.2
