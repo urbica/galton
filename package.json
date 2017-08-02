@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "src/server.js",
   "scripts": {
-    "docs": "documentation build src/* --format md --output docs/API.md",
+    "docs": "documentation build src/* -g --markdown-toc false -f md -o API.md",
     "lint": "eslint .",
     "start": "node index.js",
     "test": "node test/index.js"
@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
-    "documentation": "4.0.0-rc.1",
+    "documentation": "5.1.0",
     "eslint": "4.3.0",
     "eslint-config-airbnb-base": "11.3.1",
     "eslint-plugin-import": "2.7.0",
     "supertest-koa-agent": "0.3.0",
-    "tape": "4.7.0"
+    "tape": "4.8.0"
   }
 }

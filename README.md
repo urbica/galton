@@ -91,7 +91,7 @@ app.listen(config.port, () => {
 });
 ```
 
-See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/docs/API.md) and `test/index.js` for more info.
+See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/API.md) and `test/index.js` for more info.
 
 ## Using with Docker
 
