@@ -1,5 +1,9 @@
 ## Changelog
 
+### 5.10.0
+
+ - Update to `osrm` [v5.10.0](https://github.com/Project-OSRM/osrm-backend/releases/tag/v5.10.0)
+
 ### 5.9.2
 
  - Update to `osrm` v5.9.2

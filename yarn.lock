@@ -3180,7 +3180,7 @@ node-cmake@^2.3.2:
     which "^1.2.14"
     yargs "^7.0.2"
 
-node-pre-gyp@^0.6.34, node-pre-gyp@^0.6.36:
+node-pre-gyp@^0.6.36:
   version "0.6.36"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.36.tgz#db604112cb74e0d477554e9b505b17abddfab786"
   dependencies:
@@ -3350,13 +3350,13 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-osrm@5.9.2:
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.9.2.tgz#7ea376c8a74fe6c6fe65609f2c84e89a32a4248e"
+osrm@5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.10.0.tgz#11aee14b4c7b90178c40406c0f25abfded8ec830"
   dependencies:
     nan "^2.6.2"
     node-cmake "^2.3.2"
-    node-pre-gyp "^0.6.34"
+    node-pre-gyp "^0.6.36"
 
 p-limit@^1.1.0:
   version "1.1.0"
