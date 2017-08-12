@@ -39,6 +39,6 @@ const parseQuery = query =>
       acc[paramKey] = parser(query[paramKey]);
     }
     return acc;
-  }, defaults);
+  }, Object.assign({}, defaults));
 
 module.exports = parseQuery;
