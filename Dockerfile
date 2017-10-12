@@ -24,5 +24,7 @@ RUN cp -R /tmp/node_modules .
 COPY . /usr/src/app
 COPY profiles/* /usr/src/app/node_modules/osrm/profiles/
 
+ENV PORT 4000
 EXPOSE 4000
+
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

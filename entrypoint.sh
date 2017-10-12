@@ -22,4 +22,4 @@ if [ ! -f /data/$OSRM ]; then
   $OSRM_PATH/lib/binding/osrm-contract /data/$OSRM
 fi
 
-pm2-docker --auto-exit -i $INSTANCES /usr/src/app/index.js -- /data/$OSRM
+pm2-docker --auto-exit -i $INSTANCES /usr/src/app/index.js -- /data/$OSRM --port $PORT
