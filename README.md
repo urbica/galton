@@ -1,5 +1,7 @@
 # Galton
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/urbica/galton.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/galton.svg)](https://www.npmjs.com/package/galton)
 [![Build Status](https://travis-ci.org/urbica/galton.svg?branch=master)](https://travis-ci.org/urbica/galton)
 [![npm downloads](https://img.shields.io/npm/dt/galton.svg)](https://www.npmjs.com/package/galton)
