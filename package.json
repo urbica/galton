@@ -25,20 +25,20 @@
   "dependencies": {
     "isochrone": "2.0.1",
     "kcors": "2.2.1",
-    "koa": "2.3.0",
+    "koa": "2.4.1",
     "koa-compress": "2.0.0",
     "koa-conditional-get": "2.0.0",
     "koa-etag": "3.0.0",
-    "koa-logger": "3.0.1",
+    "koa-logger": "3.1.0",
     "minimist": "1.2.0",
-    "osrm": "5.10.0"
+    "osrm": "5.14.1"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "2.0.1",
-    "documentation": "5.1.0",
-    "eslint": "4.3.0",
-    "eslint-config-airbnb-base": "11.3.1",
-    "eslint-plugin-import": "2.7.0",
+    "documentation": "5.3.3",
+    "eslint": "4.12.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0",
     "supertest-koa-agent": "0.3.0",
     "tape": "4.8.0"
   }
