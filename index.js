@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const galton = require('./src/server.js');
+const http = require('http');
+const galton = require('./src');
 const defaults = require('./src/defaults.js');
 const minimist = require('minimist');
 const packagejson = require('./package.json');
@@ -52,7 +53,9 @@ if (config.help) {
     --radius - distance to draw the buffer (default: ${config.radius})
     --cellSize - the distance across each cell (default: ${config.cellSize})
     --concavity - concaveman relative measure of concavity (default: ${config.concavity})
-    --deintersect - whether or not to deintersect the final isochrones (default: ${config.deintersect})
+    --deintersect - whether or not to deintersect the final isochrones (default: ${
+  config.deintersect
+})
     --intervals - isochrones intervals in minutes (default: ${config.intervals})
     --lengthThreshold - concaveman length threshold (default: ${config.lengthThreshold})
     --pid - save PID to file
@@ -70,6 +73,7 @@ if (config.help) {
 }
 
 try {
+  // eslint-disable-next-line
   config.osrmPath = config._[0];
   fs.accessSync(config.osrmPath, fs.F_OK);
 } catch (error) {
@@ -96,7 +100,8 @@ config.lengthThreshold = parseFloat(config.lengthThreshold);
 const app = galton(config);
 const handler = config.socket || config.port;
 
-const server = app.listen(handler, () => {
+const server = http.createServer(app);
+server.listen(handler, () => {
   if (config.socket) {
     fs.chmodSync(config.socket, '1766');
     process.stdout.write(`🚀  ON AIR @ ${config.socket}\n`);

@@ -1,45 +1,36 @@
 {
   "name": "galton",
-  "version": "5.10.0",
+  "version": "5.14.2",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/urbica/galton.git"
+  },
+  "bin": {
+    "galton": "./index.js"
+  },
   "main": "src/server.js",
   "scripts": {
     "docs": "documentation build src/* -g --markdown-toc false -f md -o API.md",
     "lint": "eslint .",
     "start": "node index.js",
-    "test": "node test/index.js"
-  },
-  "bin": {
-    "galton": "./index.js"
-  },
-  "engine-strict": true,
-  "engines": {
-    "node": ">=7.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/urbica/galton.git"
+    "test": "jest"
   },
   "dependencies": {
-    "isochrone": "2.0.1",
-    "kcors": "2.2.1",
-    "koa": "2.4.1",
-    "koa-compress": "2.0.0",
-    "koa-conditional-get": "2.0.0",
-    "koa-etag": "3.0.0",
-    "koa-logger": "3.1.0",
-    "minimist": "1.2.0",
+    "isochrone": "^2.0.1",
+    "minimist": "^1.2.0",
     "osrm": "5.14.2"
   },
   "devDependencies": {
-    "@mapbox/geojsonhint": "2.0.1",
-    "documentation": "5.3.4",
-    "eslint": "4.13.1",
-    "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.8.0",
-    "supertest-koa-agent": "0.3.0",
-    "tape": "4.8.0"
+    "@mapbox/geojsonhint": "^2.0.1",
+    "documentation": "^5.3.5",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jest": "^22.1.4",
+    "supertest": "^3.0.0",
+    "tape": "^4.8.0"
   }
 }

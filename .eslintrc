@@ -1,13 +1,12 @@
 {
   "extends": "airbnb-base",
-  "plugins": [
-    "import"
-  ],
+  "plugins": ["import"],
   "env": {
-    "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.js"] }]
   }
 }
