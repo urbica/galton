@@ -7,7 +7,7 @@ branches:
     - /^v[0-9]/
 
 node_js:
-  - 7
+  - 6
 
 cache:
   apt: true
