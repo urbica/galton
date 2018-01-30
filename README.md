@@ -13,8 +13,6 @@ Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://proje
 
 ## Installation
 
-Galton requires node v7.6.0 or higher for ES2015 and async function support.
-
 ```
 npm install -g galton
 ```
@@ -25,7 +23,6 @@ npm install -g galton
 git clone https://github.com/urbica/galton.git
 cd galton
 npm install
-npm run build
 ```
 
 ## Usage
@@ -76,22 +73,6 @@ Build isochrones for 10, 20 and 30 minute intervals
 curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals=10&intervals=20&&intervals=30'
 ```
 
-Using Galton in your Node.js application
-
-```js
-const galton = require('galton');
-
-const config = {
-  port: 4000,
-  osrm: 'moscow_russia.osrm'
-}
-
-const app = galton(config);
-app.listen(config.port, () => {
-  console.log('Listening on %s', config.port);
-});
-```
-
 See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/API.md) and `test/index.js` for more info.
 
 ## Using with Docker
@@ -114,7 +95,7 @@ docker run -d -p 4000:4000 urbica/galton "https://s3.amazonaws.com/metro-extract
 curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
 ```
 
-You can also set `sysctl` options for container with `--sysctl`
+You can also try setting `sysctl` options for container with `--sysctl`
 
 ```shell
 docker run \

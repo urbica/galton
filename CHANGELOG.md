@@ -1,5 +1,10 @@
 ## Changelog
 
+### 5.15.1
+
+ - Rewrite using plain NodeJS
+ - Update to `osrm` [v5.15.1](https://github.com/Project-OSRM/osrm-backend/releases/tag/v5.15.1)
+
 ### 5.10.0
 
  - Update to `osrm` [v5.10.0](https://github.com/Project-OSRM/osrm-backend/releases/tag/v5.10.0)

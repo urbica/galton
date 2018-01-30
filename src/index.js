@@ -20,7 +20,7 @@ const galton = (config) => {
     const { query } = url.parse(req.url, true);
     const options = Object.assign({}, parseQuery(query), { osrm });
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.setHeader('Content-Type', 'application/json');
     if (config.cors) {
       res.setHeader('Access-Control-Allow-Origin', '*');
     }

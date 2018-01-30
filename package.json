@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.14.2",
+  "version": "5.15.1",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -21,7 +21,7 @@
   "dependencies": {
     "isochrone": "^2.0.1",
     "minimist": "^1.2.0",
-    "osrm": "5.14.2"
+    "osrm": "5.15.1"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.0.1",

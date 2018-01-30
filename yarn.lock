@@ -4179,9 +4179,9 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-osrm@5.14.2:
-  version "5.14.2"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.14.2.tgz#2bfe731800434a44d3bf94624f21161ca5df2781"
+osrm@5.15.1:
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.15.1.tgz#c6a2c190808e11854ccd031ca0ea1fa683ddf595"
   dependencies:
     nan "^2.6.2"
     node-cmake "^2.3.2"
