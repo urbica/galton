@@ -2,29 +2,29 @@
 
 ## serverConfig
 
-[src/defaults.js:17-25](https://github.com/urbica/galton/blob/b06ae0dfb98f4c659c3cb2d1544c5104cf413d3f/src/defaults.js#L17-L25 "Source code on GitHub")
+[src/defaults.js:17-25](https://github.com/urbica/galton/blob/2c38fda60f6fdc57c5ecf45c5c846d4c0f586a48/src/defaults.js#L17-L25 "Source code on GitHub")
 
 Server configuration
 
-Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 **Parameters**
 
--   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** object
-    -   `options.osrmPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** path to \*.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
-    -   `options.radius` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** distance to draw the buffer as in
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object
+    -   `options.osrmPath` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to \*.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
+    -   `options.radius` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** distance to draw the buffer as in
         [@turf/buffer](https://github.com/Turfjs/turf/tree/master/packages/turf-buffer)
-    -   `options.cellSize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the distance across each cell as in
+    -   `options.cellSize` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the distance across each cell as in
         [@turf/point-grid](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
-    -   `options.intervals` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** intervals for isochrones in minutes
-    -   `options.concavity` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** relative measure of concavity as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `2`)
-    -   `options.deintersect` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** whether or not to deintersect the final isochrones (optional, default `true`)
-    -   `options.lengthThreshold` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** length threshold as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `0`)
-    -   `options.units` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** any of the options supported by turf units (optional, default `'kilometers'`)
+    -   `options.intervals` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** intervals for isochrones in minutes
+    -   `options.concavity` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** relative measure of concavity as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `2`)
+    -   `options.deintersect` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** whether or not to deintersect the final isochrones (optional, default `true`)
+    -   `options.lengthThreshold` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** length threshold as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `0`)
+    -   `options.units` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** any of the options supported by turf units (optional, default `'kilometers'`)
 
 ## galton
 
-[src/server.js:20-46](https://github.com/urbica/galton/blob/b06ae0dfb98f4c659c3cb2d1544c5104cf413d3f/src/server.js#L20-L46 "Source code on GitHub")
+[src/index.js:13-40](https://github.com/urbica/galton/blob/2c38fda60f6fdc57c5ecf45c5c846d4c0f586a48/src/index.js#L13-L40 "Source code on GitHub")
 
 Isochrone server
 
@@ -32,4 +32,4 @@ Isochrone server
 
 -   `config` **[serverConfig](#serverconfig)** default isochrone options
 
-Returns **Koa** Koa instance
+Returns **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** node http requestListener function

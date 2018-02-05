@@ -19,14 +19,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "isochrone": "^2.0.1",
+    "isochrone": "^2.0.2",
     "minimist": "^1.2.0",
     "osrm": "5.15.1"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.0.1",
     "documentation": "^5.3.5",
-    "eslint": "^4.16.0",
+    "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "jest": "^22.1.4",
