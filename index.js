@@ -9,6 +9,7 @@ const packagejson = require('./package.json');
 
 const config = minimist(process.argv.slice(2), {
   string: [
+    'algorithm',
     'radius',
     'cellSize',
     'concavity',
@@ -27,6 +28,7 @@ const config = minimist(process.argv.slice(2), {
     v: 'version'
   },
   default: {
+    algorithm: 'CH',
     radius: defaults.radius,
     cellSize: defaults.cellSize,
     concavity: defaults.concavity,
@@ -50,6 +52,7 @@ if (config.help) {
   Usage: galton [filename] [options]
 
   where [filename] is path to OSRM data and [options] is any of:
+    --algorithm - the algorithm to use for routing. Can be 'CH', 'CoreCH' or 'MLD' (default: '${config.algorithm}'). Make sure you prepared the dataset with the correct toolchain.
     --radius - distance to draw the buffer (default: ${config.radius})
     --cellSize - the distance across each cell (default: ${config.cellSize})
     --concavity - concaveman relative measure of concavity (default: ${config.concavity})

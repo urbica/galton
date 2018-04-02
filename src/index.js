@@ -12,6 +12,7 @@ const parseQuery = require('./utils');
  */
 const galton = (config) => {
   const osrm = new OSRM({
+    algorithm: config.algorithm,
     path: config.osrmPath,
     shared_memory: config.sharedMemory
   });
