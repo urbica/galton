@@ -2,34 +2,60 @@
 
 ## serverConfig
 
-[src/defaults.js:17-25](https://github.com/urbica/galton/blob/2c38fda60f6fdc57c5ecf45c5c846d4c0f586a48/src/defaults.js#L17-L25 "Source code on GitHub")
+[src/defaults.js:17-25][1]
 
 Server configuration
 
-Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
+Type: [Object][2]
 
 **Parameters**
 
--   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object
-    -   `options.osrmPath` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to \*.osrm file [OSRM](https://github.com/Project-OSRM/osrm-backend)
-    -   `options.radius` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** distance to draw the buffer as in
-        [@turf/buffer](https://github.com/Turfjs/turf/tree/master/packages/turf-buffer)
-    -   `options.cellSize` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the distance across each cell as in
-        [@turf/point-grid](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
-    -   `options.intervals` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** intervals for isochrones in minutes
-    -   `options.concavity` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** relative measure of concavity as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `2`)
-    -   `options.deintersect` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** whether or not to deintersect the final isochrones (optional, default `true`)
-    -   `options.lengthThreshold` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** length threshold as in [concaveman](https://github.com/mapbox/concaveman) (optional, default `0`)
-    -   `options.units` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** any of the options supported by turf units (optional, default `'kilometers'`)
+-   `options` **[Object][2]** object
+    -   `options.osrmPath` **[string][3]** path to \*.osrm file [OSRM][4]
+    -   `options.radius` **[number][5]** distance to draw the buffer as in
+        [@turf/buffer][6]
+    -   `options.cellSize` **[number][5]** the distance across each cell as in
+        [@turf/point-grid][7]
+    -   `options.intervals` **[Array][8]&lt;[number][5]>** intervals for isochrones in minutes
+    -   `options.concavity` **[number][5]** relative measure of concavity as in [concaveman][9] (optional, default `2`)
+    -   `options.deintersect` **[boolean][10]** whether or not to deintersect the final isochrones (optional, default `true`)
+    -   `options.lengthThreshold` **[number][5]** length threshold as in [concaveman][9] (optional, default `0`)
+    -   `options.units` **[string][3]** any of the options supported by turf units (optional, default `'kilometers'`)
 
 ## galton
 
-[src/index.js:13-40](https://github.com/urbica/galton/blob/2c38fda60f6fdc57c5ecf45c5c846d4c0f586a48/src/index.js#L13-L40 "Source code on GitHub")
+[src/index.js:13-40][11]
 
 Isochrone server
 
 **Parameters**
 
--   `config` **[serverConfig](#serverconfig)** default isochrone options
+-   `config` **[serverConfig][12]** default isochrone options
 
-Returns **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** node http requestListener function
+Returns **[function][13]** node http requestListener function
+
+[1]: https://github.com/urbica/galton/blob/2dae40defb7ecb2d6bffb8c8e7629ac35cbf9ae1/src/defaults.js#L1-L16 "Source code on GitHub"
+
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[4]: https://github.com/Project-OSRM/osrm-backend
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[6]: https://github.com/Turfjs/turf/tree/master/packages/turf-buffer
+
+[7]: https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid
+
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[9]: https://github.com/mapbox/concaveman
+
+[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[11]: https://github.com/urbica/galton/blob/2dae40defb7ecb2d6bffb8c8e7629ac35cbf9ae1/src/index.js#L13-L40 "Source code on GitHub"
+
+[12]: #serverconfig
+
+[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
