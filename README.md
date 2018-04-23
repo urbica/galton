@@ -13,6 +13,8 @@ Lightweight Node.js isochrone server. Build isochrones using [OSRM](http://proje
 
 ## Installation
 
+Galton requires Node v8.
+
 ```
 npm install -g galton
 ```
@@ -46,7 +48,7 @@ where [filename] is path to OSRM data and [options] is any of:
 ```
 
 ```
-galton moscow_russia.osrm
+galton berlin-latest.osrm
 ```
 
 Open `examples/index.html?access_token=<token>`
@@ -55,22 +57,22 @@ Open `examples/index.html?access_token=<token>`
 
 ```shell
 cd galton
-wget https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf
-./node_modules/osrm/lib/binding/osrm-extract -p ./node_modules/osrm/profiles/car.lua moscow_russia.osm.pbf
-./node_modules/osrm/lib/binding/osrm-contract moscow_russia.osrm
-npm start -- moscow_russia.osrm
+wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf
+./node_modules/osrm/lib/binding/osrm-extract -p ./node_modules/osrm/profiles/car.lua berlin-latest.osm.pbf
+./node_modules/osrm/lib/binding/osrm-contract berlin-latest.osrm
+npm start berlin-latest.osrm
 ```
 
 Build isochrones from point
 
 ```shell
-curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
+curl http://localhost:4000 --get --data 'lng=13.38792&lat=52.51704'
 ```
 
 Build isochrones for 10, 20 and 30 minute intervals
 
 ```
-curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75&intervals=10&intervals=20&&intervals=30'
+curl http://localhost:4000 --get --data 'lng=13.38792&lat=52.51704&intervals=10&intervals=20&&intervals=30'
 ```
 
 See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/API.md) and `test/index.js` for more info.
@@ -78,29 +80,28 @@ See the [example](https://github.com/urbica/galton/blob/master/examples/index.ht
 ## Using with Docker
 
 ```shell
-docker run -d -p 4000:4000 urbica/galton <url> <profile>
+docker run -p 4000:4000 urbica/galton <OSRM>
 ```
 
-Where `url` is osm.pbf url and `profile` is one of the default OSRM profiles (`foot` is default).
+Where `OSRM` is a path to OSRM graph.
 
 Examples:
 
-This will create docker container with last version of galton using osrm with mapzen extract processed with default car profile
+This will download geofabrik extract, extract and build OSRM graph using [official OSRM Docker image](https://hub.docker.com/r/osrm/osrm-backend/), and run galton on that graph.
 
 ```shell
-docker run -d -p 4000:4000 urbica/galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf
+docker run -t -v $(pwd):/data osrm/osrm-backend:v5.17.2 osrm-extract -p /opt/car.lua /data/berlin-latest.osm.pbf
+docker run -t -v $(pwd):/data osrm/osrm-backend:v5.17.2 osrm-contract /data/berlin-latest.osrm
+docker run -t -i -p 4000:4000 -v $(pwd):/data urbica/galton:v5.17.2 galton /data/berlin-latest.osrm
 ```
 
 ```shell
-curl http://localhost:4000 --get --data 'lng=37.62&lat=55.75'
+curl http://localhost:4000 --get --data 'lng=13.38792&lat=52.51704'
 ```
 
-You can also try setting `sysctl` options for container with `--sysctl`
+## Running tests
 
 ```shell
-docker run \
-  -d \
-  -p 4000:4000 \
-  --sysctl "kernel.shmmax=18446744073709551615"
-  urbica/galton "https://s3.amazonaws.com/metro-extracts.mapzen.com/moscow_russia.osm.pbf" car
+make test
 ```

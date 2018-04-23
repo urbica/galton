@@ -24,7 +24,7 @@ Type: [Object][2]
 
 ## galton
 
-[src/index.js:13-40][11]
+[src/index.js:13-41][11]
 
 Isochrone server
 
@@ -34,7 +34,7 @@ Isochrone server
 
 Returns **[function][13]** node http requestListener function
 
-[1]: https://github.com/urbica/galton/blob/2dae40defb7ecb2d6bffb8c8e7629ac35cbf9ae1/src/defaults.js#L1-L16 "Source code on GitHub"
+[1]: https://github.com/urbica/galton/blob/f0f2d3cfddfde09725a67150f65f6beebd380482/src/defaults.js#L1-L16 "Source code on GitHub"
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
@@ -54,7 +54,7 @@ Returns **[function][13]** node http requestListener function
 
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[11]: https://github.com/urbica/galton/blob/2dae40defb7ecb2d6bffb8c8e7629ac35cbf9ae1/src/index.js#L13-L40 "Source code on GitHub"
+[11]: https://github.com/urbica/galton/blob/f0f2d3cfddfde09725a67150f65f6beebd380482/src/index.js#L13-L41 "Source code on GitHub"
 
 [12]: #serverconfig
 
