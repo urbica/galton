@@ -21,7 +21,7 @@
   "dependencies": {
     "isochrone": "^3.0.0",
     "minimist": "^1.2.0",
-    "osrm": "5.17.2"
+    "osrm": "5.17.3"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
