@@ -77,7 +77,7 @@ if (config.help) {
 
 try {
   // eslint-disable-next-line
-  config.osrmPath = config._[0];
+  config.osrmPath = config._.slice(-1)[0];
   fs.accessSync(config.osrmPath, fs.F_OK);
 } catch (error) {
   process.stderr.write(`${error}\n`);
