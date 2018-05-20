@@ -8,15 +8,29 @@
     "type": "git",
     "url": "git://github.com/urbica/galton.git"
   },
+  "bugs": {
+    "url": "https://github.com/urbica/galton/issues"
+  },
+  "keywords": ["isochrone", "drivetime", "walktime", "geojson", "polygon", "osrm"],
+  "engine-strict": true,
+  "engines": {
+    "node": ">=8"
+  },
   "bin": {
     "galton": "./index.js"
   },
   "main": "src/server.js",
   "scripts": {
+    "cz": "git-cz",
     "docs": "documentation build src/* -g --markdown-toc false -f md -o API.md",
     "lint": "eslint .",
     "start": "node index.js",
     "test": "jest"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "isochrone": "^3.0.0",
@@ -25,12 +39,14 @@
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
-    "documentation": "^6.3.2",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "documentation": "^6.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.10.0",
-    "jest": "^22.4.3",
-    "supertest": "^3.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "jest": "^22.4.4",
+    "supertest": "^3.1.0",
     "tape": "^4.9.0"
   }
 }
