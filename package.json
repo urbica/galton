@@ -41,7 +41,7 @@
     "@mapbox/geojsonhint": "^2.1.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
-    "documentation": "^6.3.3",
+    "documentation": "^7.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
