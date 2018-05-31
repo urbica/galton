@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.17.2",
+  "version": "5.17.3",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -33,7 +33,7 @@
     }
   },
   "dependencies": {
-    "isochrone": "^3.0.0",
+    "isochrone": "^3.0.1",
     "minimist": "^1.2.0",
     "osrm": "5.18.0"
   },
