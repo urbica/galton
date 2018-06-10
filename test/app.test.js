@@ -18,15 +18,16 @@ const options = {
 const app = galton(options);
 
 const points = [[7.41337, 43.72956], [7.41546, 43.73077], [7.41862, 43.73216]];
-points.forEach(point =>
-  test('test isochrone', () => {
-    request(app)
-      .get(`/?lng=${point[0]}&lat=${point[1]}`)
+
+test.each(points)('isochrone(%f, %f)', async (lng, lat) => {
+  try {
+    const response = await request(app)
+      .get(`/?lng=${lng}&lat=${lat}`)
       .expect(200)
-      .expect('Content-Type', /json/)
-      .end((error, response) => {
-        expect(error).toBeFalsy();
-        const errors = geojsonhint.hint(response.text);
-        expect(errors).toHaveLength(0);
-      });
-  }));
+      .expect('Content-Type', /json/);
+    const errors = geojsonhint.hint(response.text);
+    expect(errors).toHaveLength(0);
+  } catch (error) {
+    expect(error).toBeFalsy();
+  }
+});

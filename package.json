@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.17.3",
+  "version": "5.18.0",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -11,7 +11,14 @@
   "bugs": {
     "url": "https://github.com/urbica/galton/issues"
   },
-  "keywords": ["isochrone", "drivetime", "walktime", "geojson", "polygon", "osrm"],
+  "keywords": [
+    "isochrone",
+    "drivetime",
+    "walktime",
+    "geojson",
+    "polygon",
+    "osrm"
+  ],
   "engine-strict": true,
   "engines": {
     "node": ">=8"
@@ -41,12 +48,12 @@
     "@mapbox/geojsonhint": "^2.1.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
-    "documentation": "^7.0.0",
+    "documentation": "^8.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "jest": "^22.4.4",
+    "jest": "^23.1.0",
     "supertest": "^3.1.0",
-    "tape": "^4.9.0"
+    "tape": "^4.9.1"
   }
 }
