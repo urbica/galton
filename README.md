@@ -91,9 +91,9 @@ This will download geofabrik extract, extract and build OSRM graph using [offici
 
 ```shell
 wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf
-docker run -t -v $(pwd):/data osrm/osrm-backend:v5.17.2 osrm-extract -p /opt/car.lua /data/berlin-latest.osm.pbf
-docker run -t -v $(pwd):/data osrm/osrm-backend:v5.17.2 osrm-contract /data/berlin-latest.osrm
-docker run -t -i -p 4000:4000 -v $(pwd):/data urbica/galton:v5.17.2 galton /data/berlin-latest.osrm
+docker run -t -v $(pwd):/data osrm/osrm-backend:v5.18.0 osrm-extract -p /opt/car.lua /data/berlin-latest.osm.pbf
+docker run -t -v $(pwd):/data osrm/osrm-backend:v5.18.0 osrm-contract /data/berlin-latest.osrm
+docker run -t -i -p 4000:4000 -v $(pwd):/data urbica/galton:v5.18.0 galton /data/berlin-latest.osrm
 ```
 
 ```shell
