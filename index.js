@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 const http = require('http');
+const minimist = require('minimist');
 const galton = require('./src');
 const defaults = require('./src/defaults.js');
-const minimist = require('minimist');
 const packagejson = require('./package.json');
 
 const config = minimist(process.argv.slice(2), {

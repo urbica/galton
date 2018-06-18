@@ -5,7 +5,7 @@ const parseBoolean = boolean => boolean === 'true';
 const parseIntervals = (intervals) => {
   if (Array.isArray(intervals)) {
     return intervals
-      .filter(i => !isNaN(i))
+      .filter(i => !Number.isNaN(i))
       .map(parseFloat)
       .sort((a, b) => a - b);
   }
@@ -32,13 +32,12 @@ const parsers = {
   units: parseUnits
 };
 
-const parseQuery = query =>
-  Object.keys(parsers).reduce((acc, paramKey) => {
-    if (query[paramKey]) {
-      const parser = parsers[paramKey];
-      acc[paramKey] = parser(query[paramKey]);
-    }
-    return acc;
-  }, Object.assign({}, defaults));
+const parseQuery = query => Object.keys(parsers).reduce((acc, paramKey) => {
+  if (query[paramKey]) {
+    const parser = parsers[paramKey];
+    acc[paramKey] = parser(query[paramKey]);
+  }
+  return acc;
+}, Object.assign({}, defaults));
 
 module.exports = parseQuery;
