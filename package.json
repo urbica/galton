@@ -32,7 +32,9 @@
     "docs": "documentation build src/* -g --markdown-toc false -f md -o API.md",
     "lint": "eslint .",
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "config": {
     "commitizen": {
@@ -42,7 +44,8 @@
   "dependencies": {
     "isochrone": "^3.0.1",
     "minimist": "^1.2.0",
-    "osrm": "5.18.0"
+    "osrm": "5.18.0",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
@@ -55,5 +58,6 @@
     "jest": "^23.1.0",
     "supertest": "^3.1.0",
     "tape": "^4.9.1"
-  }
+  },
+  "snyk": true
 }
