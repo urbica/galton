@@ -44,7 +44,7 @@
   "dependencies": {
     "isochrone": "^3.0.1",
     "minimist": "^1.2.0",
-    "osrm": "5.18.0",
+    "osrm": "5.19.0",
     "snyk": "^1.83.0"
   },
   "devDependencies": {
