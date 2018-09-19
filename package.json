@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.18.0",
+  "version": "5.19.0",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "polygon",
     "osrm"
   ],
+  "snyk": true,
   "engine-strict": true,
   "engines": {
     "node": ">=8"
@@ -33,6 +34,7 @@
     "lint": "eslint .",
     "start": "node index.js",
     "test": "jest",
+    "precommit": "lint-staged",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
@@ -41,23 +43,39 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "yarn lint",
+      "git add"
+    ]
+  },
   "dependencies": {
+    "docopt": "^0.6.2",
     "isochrone": "^3.0.1",
-    "minimist": "^1.2.0",
-    "osrm": "5.18.0",
-    "snyk": "^1.83.0"
+    "ora": "^3.0.0",
+    "osm-extractor": "^1.0.0",
+    "osrm": "5.19.0",
+    "osrm-bindings": "^1.1.0",
+    "select-shell": "^1.1.2",
+    "snyk": "^1.96.0"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
-    "commitizen": "^2.9.6",
+    "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
-    "documentation": "^8.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "jest": "^23.1.0",
-    "supertest": "^3.1.0",
+    "documentation": "^8.1.2",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^0.14.3",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "supertest": "^3.3.0",
     "tape": "^4.9.1"
-  },
-  "snyk": true
+  }
 }

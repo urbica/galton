@@ -1,12 +1,18 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "prettier"],
   "plugins": ["import"],
   "env": {
     "node": true,
     "jest": true
   },
   "rules": {
+    "arrow-parens": ["warn", "as-needed", { "requireForBlockBody": true }],
     "comma-dangle": ["error", "never"],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.js"] }]
+    "max-len": ["error", { "code": 100, "ignoreUrls": true }],
+    "quotes": ["error", "single"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.test.js"] }
+    ]
   }
 }
