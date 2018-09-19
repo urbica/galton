@@ -1,11 +1,11 @@
 const fs = require('fs');
 const ora = require('ora');
 const http = require('http');
-const galton = require('../index');
+const createApp = require('../app');
 
 const run = (config = {}) => {
   const spinner = ora('Running server').start();
-  const app = galton(config);
+  const app = createApp(config);
   const handler = config.socket || config.port;
 
   const server = http.createServer(app);

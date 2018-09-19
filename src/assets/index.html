@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id='map'></div>
+  <script>
+    const osrmLayers = [
+      {
+        id: 'speeds outline',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 4], [14, 6], [18, 24]]
+          },
+          'line-color': 'hsl(0, 0%, 0%)',
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['==', '$type', 'LineString']
+      },
+      {
+        id: 'speeds small components',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 6], [14, 8], [18, 28]]
+          },
+          'line-color': 'hsl(306, 100%, 100%)',
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['==', 'is_small', true]]
+      },
+      {
+        id: 'speeds < 10',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(0, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['<=', 'speed', 10]]
+      },
+      {
+        id: 'speeds 10-20',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(6, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 20], ['>', 'speed', 10]]]
+      },
+      {
+        id: 'speeds 20-30',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(29, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 30], ['>', 'speed', 20]]]
+      },
+      {
+        id: 'speeds 30-40',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(47, 38%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 40], ['>', 'speed', 30]]]
+      },
+      {
+        id: 'speeds 40-50',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(43, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 50], ['>', 'speed', 40]]]
+      },
+      {
+        id: 'speeds 50-60',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(45, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 60], ['>', 'speed', 50]]]
+      },
+      {
+        id: 'speeds 60-70',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(75, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 70], ['>', 'speed', 60]]]
+      },
+      {
+        id: 'speeds 70-80',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(109, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 80], ['>', 'speed', 70]]]
+      },
+      {
+        id: 'speeds 80-90',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(183, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['all', ['<=', 'speed', 90], ['>', 'speed', 80]]]
+      },
+      {
+        id: 'speeds 90+',
+        type: 'line',
+        source: 'osrm',
+        'source-layer': 'speeds',
+        paint: {
+          'line-color': 'hsl(217, 100%, 50%)',
+          'line-width': {
+            base: 1.5,
+            stops: [[12.5, 0.5], [14, 2], [18, 18]]
+          },
+          'line-offset': {
+            base: 1.5,
+            stops: [[12.5, 0.25], [14, 1], [18, 9]]
+          }
+        },
+        layout: {
+          'line-cap': 'round'
+        },
+        filter: ['all', ['==', '$type', 'LineString'], ['>', 'speed', 90]]
+      }
+    ];
+
+    const isochroneLayers = [
+      { time: 30, opacity: 0.4 },
+      { time: 20, opacity: 0.6 },
+      { time: 10, opacity: 0.8 }
+    ].map((layer, i) => ({
+      'id': 'fill-' + i,
+      'type': 'fill',
+      'source': 'isochrones',
+      'paint': {
+        'fill-color': '#0af',
+        'fill-opacity': layer.opacity
+      },
+      'filter': [
+        'all',
+        ['==', '$type', 'Polygon'],
+        ['<=', 'time', layer.time]
+      ]
+    }));
+
+    const style = {
+      "version": 8,
+      "sources": {
+        'osrm': {
+          'type': 'vector',
+          'tiles': [window.location.origin + '/tiles/{z}/{x}/{y}.pbf']
+        },
+        'isochrones': { type: 'geojson', data: { type: 'FeatureCollection', features: [] } }
+      },
+      "layers": [{
+        'id': 'background',
+        'type': 'background',
+        'paint': {
+          'background-color': '#000'
+        }
+      },
+      ...isochroneLayers,
+      ...osrmLayers
+      ]
+    };
+
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: style,
+      hash: true,
+      center: [0, 0],
+      zoom: 0
+    });
+
+    map.on('load', () => {
+      map.on('click', (event) => {
+        const { lngLat: { lat, lng } } = event;
+        fetch(`/api?lat=${lat}&lng=${lng}`)
+          .then(response => response.json())
+          .then((response) => {
+            map.getSource('isochrones').setData(response);
+          });
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
