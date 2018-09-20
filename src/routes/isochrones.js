@@ -1,5 +1,5 @@
 const isochrone = require('isochrone');
-const { parseQuery } = require('../utils');
+const parseQuery = require('../utils/parseQuery');
 
 module.exports = async (ctx) => {
   const options = Object.assign({}, parseQuery(ctx.query), { osrm: ctx.osrm });

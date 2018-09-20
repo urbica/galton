@@ -1,4 +1,4 @@
-const defaults = require('./defaults.js');
+const defaults = require('../defaults.js');
 
 const parseBoolean = boolean => boolean === 'true';
 
@@ -41,4 +41,4 @@ const parseQuery = query =>
     return acc;
   }, Object.assign({}, defaults));
 
-module.exports = { parseQuery };
+module.exports = parseQuery;
