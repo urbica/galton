@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "docopt": "^0.6.2",
-    "isochrone": "^3.0.1",
+    "isochrone": "^3.0.2",
     "koa": "^2.5.3",
     "koa-router": "^7.4.0",
     "ora": "^3.0.0",

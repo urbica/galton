@@ -23,7 +23,7 @@ const build = async (extractPath, profile) => {
     throw new Error(`Couldn't find profile ${profileName}`);
   }
 
-  spinner.text = 'Extracting graph';
+  spinner.text = `Extracting graph using ${profileName} profile`;
   spinner.start();
 
   const graphPath = await extract(extractPath, profileName).catch((error) => {
@@ -31,7 +31,7 @@ const build = async (extractPath, profile) => {
     throw error;
   });
 
-  spinner.succeed(`Extracted graph into ${graphPath}`);
+  spinner.succeed();
 
   spinner.text = 'Contracting graph';
   spinner.start();
@@ -41,7 +41,7 @@ const build = async (extractPath, profile) => {
     throw error;
   });
 
-  spinner.succeed(`Contracted graph into ${graphPath}`);
+  spinner.succeed(`Graph contracted into ${graphPath}`);
 
   return graphPath;
 };

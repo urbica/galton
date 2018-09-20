@@ -1,10 +1,12 @@
+/* eslint-disable prefer-destructuring */
+
 const fs = require('fs');
 const ora = require('ora');
 const path = require('path');
 const { geocode, extractWithQuery, buildAreaQuery } = require('osm-extractor');
 const { select } = require('./utils');
 
-const extract = async (name) => {
+const extract = async (name, useBestMatch = false) => {
   const spinner = ora('Geocoding').start();
 
   const results = await geocode(name).catch((error) => {
@@ -20,14 +22,17 @@ const extract = async (name) => {
   let result;
   if (results.length === 1) {
     spinner.succeed();
-    /* eslint-disable prefer-destructuring */
     result = results[0];
   } else {
     spinner.succeed();
-    spinner.info(`Found ${results.length} results:`);
-    const options = results.map(r => r.display_name);
-    const selectedOptions = await select(options);
-    result = results[selectedOptions[0].value];
+    if (useBestMatch) {
+      result = results[0];
+    } else {
+      spinner.info(`Found ${results.length} results:`);
+      const options = results.map(r => r.display_name);
+      const selectedOptions = await select(options);
+      result = results[selectedOptions[0].value];
+    }
   }
 
   spinner.text = 'Extracting';
