@@ -6,7 +6,6 @@ const createApp = (config) => {
   const app = new Koa();
 
   app.context.osrm = new OSRM({
-    algorithm: config.algorithm,
     path: config.osrmPath,
     shared_memory: config.sharedMemory
   });

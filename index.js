@@ -12,19 +12,14 @@ const doc = `
 Galton. Lightweight Node.js isochrone server.
 
 Usage:
-  galton extract (<name> | <bbox>)
+  galton extract [--useBestMatch] <name>
   galton build [--profile=<profileName>] <filename>
   galton run [options] <filename>
-  galton extract build run [options] (<name> | <bbox>)
+  galton extract build run [--useBestMatch --profile=<profileName>] [options] <name>
   galton -h | --help
   galton --version
 
 Options:
-  -h --help                           Show this screen.
-  --version                           Show version.
-  -p --profile=<profileName>          OSRM profile name that will be used for graph building
-  --algorithm=<algorithm>             The algorithm to use for routing. Can be 'CH', 'CoreCH' or 'MLD' [default: CH].
-  --radius=<radius>                   Isochrone buffer radius [default: ${defaults.radius}].
   --cellSize=<cellSize>               Distance across each cell [default: ${defaults.cellSize}].
   --concavity=<concavity>             Concaveman relative measure of concavity [default: ${
     defaults.concavity
@@ -39,8 +34,13 @@ Options:
     defaults.lengthThreshold
   }].
   --port=<port>                       Port to run on [default: 3000].
+  --radius=<radius>                   Isochrone buffer radius [default: ${defaults.radius}].
   --sharedMemory                      Use shared memory [default: false].
   --units=<units>                     Either 'kilometers' or 'miles' [default: ${defaults.units}].
+  --useBestMatch                      Geocoder will use the best match for the query
+  -p --profile=<profileName>          OSRM profile name that will be used for graph building
+  -h --help                           Show this screen.
+  --version                           Show version.
 `;
 
 const args = docopt(doc, { version: packagejson.version });
@@ -50,7 +50,8 @@ const main = async () => {
   if (args.extract) {
     try {
       const name = args['<name>'];
-      extractPath = await commands.extract(name);
+      const useBestMatch = args['--useBestMatch'];
+      extractPath = await commands.extract(name, useBestMatch);
     } catch (error) {
       process.stderr.write(`${error.message}\n`);
       process.exit(-1);
