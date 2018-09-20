@@ -77,6 +77,34 @@ curl http://localhost:4000 --get --data 'lng=13.38792&lat=52.51704&intervals=10&
 
 See the [example](https://github.com/urbica/galton/blob/master/examples/index.html), [API](https://github.com/urbica/galton/blob/master/API.md) and `test/index.js` for more info.
 
+## Examples
+
+### Using existing OSRM graph
+
+This command will run isochrone server using `moscow.osrm`
+
+```shell
+galton moscow.osrm
+```
+
+### Using existing OSM extract
+
+This command will build OSRM graph with `car` profile using `moscow.osm` extract and start isochrone server.
+
+```shell
+galton moscow.osm car
+```
+
+### Using geocode to extract from OSM
+
+1. It will look for `moscow.osrm` in the current directory and start isochrone server if found.
+2. If it is not found, it will look for `moscow.osm` in the current directory, build OSRM graph with `car` profile, based on this extract, and start isochrone server if found.
+3. If there is no `moscow.osm`, galton will geocode `moscow` and extract it from Overpass API, then it will build OSRM from that extract with car profile and start isochrone server.
+
+```shell
+galton moscow car
+```
+
 ## Using with Docker
 
 ```shell

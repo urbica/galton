@@ -32,12 +32,13 @@ const parsers = {
   units: parseUnits
 };
 
-const parseQuery = query => Object.keys(parsers).reduce((acc, paramKey) => {
-  if (query[paramKey]) {
-    const parser = parsers[paramKey];
-    acc[paramKey] = parser(query[paramKey]);
-  }
-  return acc;
-}, Object.assign({}, defaults));
+const parseQuery = query =>
+  Object.keys(parsers).reduce((acc, paramKey) => {
+    if (query[paramKey]) {
+      const parser = parsers[paramKey];
+      acc[paramKey] = parser(query[paramKey]);
+    }
+    return acc;
+  }, Object.assign({}, defaults));
 
-module.exports = parseQuery;
+module.exports = { parseQuery };

@@ -1,7 +1,7 @@
 const path = require('path');
 const request = require('supertest');
 const geojsonhint = require('@mapbox/geojsonhint');
-const galton = require('../src');
+const createApp = require('../src/app');
 
 const osrmPath = path.join(__dirname, './data/monaco.osrm');
 
@@ -15,14 +15,14 @@ const options = {
   units: 'kilometers'
 };
 
-const app = galton(options);
+const app = createApp(options);
 
 const points = [[7.41337, 43.72956], [7.41546, 43.73077], [7.41862, 43.73216]];
 
 test.each(points)('isochrone(%f, %f)', async (lng, lat) => {
   try {
     const response = await request(app)
-      .get(`/?lng=${lng}&lat=${lat}`)
+      .get(`/api?lng=${lng}&lat=${lat}`)
       .expect(200)
       .expect('Content-Type', /json/);
     const errors = geojsonhint.hint(response.text);

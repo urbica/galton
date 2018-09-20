@@ -1,124 +1,106 @@
 #!/usr/bin/env node
 
+/* eslint-disable max-len */
 const fs = require('fs');
-const http = require('http');
-const minimist = require('minimist');
-const galton = require('./src');
+const path = require('path');
+const { docopt } = require('docopt');
+const commands = require('./src/commands');
 const defaults = require('./src/defaults.js');
 const packagejson = require('./package.json');
 
-const config = minimist(process.argv.slice(2), {
-  string: [
-    'algorithm',
-    'radius',
-    'cellSize',
-    'concavity',
-    'intervals',
-    'lengthThreshold',
-    'pid',
-    'port',
-    'resolution',
-    'sharpness',
-    'socket',
-    'units'
-  ],
-  boolean: ['cors', 'deintersect', 'sharedMemory'],
-  alias: {
-    h: 'help',
-    v: 'version'
-  },
-  default: {
-    algorithm: 'CH',
-    radius: defaults.radius,
-    cellSize: defaults.cellSize,
-    concavity: defaults.concavity,
-    cors: true,
-    deintersect: 'true',
-    intervals: '10 20 30',
-    lengthThreshold: defaults.lengthThreshold,
-    port: 4000,
-    sharedMemory: false,
-    units: defaults.units
+const doc = `
+Galton. Lightweight Node.js isochrone server.
+
+Usage:
+  galton extract (<name> | <bbox>)
+  galton build [--profile=<profileName>] <filename>
+  galton run [options] <filename>
+  galton extract build run [options] (<name> | <bbox>)
+  galton -h | --help
+  galton --version
+
+Options:
+  -h --help                           Show this screen.
+  --version                           Show version.
+  -p --profile=<profileName>          OSRM profile name that will be used for graph building
+  --algorithm=<algorithm>             The algorithm to use for routing. Can be 'CH', 'CoreCH' or 'MLD' [default: CH].
+  --radius=<radius>                   Isochrone buffer radius [default: ${defaults.radius}].
+  --cellSize=<cellSize>               Distance across each cell [default: ${defaults.cellSize}].
+  --concavity=<concavity>             Concaveman relative measure of concavity [default: ${
+    defaults.concavity
+  }].
+  --deintersect                       Whether or not to deintersect the final isochrones [default: ${
+    defaults.deintersect
+  }].
+  --intervals=<intervals>             Isochrones intervals in minutes [default: ${
+    defaults.intervals
+  }].
+  --lengthThreshold=<lengthThreshold> Concaveman length threshold [default: ${
+    defaults.lengthThreshold
+  }].
+  --port=<port>                       Port to run on [default: 3000].
+  --sharedMemory                      Use shared memory [default: false].
+  --units=<units>                     Either 'kilometers' or 'miles' [default: ${defaults.units}].
+`;
+
+const args = docopt(doc, { version: packagejson.version });
+
+const main = async () => {
+  let extractPath;
+  if (args.extract) {
+    try {
+      const name = args['<name>'];
+      extractPath = await commands.extract(name);
+    } catch (error) {
+      process.stderr.write(`${error.message}\n`);
+      process.exit(-1);
+    }
   }
-});
 
-if (config.version) {
-  process.stdout.write(`${packagejson.version}\n`);
-  process.exit(0);
-}
+  let graphPath;
+  if (args.build) {
+    try {
+      extractPath = args['<filename>'] || extractPath;
+      extractPath = path.isAbsolute(extractPath)
+        ? extractPath
+        : path.join(process.cwd(), extractPath);
 
-if (config.help) {
-  const usage = `
-  Usage: galton [filename] [options]
+      fs.accessSync(extractPath, fs.R_OK);
 
-  where [filename] is path to OSRM data and [options] is any of:
-    --algorithm - the algorithm to use for routing. Can be 'CH', 'CoreCH' or 'MLD' (default: '${config.algorithm}'). Make sure you prepared the dataset with the correct toolchain.
-    --radius - distance to draw the buffer (default: ${config.radius})
-    --cellSize - the distance across each cell (default: ${config.cellSize})
-    --concavity - concaveman relative measure of concavity (default: ${config.concavity})
-    --deintersect - whether or not to deintersect the final isochrones (default: ${
-  config.deintersect
-})
-    --intervals - isochrones intervals in minutes (default: ${config.intervals})
-    --lengthThreshold - concaveman length threshold (default: ${config.lengthThreshold})
-    --pid - save PID to file
-    --port - port to run on (default: ${config.port})
-    --sharedMemory - use shared memory (default: ${config.sharedMemory})
-    --socket - use Unix socket instead of port
-    --units - either 'kilometers' or 'miles' (default: '${config.units}')
-    --version - returns running version then exits
-
-  galton@${packagejson.version}
-  node@${process.versions.node}
-  `;
-  process.stdout.write(`${usage}\n`);
-  process.exit(0);
-}
-
-try {
-  // eslint-disable-next-line
-  config.osrmPath = config._[0];
-  fs.accessSync(config.osrmPath, fs.F_OK);
-} catch (error) {
-  process.stderr.write(`${error}\n`);
-  process.exit(-1);
-}
-
-try {
-  config.intervals = config.intervals
-    .split(' ')
-    .map(parseFloat)
-    .sort((a, b) => a - b);
-} catch (error) {
-  process.stderr.write(`${error}\n`);
-  process.exit(-1);
-}
-
-config.radius = parseFloat(config.radius);
-config.cellSize = parseFloat(config.cellSize);
-config.concavity = parseFloat(config.concavity);
-config.deintersect = config.deintersect === 'true';
-config.lengthThreshold = parseFloat(config.lengthThreshold);
-
-const app = galton(config);
-const handler = config.socket || config.port;
-
-const server = http.createServer(app);
-server.listen(handler, () => {
-  if (config.socket) {
-    fs.chmodSync(config.socket, '1766');
-    process.stdout.write(`🚀  ON AIR @ ${config.socket}\n`);
-  } else {
-    const address = server.address();
-    process.stdout.write(`🚀  ON AIR @ ${address.address}:${address.port}\n`);
+      const profileName = args['--profile'];
+      graphPath = await commands.build(extractPath, profileName);
+    } catch (error) {
+      process.stderr.write(`${error.message}\n`);
+      process.exit(-1);
+    }
   }
-});
 
-const shutdown = (signal) => {
-  process.stdout.write(`Caught ${signal}, terminating\n`);
-  server.close();
-  process.exit();
+  if (args.run) {
+    graphPath = args['<filename>'] || graphPath;
+    graphPath = path.isAbsolute(graphPath) ? graphPath : path.join(process.cwd(), graphPath);
+
+    fs.accessSync(graphPath, fs.R_OK);
+
+    const options = {
+      osrmPath: graphPath,
+      port: parseInt(args['--port'], 10),
+      radius: parseFloat(args['--radius']),
+      cellSize: parseFloat(args['--cellSize']),
+      concavity: parseFloat(args['--concavity']),
+      lengthThreshold: parseFloat(args['--lengthThreshold']) || defaults.lengthThreshold,
+      deintersect: args['--deintersect'],
+      intervals: args['--intervals']
+        .split(',')
+        .map(parseFloat)
+        .sort((a, b) => a - b)
+    };
+    try {
+      commands.run(options);
+    } catch (error) {
+      process.stderr.write(`\n${error.message}\n`);
+      process.exit(-1);
+    }
+  }
 };
 
-process.on('SIGINT', shutdown.bind(null, 'SIGINT'));
-process.on('SIGTERM', shutdown.bind(null, 'SIGTERM'));
+main();
