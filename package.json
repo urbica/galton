@@ -1,6 +1,6 @@
 {
   "name": "galton",
-  "version": "5.19.0",
+  "version": "5.18.0",
   "description": "lightweight isochrone server",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "license": "MIT",
@@ -35,6 +35,7 @@
     "start": "node index.js",
     "test": "jest",
     "precommit": "lint-staged",
+    "release": "standard-version",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
@@ -59,8 +60,7 @@
     "osm-extractor": "^1.0.0",
     "osrm": "5.19.0",
     "osrm-bindings": "^1.1.0",
-    "select-shell": "^1.1.2",
-    "snyk": "^1.96.0"
+    "select-shell": "^1.1.2"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
@@ -78,6 +78,8 @@
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "supertest": "^3.3.0",
-    "tape": "^4.9.1"
+    "tape": "^4.9.1",
+    "snyk": "^1.96.0",
+    "standard-version": "^4.4.0"
   }
 }
