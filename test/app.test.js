@@ -22,7 +22,7 @@ const points = [[7.41337, 43.72956], [7.41546, 43.73077], [7.41862, 43.73216]];
 test.each(points)('isochrone(%f, %f)', async (lng, lat) => {
   try {
     const response = await request(app)
-      .get(`/isochrones?lng=${lng}&lat=${lat}`)
+      .get(`/?lng=${lng}&lat=${lat}`)
       .expect(200)
       .expect('Content-Type', /json/);
     const errors = geojsonhint.hint(response.text);
