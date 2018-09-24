@@ -6,4 +6,5 @@ WORKDIR /usr/src/app
 COPY . .
 RUN yarn global add file:/usr/src/app
 
+WORKDIR /data
 ENTRYPOINT [ "galton" ]
