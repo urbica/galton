@@ -332,7 +332,7 @@
     map.on('load', () => {
       map.on('click', (event) => {
         const { lngLat: { lat, lng } } = event;
-        fetch(`/isochrones?lat=${lat}&lng=${lng}`)
+        fetch(`/?lat=${lat}&lng=${lng}`)
           .then(response => response.json())
           .then((response) => {
             map.getSource('isochrones').setData(response);
