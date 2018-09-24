@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:8-slim
 LABEL maintainer="Stepan Kuzmin <to.stepan.kuzmin@gmail.com>"
 
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
