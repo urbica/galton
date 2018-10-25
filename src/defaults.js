@@ -21,7 +21,8 @@ const defaults = {
   deintersect: true,
   intervals: [10, 20, 30],
   lengthThreshold: 0,
-  units: 'kilometers'
+  units: 'kilometers',
+  algorithm: 'CH'
 };
 
 module.exports = defaults;

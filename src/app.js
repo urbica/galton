@@ -7,6 +7,7 @@ const createApp = (config) => {
 
   app.context.osrm = new OSRM({
     path: config.osrmPath,
+    algorithm: config.algorithm,
     shared_memory: config.sharedMemory
   });
 
