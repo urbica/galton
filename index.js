@@ -34,6 +34,9 @@ Options:
     defaults.lengthThreshold
   }].
   --port=<port>                       Port to run on [default: 3000].
+  --algorithm=<algorithm>             Algorithm used by OSRM (CH or MLD) [default: ${
+    defaults.algorithm
+  }].
   --radius=<radius>                   Isochrone buffer radius [default: ${defaults.radius}].
   --sharedMemory                      Use shared memory [default: false].
   --units=<units>                     Either 'kilometers' or 'miles' [default: ${defaults.units}].
@@ -84,6 +87,7 @@ const main = async () => {
 
     const options = {
       osrmPath: graphPath,
+      algorithm: args['--algorithm'] || defaults.algorithm,
       port: parseInt(args['--port'], 10),
       radius: parseFloat(args['--radius']),
       cellSize: parseFloat(args['--cellSize']),
