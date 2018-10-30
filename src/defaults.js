@@ -22,7 +22,8 @@ const defaults = {
   intervals: [10, 20, 30],
   lengthThreshold: 0,
   units: 'kilometers',
-  algorithm: 'CH'
+  algorithm: 'CH',
+  sharedMemory: false
 };
 
 module.exports = defaults;
