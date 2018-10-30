@@ -3,3 +3,6 @@ examples
 Dockerfile
 example.png
 entrypoint.sh
+
+*.osm.*
+*.osrm.*
