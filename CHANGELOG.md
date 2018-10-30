@@ -1,3 +1,20 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="5.19.0-beta.1"></a>
+# [5.19.0-beta.1](https://github.com/urbica/galton/compare/v5.19.0-beta.0...v5.19.0-beta.1) (2018-10-30)
+
+
+### Bug Fixes
+
+* added support for different OSRM routing algorithms (@MichielDeMey) ([6fa22bc](https://github.com/urbica/galton/commit/6fa22bc))
+* close process on SIGINT and SIGTERM ([93f8813](https://github.com/urbica/galton/commit/93f8813))
+* fix docker image ([7dbb3b7](https://github.com/urbica/galton/commit/7dbb3b7))
+* use node:8-slim as baseimage ([69e1393](https://github.com/urbica/galton/commit/69e1393))
+
+
+
 ## Changelog
 
 ### 5.16.4
