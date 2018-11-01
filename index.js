@@ -14,7 +14,7 @@ Galton. Lightweight Node.js isochrone server.
 Usage:
   galton extract [--useBestMatch] <name>
   galton build [--profile=<profileName>] <filename>
-  galton run [options] <filename>
+  galton run [options] (--sharedMemory | <filename>)
   galton extract build run [--useBestMatch --profile=<profileName>] [options] <name>
   galton -h | --help
   galton --version
@@ -38,7 +38,7 @@ Options:
     defaults.algorithm
   }].
   --radius=<radius>                   Isochrone buffer radius [default: ${defaults.radius}].
-  --sharedMemory                      Use shared memory [default: false].
+  --sharedMemory                      Use shared memory [default: ${defaults.sharedMemory}].
   --units=<units>                     Either 'kilometers' or 'miles' [default: ${defaults.units}].
   --useBestMatch                      Geocoder will use the best match for the query
   -p --profile=<profileName>          OSRM profile name that will be used for graph building
@@ -80,14 +80,18 @@ const main = async () => {
   }
 
   if (args.run) {
-    graphPath = args['<filename>'] || graphPath;
-    graphPath = path.isAbsolute(graphPath) ? graphPath : path.join(process.cwd(), graphPath);
+    const sharedMemory = args['--sharedMemory'] || defaults.sharedMemory;
 
-    fs.accessSync(graphPath, fs.R_OK);
+    if (!sharedMemory) {
+      graphPath = args['<filename>'] || graphPath;
+      graphPath = path.isAbsolute(graphPath) ? graphPath : path.join(process.cwd(), graphPath);
+      fs.accessSync(graphPath, fs.R_OK);
+    }
 
     const options = {
       osrmPath: graphPath,
       algorithm: args['--algorithm'] || defaults.algorithm,
+      sharedMemory,
       port: parseInt(args['--port'], 10),
       radius: parseFloat(args['--radius']),
       cellSize: parseFloat(args['--cellSize']),
