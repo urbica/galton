@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.19.0-beta.2"></a>
+# [5.19.0-beta.2](https://github.com/urbica/galton/compare/v5.19.0-beta.1...v5.19.0-beta.2) (2018-11-01)
+
+
+### Features
+
+* added support for shared memory (@MichielDeMey)  ([bcf8bdb](https://github.com/urbica/galton/commit/bcf8bdb))
+
+
+
 <a name="5.19.0-beta.1"></a>
 # [5.19.0-beta.1](https://github.com/urbica/galton/compare/v5.19.0-beta.0...v5.19.0-beta.1) (2018-10-30)
 
