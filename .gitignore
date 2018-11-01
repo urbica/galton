@@ -6,6 +6,7 @@ yarn-error.log
 log
 *.osm
 *.osrm*
+*.geojson
 
 test/data/*
 !test/data/Makefile

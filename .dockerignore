@@ -5,3 +5,7 @@ examples/
 node_modules/
 npm-debug.log
 yarn-error.log
+
+*.osm.*
+*.osrm.*
+*.geojson

@@ -6,3 +6,4 @@ entrypoint.sh
 
 *.osm.*
 *.osrm.*
+*.geojson
