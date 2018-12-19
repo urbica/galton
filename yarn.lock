@@ -6593,7 +6593,12 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@^2.3.0, nan@^2.6.2, nan@^2.8.0:
+nan@^2.11.1:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
+  integrity sha512-JY7V6lRkStKcKTvHO5NVSQRv+RV+FIL5pvDoLiAtSL9pKlC5x9PKQcZDsq7m4FO4d57mkhC6Z+QhAh3Jdk5JFw==
+
+nan@^2.3.0, nan@^2.8.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
   integrity sha512-bAdJv7fBLhWC+/Bls0Oza+mvTaNQtP+1RyhhhvD95pgUJz6XM5IzgmxOkItJ9tkoCiplvAnXI1tNmmUD/eScyA==
@@ -6701,7 +6706,23 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-node-pre-gyp@^0.6.36, node-pre-gyp@^0.6.39:
+node-pre-gyp@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.12.0.tgz#39ba4bb1439da030295f899e3b520b7785766149"
+  integrity sha512-4KghwV8vH5k+g2ylT+sLTjy5wmUOb9vPhnM8NHvRf9dHmnW/CndrFXy2aRPaPST6dugXSdHXfeaHQm77PIz/1A==
+  dependencies:
+    detect-libc "^1.0.2"
+    mkdirp "^0.5.1"
+    needle "^2.2.1"
+    nopt "^4.0.1"
+    npm-packlist "^1.1.6"
+    npmlog "^4.0.2"
+    rc "^1.2.7"
+    rimraf "^2.6.1"
+    semver "^5.3.0"
+    tar "^4"
+
+node-pre-gyp@^0.6.39:
   version "0.6.39"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.39.tgz#c00e96860b23c0e1420ac7befc5044e1d78d8649"
   integrity sha512-OsJV74qxnvz/AMGgcfZoDaeDXKD3oY3QVIbBmwszTFkRisTSXbMQyn4UWzUMOtA5SVhrBZOTp0wcoSBgfMfMmQ==
@@ -7043,15 +7064,15 @@ osrm-bindings@^1.1.0:
   resolved "https://registry.yarnpkg.com/osrm-bindings/-/osrm-bindings-1.1.0.tgz#c5d325a7d5d369f3ac0ea806f23da7eb6bd0a82d"
   integrity sha512-m+TwG5SAAhsMWO9iCb/XLvzENBBQuV8GGmQ4XrkYx5pH8ExQjPSBxSpBxW+Q/oijaAa6E5l0j40+BlGIunl3ng==
 
-osrm@5.19.0:
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.19.0.tgz#d1932b3c3eb6657969605b77b126e6026c4e6ca4"
-  integrity sha512-PA5wb7Do0rRVUdhVemU+hWCcK6FG0hytUghNdoY7kwhd5odnYRdlt+TAehTP6lagns4oqtdK7o/MfKaJc8hOeQ==
+osrm@5.21.0:
+  version "5.21.0"
+  resolved "https://registry.yarnpkg.com/osrm/-/osrm-5.21.0.tgz#733650be10e405c5b5faed2d8dec5e42be7f84f6"
+  integrity sha512-LnjH5xI52jIM1yi3jta6sfcYlEdPq7y/8mZu+oOi6JC/yz9iGj7bmi/f1z1/UVVQ2HGGVZqeLYjliysI0Fun3g==
   dependencies:
     mkdirp "^0.5.1"
-    nan "^2.6.2"
+    nan "^2.11.1"
     node-cmake "^2.3.2"
-    node-pre-gyp "^0.6.36"
+    node-pre-gyp "^0.12.0"
     rimraf "^2.5.4"
 
 p-finally@^1.0.0:
