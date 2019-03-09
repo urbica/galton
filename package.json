@@ -79,7 +79,7 @@
     "prettier-eslint-cli": "^4.7.1",
     "snyk": "^1.106.0",
     "standard-version": "^4.4.0",
-    "supertest": "^3.3.0",
+    "supertest": "^4.0.0",
     "tape": "^4.9.1"
   }
 }
