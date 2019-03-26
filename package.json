@@ -63,7 +63,7 @@
     "select-shell": "^1.1.2"
   },
   "devDependencies": {
-    "@mapbox/geojsonhint": "^2.1.0",
+    "@mapbox/geojsonhint": "^3.0.0",
     "commitizen": "^3.0.4",
     "cz-conventional-changelog": "^2.1.0",
     "documentation": "^9.0.0",
