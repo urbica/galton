@@ -37,7 +37,8 @@
     "precommit": "lint-staged",
     "release": "standard-version",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "prepublish": "npm run snyk-protect"
   },
   "config": {
     "commitizen": {
@@ -60,7 +61,8 @@
     "osm-extractor": "^1.0.0",
     "osrm": "5.19.0",
     "osrm-bindings": "^1.1.0",
-    "select-shell": "^1.1.2"
+    "select-shell": "^1.1.2",
+    "snyk": "^1.162.0"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^2.1.0",
@@ -77,7 +79,6 @@
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
-    "snyk": "^1.106.0",
     "standard-version": "^4.4.0",
     "supertest": "^3.3.0",
     "tape": "^4.9.1"
