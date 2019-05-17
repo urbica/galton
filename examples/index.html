@@ -131,7 +131,7 @@
         units: document.querySelector('input[name="units"]:checked').value,
       };
 
-      var url = new URL("http://localhost:4000");
+      var url = new URL("http://localhost:3000");
       Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
       (intervals.length > 0 ? intervals : [10, 20, 30]).forEach(interval => url.searchParams.append('intervals', interval));
 
