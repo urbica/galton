@@ -2,13 +2,13 @@
 
 ## serverConfig
 
-[src/defaults.js:17-25][1]
+[src/defaults.js:17-27][1]
 
 Server configuration
 
 Type: [Object][2]
 
-**Parameters**
+### Parameters
 
 -   `options` **[Object][2]** object
     -   `options.osrmPath` **[string][3]** path to \*.osrm file [OSRM][4]
@@ -22,19 +22,7 @@ Type: [Object][2]
     -   `options.lengthThreshold` **[number][5]** length threshold as in [concaveman][9] (optional, default `0`)
     -   `options.units` **[string][3]** any of the options supported by turf units (optional, default `'kilometers'`)
 
-## galton
-
-[src/index.js:13-41][11]
-
-Isochrone server
-
-**Parameters**
-
--   `config` **[serverConfig][12]** default isochrone options
-
-Returns **[function][13]** node http requestListener function
-
-[1]: https://github.com/urbica/galton/blob/f0f2d3cfddfde09725a67150f65f6beebd380482/src/defaults.js#L1-L16 "Source code on GitHub"
+[1]: https://github.com/urbica/galton/blob/f55f4478d36913fdfbbcff3f23dd9b4e50ae121e/src/defaults.js#L1-L16 "Source code on GitHub"
 
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
@@ -53,9 +41,3 @@ Returns **[function][13]** node http requestListener function
 [9]: https://github.com/mapbox/concaveman
 
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
-[11]: https://github.com/urbica/galton/blob/f0f2d3cfddfde09725a67150f65f6beebd380482/src/index.js#L13-L41 "Source code on GitHub"
-
-[12]: #serverconfig
-
-[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
