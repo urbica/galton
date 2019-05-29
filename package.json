@@ -62,7 +62,7 @@
     "osrm": "5.19.0",
     "osrm-bindings": "^1.2.0",
     "select-shell": "^1.1.2",
-    "snyk": "^1.165.1"
+    "snyk": "^1.169.0"
   },
   "devDependencies": {
     "@mapbox/geojsonhint": "^3.0.0",
