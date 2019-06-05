@@ -1313,6 +1313,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/debug@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.4.tgz#56eec47706f0fd0b7c694eae2f3172e6b0b769da"
+  integrity sha512-D9MyoQFI7iP5VdpEyPZyjjqIJ8Y8EDNQFIFVLOmeg1rI1xiHOChyUPMPRUVfqFCerxfE+yS3vMyj37F6IdtOoQ==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -2903,13 +2908,6 @@ debug@3.1.0, debug@=3.1.0, debug@^3.1.0, debug@~3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.5.tgz#c2418fbfd7a29f4d4f70ff4cea604d4b64c46407"
-  integrity sha512-D61LaDQPQkxJ5AUM2mbSJRbPkNs/TmdmOeLAi1hgDkpDfIfetSrjmWhccwtuResSwMbACjx/xXQofvM9CE/aeg==
-  dependencies:
-    ms "^2.1.1"
-
 debug@^3.2.5:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
@@ -3143,10 +3141,10 @@ dlv@^1.1.0:
   resolved "https://registry.yarnpkg.com/dlv/-/dlv-1.1.2.tgz#270f6737b30d25b6657a7e962c784403f85137e5"
   integrity sha512-xxD4VSH67GbRvSGUrckvha94RD7hjgOH7rqGxiytLpkaeMvixOHFZTGFK6EkIm3T761OVHT8ABHmGkq9gXgu6Q==
 
-dockerfile-ast@0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/dockerfile-ast/-/dockerfile-ast-0.0.12.tgz#6f25f6ad55eeecdd297ab68b08be1b32e64b5aeb"
-  integrity sha512-cIV8oXkAxpIuN5XgG0TGg07nLDgrj4olkfrdT77OTA3VypscsYHBUg/FjHxW9K3oA+CyH4Th/qtoMgTVpzSobw==
+dockerfile-ast@0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/dockerfile-ast/-/dockerfile-ast-0.0.16.tgz#10b329d343329dab1de70375833495f85ad65913"
+  integrity sha512-+HZToHjjiLPl46TqBrok5dMrg5oCkZFPSROMQjRmvin0zG4FxK0DJXTpV/CUPYY2zpmEvVza55XLwSHFx/xZMw==
   dependencies:
     vscode-languageserver-types "^3.5.0"
 
@@ -4831,10 +4829,10 @@ https-proxy-agent@^2.2.1:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-husky@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-2.3.0.tgz#8b78ed24d763042df7fd899991985d65a976dd13"
-  integrity sha512-A/ZQSEILoq+mQM3yC3RIBSaw1bYXdkKnyyKVSUiJl+iBjVZc5LQEXdGY1ZjrDxC4IzfRPiJ0IqzEQGCN5TQa/A==
+husky@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-2.4.0.tgz#1bac7c44588f6e91f808b72efc82d24a57194f36"
+  integrity sha512-3k1wuZU20gFkphNWMjh2ISCFaqfbaLY7R9FST2Mj9HeRhUK9ydj9qQR8qfXlog3EctVGsyeilcZkIT7uBZDDVA==
   dependencies:
     cosmiconfig "^5.2.0"
     execa "^1.0.0"
@@ -8935,6 +8933,11 @@ semver@^5.5.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
   integrity sha512-PqpAxfrEhlSUWge8dwIp4tZnQ25DIOthpiaHNIthsjEFQD6EvqUKUDM7L8O2rShkFccYo1VjJR0coWfNkCubRw==
 
+semver@^6.1.0:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.1.tgz#53f53da9b30b2103cd4f15eab3a18ecbcb210c9b"
+  integrity sha512-rWYq2e5iYW+fFe/oPPtYJxYgjBm8sC4rmoGdUOgBB7VnwKt6HrL793l2voH1UlsyYZpJ4g0wfjnTEO1s1NP2eQ==
+
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
@@ -9124,14 +9127,14 @@ snyk-config@^2.2.1:
     lodash "^4.17.11"
     nconf "^0.10.0"
 
-snyk-docker-plugin@1.24.1:
-  version "1.24.1"
-  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-1.24.1.tgz#a27fdabfdc86b00423968217850eff17ccdbd212"
-  integrity sha512-Y130BbrZ5hEPhjR1s57n5m1kNnlh4ydA000nPY4HvXylAX3JWQZR3/HFJ6nCKLes/z1cH19EsSdBNw7+r/N2ag==
+snyk-docker-plugin@1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-1.25.0.tgz#52a6d042142d45873bee58938ee9cd7abf82c140"
+  integrity sha512-vJY7KpN+055cehFAmoUUrbdIao8DbeZ6qU+PLanJ5VkLWHmonEMrhptIy134oagHewb4P2ZfpvdKxGJwGKafDw==
   dependencies:
-    debug "^3"
-    dockerfile-ast "0.0.12"
-    semver "^5.6.0"
+    debug "^4.1.1"
+    dockerfile-ast "0.0.16"
+    semver "^6.1.0"
     tslib "^1"
 
 snyk-go-parser@1.0.2:
@@ -9152,13 +9155,15 @@ snyk-go-plugin@1.7.2:
     snyk-go-parser "1.0.2"
     tmp "0.0.33"
 
-snyk-gradle-plugin@2.10.2:
-  version "2.10.2"
-  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-2.10.2.tgz#1822f618a01698745a1ad32aa5a0b891ccb0151d"
-  integrity sha512-XUn6ShQIY53qti8l3zluGsS2KjPGO0P3hfcXK9T34bWcOyLDLvSQjvM1HK/TpCqGldClbyuu+x6kHs5YRe+jjw==
+snyk-gradle-plugin@2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-2.12.0.tgz#d4dae0b2f9df9a59d5c865c5d841e2e8a2c26ecd"
+  integrity sha512-9J3wiqbd/CR6MbmqRfmXxvlGdQHo9cINwxsAoLKTErexGMXzlrEUVUiQ5F3XzUNajVCn+Kf9ukZdsLJF3JhA8A==
   dependencies:
+    "@types/debug" "^4.1.4"
     chalk "^2.4.2"
     clone-deep "^0.3.0"
+    debug "^4.1.1"
     tmp "0.0.33"
     tslib "^1.9.3"
 
@@ -9239,10 +9244,10 @@ snyk-policy@1.13.5:
     snyk-try-require "^1.3.1"
     then-fs "^2.0.0"
 
-snyk-python-plugin@1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/snyk-python-plugin/-/snyk-python-plugin-1.10.0.tgz#16ce09a72b3676bfde2188837ee42e4695860938"
-  integrity sha512-U88Om9HxKxRp6EQ3Mn/iySr60ozjxzVaui+/Vmv6tcXqAEotstW/q24EBC3wmnRyAxzfZ7qTMQ+6XJxnYSKa2w==
+snyk-python-plugin@1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/snyk-python-plugin/-/snyk-python-plugin-1.10.1.tgz#db85448240857ba5f400efe4f856e16a38cad584"
+  integrity sha512-1UAYRBTgnHgzPyX/PUAh9Wb9Udp6Q162IAfftK9uhN1o+KVN3RzsP/jeR0MhOXqECu7f4eABUv4rh+bn25/3hw==
   dependencies:
     tmp "0.0.33"
 
@@ -9297,10 +9302,10 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@^1.162.0:
-  version "1.165.1"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.165.1.tgz#ee0450a5519ffb33526740f361b0061c2a21dd15"
-  integrity sha512-cBX4IVFIx7M6JOKgVj1ZfFRhl6qcrsYD9opdUKlVMQZZPYUkk2d5nof9dpSUO/LF1IXDpMxH7hQ9mnlMphpz3Q==
+snyk@^1.165.1:
+  version "1.172.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.172.0.tgz#b3323511130227b7869243affd48ee8b2677af5b"
+  integrity sha512-ne+Hld7551D/xV4ZZwF4ANr1u3sXHP4QCsJk2Q/i0IqTejcA7dF57iCJcMPrwKJL/TNfKiwCNa9s5tSr4oZCAg==
   dependencies:
     "@snyk/dep-graph" "1.4.1"
     "@snyk/gemfile" "1.2.0"
@@ -9321,22 +9326,23 @@ snyk@^1.162.0:
     proxy-from-env "^1.0.0"
     semver "^6.0.0"
     snyk-config "^2.2.1"
-    snyk-docker-plugin "1.24.1"
+    snyk-docker-plugin "1.25.0"
     snyk-go-plugin "1.7.2"
-    snyk-gradle-plugin "2.10.2"
+    snyk-gradle-plugin "2.12.0"
     snyk-module "1.9.1"
     snyk-mvn-plugin "2.3.0"
     snyk-nodejs-lockfile-parser "1.13.0"
     snyk-nuget-plugin "1.10.0"
     snyk-php-plugin "1.5.3"
     snyk-policy "1.13.5"
-    snyk-python-plugin "1.10.0"
+    snyk-python-plugin "1.10.1"
     snyk-resolve "1.0.1"
     snyk-resolve-deps "4.0.3"
     snyk-sbt-plugin "2.2.0"
     snyk-tree "^1.0.0"
     snyk-try-require "1.3.1"
     source-map-support "^0.5.11"
+    strip-ansi "^5.2.0"
     tempfile "^2.0.0"
     then-fs "^2.0.0"
     update-notifier "^2.5.0"
