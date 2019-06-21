@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -23,3 +23,6 @@ patch:
   SNYK-JS-AXIOS-174505:
     - osm-extractor > axios:
         patched: '2019-05-08T05:25:05.624Z'
+  'npm:extend:20180424':
+    - snyk > proxy-agent > pac-proxy-agent > get-uri > extend:
+        patched: '2019-06-21T08:29:18.891Z'
