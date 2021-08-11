@@ -59,7 +59,7 @@
     "koa-router": "^7.4.0",
     "ora": "^3.4.0",
     "osm-extractor": "^1.0.0",
-    "osrm": "5.19.0",
+    "osrm": "5.21.0",
     "osrm-bindings": "^1.2.0",
     "select-shell": "^1.1.2",
     "snyk": "^1.232.0"
