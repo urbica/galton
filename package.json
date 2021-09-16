@@ -57,7 +57,7 @@
     "isochrone": "^3.0.2",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
-    "ora": "^3.4.0",
+    "ora": "^4.0.3",
     "osm-extractor": "^1.0.0",
     "osrm": "5.19.0",
     "osrm-bindings": "^1.2.0",
